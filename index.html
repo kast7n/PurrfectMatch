@@ -11,6 +11,11 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
     />
     <link rel="stylesheet" href="css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <div class="content">
@@ -198,35 +203,30 @@
               </ul>
             </nav>
           </div>
-          <div class="action-buttons hide">
+          <div class="action-buttons">
             <a href="#log-in" title="Log in" class="secondary"> Sign in </a>
             <a href="#sign-up" title="Sign up" class="primary">
               Start your project
             </a>
           </div>
-          <button aria-label="Open menu" class="burger-menu" type="button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-menu-2"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M4 6l16 0" />
-              <path d="M4 12l16 0" />
-              <path d="M4 18l16 0" />
-            </svg>
+          <button aria-label="Open menu" class="burger-menu">
+            <div class="bar"></div>
           </button>
         </div>
       </header>
-
       <main>
+        <form>
+          <div class="search">
+            <span class="material-symbols-outlined">Search</span>
+            <input
+              class="search-input"
+              type="search"
+              placeholder="Search Puppies, Kittens, etc."
+            />
+          </div>
+        </form>
+        <h1>Find your new best friend</h1>
+        <h3>Browse pets from our network over 14,500 shelters and rescues.</h3>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
           reiciendis porro quidem? Ad blanditiis iste esse error, delectus, a
@@ -505,7 +505,7 @@
         </div>
       </div>
     </footer>
-    <script>
+    <script src="js/nav.js">
       document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
   </body>

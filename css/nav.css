@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 :root {
-  --primary: #3ecf8e;
-  --primary-dark: #37996b;
-  --primary-darker: #317f5a;
+  --primary: #e1afd1;
+  --primary-dark: #ad88c6;
+  --primary-darker: #7469b6;
   --text: #f9f9f9;
   --background: #1c1c1c;
   --secondary: #2e2e2e;
@@ -149,8 +149,6 @@ body {
     transform: scale(1) translateY(0);
   }
 }
-
-/* dropdown menu */
 .dropdown__wrapper {
   position: absolute;
   top: 0;
@@ -231,9 +229,6 @@ body {
   white-space: nowrap;
   color: var(--gray-menu-button);
 }
-
-/* login sign-up buttons */
-
 .action-buttons {
   display: flex;
   gap: 0.5rem;
@@ -272,44 +267,42 @@ body {
 .primary:hover {
   background-color: var(--primary-darker);
 }
-
-.burger-menu {
-  display: none;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-}
-
-@media (max-width: 44rem) {
+@media (max-width: 940px) {
   .hide {
     display: none;
   }
-
   .burger-menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    height: 2.5rem;
-    width: 2.5rem;
-    min-width: 2.5rem;
-    min-height: 2.5rem;
-    pointer-events: all;
+    position: relative;
+    display: block;
+    width: 35px;
+    cursor: pointer;
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+  }
+  .burger-menu .bar,
+  .burger-menu:after,
+  .burger-menu::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: var(--gray-menu-button);
+    margin: 6px 0px;
+    transition: 0.4s;
   }
 
   .burger-menu:hover {
     background-color: var(--gray-menu-button-hover);
   }
-
-  .burger-menu:focus {
-    outline: 1px solid var(--primary);
+  .burger-menu.is-active:before {
+    transform: rotate(-45deg) translate(-8px, 6px);
   }
-
-  .burger-menu svg {
-    height: 1.5rem;
-    stroke: var(--gray-menu-button);
-    width: 1.5rem;
+  .burger-menu.is-active:after {
+    transform: rotate(45deg) translate(-9px, -7px);
+  }
+  .burger-menu.is-active .bar {
+    opacity: 0;
   }
 }
