@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 :root {
-  --primary: #e1afd1;
-  --primary-dark: #ad88c6;
-  --primary-darker: #7469b6;
+  --primary: #faeed1;
+  --primary-dark: #ded0b6;
+  --primary-darker: #bbab8c;
   --text: #f9f9f9;
   --background: #1c1c1c;
   --secondary: #2e2e2e;
@@ -155,16 +155,18 @@ body {
   left: 0;
   padding-top: 3rem;
   background-color: var(--background);
+  z-index: -1;
 }
 
 .dropdown {
+  position: relative;
   border-radius: 0.5rem;
   display: none;
   padding: 0.5rem;
   width: 100%;
   max-width: 600px;
   border: 1px solid var(--gray-border);
-  z-index: 2;
+  z-index: -1;
   animation: fadeIn 0.2s ease-in-out;
 }
 
@@ -266,6 +268,11 @@ body {
 
 .primary:hover {
   background-color: var(--primary-darker);
+}
+.burger-menu {
+  appearance: none;
+  border: none;
+  display: none;
 }
 @media (max-width: 940px) {
   .hide {

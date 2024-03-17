@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 :root {
-  --primary: #E1AFD1;
-  --primary-dark: #AD88C6;
-  --primary-darker: #7469B6;
+  --primary: #e1afd1;
+  --primary-dark: #ad88c6;
+  --primary-darker: #7469b6;
   --headline-color: #f9f9f9;
   --text-color: #7e7e7e;
   --bg: #1c1c1c;
@@ -127,12 +127,10 @@ footer {
   display: flex;
   gap: 2rem;
 }
-
 .link-columns > div > section {
   min-width: 8rem;
   width: 50%;
 }
-
 .link-columns ul {
   display: flex;
   gap: 1rem;
@@ -184,7 +182,9 @@ footer {
   font-size: 1rem;
   width: 100%;
 }
-
+section > h3 {
+  text-align: left;
+}
 @media screen and (min-width: 600px) {
   .link-columns > div > section {
     min-width: auto;

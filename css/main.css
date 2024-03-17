@@ -1,21 +1,29 @@
 :root {
-    --primary: #E1AFD1;
-    --primary-dark: #AD88C6;
-    --primary-darker: #7469B6;
-    --headline-color: #f9f9f9;
-    --text-color: #7e7e7e;
-    --bg: #1c1c1c;
-    --footer-bg: #161616;
-    --secondary: #2e2e2e;
-    --footer-border: #3e3e3e;
-    --gray-border-hover: #505050;
-    --gray-menu-button: #7e7e7e;
-    --gray-menu-button-hover: #232323;
-    --navbar-height: 64px;
-    --gray-text-hover: #8f8f8f;
-    --gray-icon: #a0a0a0;
-    --footer-width: 64rem;
-  }
+  --primary: #faeed1;
+  --primary-dark: #ded0b6;
+  --primary-darker: #bbab8c;
+  --headline-color: #f9f9f9;
+  --text-color: #7e7e7e;
+  --bg: #1c1c1c;
+  --footer-bg: #161616;
+  --secondary: #2e2e2e;
+  --footer-border: #3e3e3e;
+  --gray-border-hover: #505050;
+  --gray-menu-button: #7e7e7e;
+  --gray-menu-button-hover: #232323;
+  --navbar-height: 64px;
+  --gray-text-hover: #8f8f8f;
+  --gray-icon: #a0a0a0;
+  --footer-width: 64rem;
+}
+.content {
+  background-image: url("../imgs/headerBackground.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+main {
+  backdrop-filter: blur(5.1px);
+}
 .search {
   margin-top: 20px;
   width: max-content;
@@ -24,16 +32,18 @@
   padding: 14px;
   border-radius: 28px;
   background-color: white;
-  width: 700px;
+  width: 60%;
   opacity: 0.7;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 100px;
+  z-index: 0;
 }
 .search:focus-within {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
 }
 .search-input {
+  z-index: 0;
   font-size: 16px;
   font-family: "Lexend", sans-serif;
   color: #333333;
@@ -45,15 +55,46 @@
 }
 .search-input::placeholder,
 .search-icon {
+  z-index: 0;
   color: rgba(0, 0, 0, 0.5);
 }
-h1{
-    font-size: 2.5rem;
-    text-align: center;
-    color: white;
-
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  color: white;
 }
-h3{
-    text-align: center;
-    color: white;
+h3 {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.quick-search {
+  justify-content: center;
+}
+.search-box {
+  border-radius: 10%;
+  margin: auto;
+  backdrop-filter: blur(5.1px);
+  width: 100%;
+}
+.animal-search {
+  display: inline-flex;
+  flex-direction: row;
+  width: 100%;
+
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+}
+.animal-search > a > img {
+  margin-left: auto;
+  margin-right: auto;
+  height: 225px;
+  width: 225px;
+  border-radius: 10%;
+  opacity: 1;
+}
+.options > li {
+  border-radius: 10%;
 }
