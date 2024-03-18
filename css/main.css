@@ -71,12 +71,14 @@ h3 {
 
 .quick-search {
   justify-content: center;
+  margin-bottom: 50px;
 }
 .search-box {
   border-radius: 10%;
   margin: auto;
   backdrop-filter: blur(5.1px);
   width: 100%;
+  text-shadow: 2px 2px #161616;
 }
 .animal-search {
   display: inline-flex;
@@ -97,4 +99,76 @@ h3 {
 }
 .options > li {
   border-radius: 10%;
+}
+.adoptionTips {
+  width: 100%;
+  text-align: left;
+  display: flex;
+}
+.FAQheader {
+  font-size: 3rem;
+}
+.FAQlink {
+  text-decoration: none;
+  color: black;
+}
+.FAQimages {
+  display: flex;
+  margin: auto;
+  width: 35%;
+  height: 35%;
+}
+
+.FAQcardContent {
+  background-color: var(--primary-dark);
+  opacity: 0.8;
+  border-radius: 5%;
+  padding: 2%;
+}
+h2 {
+  text-align: center;
+  size: 30%;
+}
+.FAQButton {
+  display: table-cell;
+  margin-left: 25%;
+  width: 50%;
+  height: 40px;
+  border-radius: 30px;
+  vertical-align: middle;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-darker);
+}
+.FAQcard {
+  width: 30%;
+  height: 50%;
+  gap: 2rem;
+  margin: auto;
+}
+.FAQinfo {
+  text-align: center;
+}
+.FAQDetails {
+  text-align: center;
+  height: 15%;
+  margin-bottom: 20px;
+}
+.FAQimages {
+  margin-bottom: 20px;
+}
+
+.searchCards {
+  height: 100%;
+  background-color: var(--primary-darker);
+  opacity: 0.85;
+  border-radius: 5%;
+}
+.searchCards > img {
+  margin: 5%;
+}
+.mainBottom {
+  background-color: var(--primary);
+  opacity: 0.95;
 }

@@ -37,13 +37,14 @@ body {
   justify-content: center;
   background-color: var(--background);
   opacity: 0.9;
+  z-index: 2;
 }
 
 .menu__wrapper {
   display: flex;
   position: relative;
   justify-content: space-between;
-  z-index: 2;
+  z-index: 0;
   gap: 1.5rem;
   width: 100%;
   max-width: 60rem;
@@ -155,7 +156,7 @@ body {
   left: 0;
   padding-top: 3rem;
   background-color: var(--background);
-  z-index: -1;
+  z-index: 0;
 }
 
 .dropdown {
@@ -164,9 +165,9 @@ body {
   display: none;
   padding: 0.5rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 650px;
   border: 1px solid var(--gray-border);
-  z-index: -1;
+  z-index: 2;
   animation: fadeIn 0.2s ease-in-out;
 }
 
