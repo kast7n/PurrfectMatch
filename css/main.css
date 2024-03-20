@@ -16,6 +16,7 @@
   --gray-icon: #a0a0a0;
   --footer-width: 64rem;
 }
+
 .content {
   background-image: url("../imgs/headerBackground.png");
   background-position: center;
@@ -32,12 +33,15 @@ main {
   padding: 14px;
   border-radius: 28px;
   background-color: white;
-  width: 60%;
   opacity: 0.7;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 100px;
   z-index: 0;
+  width: 60%;
+  border-color: var(--primary);
+  border-style: solid;
+  border-width: 1px;
 }
 .search:focus-within {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
@@ -51,7 +55,7 @@ main {
   outline: none;
   border: none;
   background: transparent;
-  width: 700px;
+  width: 100%;
 }
 .search-input::placeholder,
 .search-icon {
@@ -81,10 +85,10 @@ h3 {
   text-shadow: 2px 2px #161616;
 }
 .animal-search {
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   width: 100%;
-
+  flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
   margin-top: 50px;
@@ -107,6 +111,10 @@ h3 {
 }
 .FAQheader {
   font-size: 3rem;
+  color: var(--secondary);
+  text-shadow: 2px 2px var(--primary-darker);
+  margin-bottom: 40px;
+  padding-top: 40px;
 }
 .FAQlink {
   text-decoration: none;
@@ -171,4 +179,16 @@ h2 {
 .mainBottom {
   background-color: var(--primary);
   opacity: 0.95;
+}
+.FAQButton:hover {
+  background-color: var(--secondary);
+  color: white;
+  transition-duration: 0.5s;
+}
+.FAQcard:hover {
+  border: 3px solid var(--secondary);
+  border-radius: 5%;
+}
+.searchCards:hover {
+  box-shadow: 2px 2px #161616;
 }
