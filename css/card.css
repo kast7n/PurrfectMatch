@@ -1,71 +1,135 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --white: #fff;
+  --offset: 1rem;
 }
 
-body {
-  height: 100vh;
-  overflow: hidden;
-  background: linear-gradient(45deg, #061de3, #e306ca);
-  font-family: Helvetica, sans-serif;
-  color: rgb(211, 211, 211);
+.cards {
   display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
   justify-content: center;
-  align-items: center;
-}
-
-.container {
-  width: 200px;
-  height: 250px;
-  perspective: 800px;
-}
-
-.container:hover > .card {
-  cursor: pointer;
-  transform: rotateY(180deg);
 }
 
 .card {
-  height: 100%;
-  width: 100%;
+  border-radius: 3%;
   position: relative;
-  transition: transform 1s;
-  transform-style: preserve-3d;
-}
-
-.front,
-.back {
-  height: 100%;
-  width: 100%;
-  border-radius: 1rem;
-  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
-  position: absolute;
-  backface-visibility: hidden;
-}
-
-.front {
-  background-image: url("../imgs/Pets/Cats/garfieldNoEye.jpg");
-  background-position: center;
-  background-size: cover;
-}
-
-.back {
-  background-image: url("../imgs/Pets/Cats/garfieldNoEye.jpg");
-  background-position: center;
-  background-size: cover;
-
-  transform: rotateY(180deg);
-}
-.backContent {
-  height: 100%;
-  width: 100%;
-  backdrop-filter: blur(2.5px);
-  color: black;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5rem;
+  max-width: 16rem;
+  width: 100%;
+  height: 16rem;
+  color: #fff;
+  background: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  backface-visibility: hidden;
+  vertical-align: top;
+  transition: all 0.3s ease;
+}
+
+.corner::before,
+.corner::after {
+  position: absolute;
+  content: "";
+  background: #fff;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.right-top::before,
+.right-top::after {
+  top: var(--offset);
+  right: var(--offset);
+}
+
+.right-bottom::before,
+.right-bottom::after {
+  bottom: var(--offset);
+  right: var(--offset);
+}
+
+.left-bottom::before,
+.left-bottom::after {
+  bottom: var(--offset);
+  left: var(--offset);
+}
+
+.left-top::before,
+.left-top::after {
+  top: var(--offset);
+  left: var(--offset);
+}
+
+.corner::before {
+  width: 0;
+  height: 1px;
+}
+
+.corner::after {
+  height: 0;
+  width: 1px;
+}
+
+.card figcaption {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  max-width: 20rem;
+  width: 100%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  opacity: 0;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1rem;
+  transition: all 0.4s ease;
+}
+
+.card p {
+  opacity: 0;
+  font-size: 0.8rem;
+  transition: all 0.4s ease;
+}
+
+.card:hover img {
+  zoom: 1;
+  filter: alpha(opacity=20);
+  opacity: 0.3;
+}
+
+.card:hover .corner::before {
+  width: 40px;
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+.card:hover .corner::after {
+  height: 40px;
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+.card:hover h3 {
+  opacity: 1;
+  transition-delay: 0.3s;
+}
+
+.card:hover p {
+  opacity: 1;
+  transition-delay: 0.35s;
 }

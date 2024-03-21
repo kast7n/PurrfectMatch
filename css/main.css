@@ -109,7 +109,8 @@ h3 {
   text-align: left;
   display: flex;
 }
-.FAQheader {
+.FAQheader,
+.avPets {
   font-size: 3rem;
   color: var(--secondary);
   text-shadow: 2px 2px var(--primary-darker);
