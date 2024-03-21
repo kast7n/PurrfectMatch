@@ -1,9 +1,17 @@
 :root {
-  --primary: #4978f0;
-  --primary-light: #e1eef5;
+  --primary: #faeed1;
+  --primary-dark: #ded0b6;
+  --primary-darker: #bbab8c;
+  --primary-disabled: #363435;
+  --primary-lighter: #454344;
   --secondary: #1d1d1d;
-  --background: #f4f1ff;
-  --text: #1f2346;
+  --text: #11181c;
+  --text-gray: #687076;
+  --text-placeholder: #8890a7;
+  --border: #dfe3e6;
+  --btn-bg: #535353;
+  --input-bg: #f1f2f3;
+  --background: #f8f8ff;
 }
 
 body {
@@ -14,7 +22,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:  sans-serif;
+  font-family: sans-serif;
 }
 
 .socials-row {
@@ -32,21 +40,29 @@ body {
   padding: 0.5rem;
   border-radius: 0.5rem;
   width: 100%;
-  min-height: 3rem;
+  min-height: 2.75rem;
   display: flex;
   gap: 0.75rem;
+  color: var(--text);
   justify-content: center;
   align-items: center;
   text-decoration: none;
   font-size: 1.1rem;
   color: var(--text);
   padding: 0.5rem;
-  border: 1px solid var(--primary-light);
-  font-weight: 700;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 1px 4px 0px;
 }
 
 .socials-row > a:hover {
   border: 1px solid var(--primary);
+}
+button:hover {
+  background-color: var(--btn-bg);
+}
+.socials-row > a:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 3px 3px;
 }
 
 .divider {
@@ -76,6 +92,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: start;
+  background-color: var(--primary-dark);
 }
 
 .info-side {
@@ -88,7 +105,7 @@ body {
   justify-content: start;
   align-items: center;
   flex-grow: 1;
-  background: transparent;
+  background-color: var(--primary-dark);
 }
 
 .info-side h2 {
@@ -111,23 +128,23 @@ body {
 }
 
 .logo {
-  height: 3rem;
-  position: absolute;
-  top: 1.25rem;
-  left: 1.25rem;
+  height: 4rem;
+  margin-left: 6.5rem;
+  margin-right: 6.5rem;
 }
 
 .my-form {
+  opacity: 0.95;
+  border-radius: 5%;
+  background-color: var(--primary);
   display: flex;
   flex-direction: column;
   justify-content: start;
   position: relative;
-  gap: 1rem;
-  max-width: 28.75rem;
+  gap: 1.25rem;
+  max-width: 26rem;
   width: 100%;
-  padding: 3rem 2rem;
-  height: fit-content;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 25px;
 }
 
 .form-welcome {
@@ -145,7 +162,7 @@ body {
 }
 
 .my-form__button {
-  background: var(--primary);
+  background: var(--secondary);
   color: white;
   white-space: nowrap;
   border: none;
@@ -209,23 +226,23 @@ body {
 
 .text-field input {
   color: var(--secondary);
+  border: 1px solid var(--border);
   font-size: 1rem;
   font-weight: 500;
   max-width: 100%;
   width: 100%;
-  border: 1px solid var(--secondary);
+  background-color: white;
   height: 3rem;
   letter-spacing: 0.03rem;
-  background-color: transparent;
   outline: none;
   transition: 0.25s;
   border-radius: 0.5rem;
   text-indent: 1.5rem;
   margin-top: 0.25rem;
 }
-
-.text-field label:focus-within {
-  color: var(--primary);
+.text-field input:focus {
+  border: 1px solid var(--text);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 1px 4px 0px;
 }
 
 .text-field {
@@ -240,14 +257,6 @@ body {
   height: 1.875rem;
   transform: translate(-50%, -50%);
   transform-origin: center;
-}
-
-.text-field input:focus {
-  border: 1px solid var(--primary);
-}
-
-.text-field input:focus + svg {
-  stroke: var(--primary);
 }
 
 .text-field label {

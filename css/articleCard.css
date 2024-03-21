@@ -8,7 +8,6 @@
 }
 
 .wrapper-grid {
-
   display: flex;
   height: 30rem;
   justify-content: center;
@@ -27,9 +26,18 @@
 .articlecard_top {
   height: 90%;
 }
-.banner-img {
+.banner-img-Dog {
   position: absolute;
-  background-image: url(https://images.unsplash.com/photo-1582727657635-c771002bdada?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+  background-image: url("../imgs/dogArticle.jpg");
+  height: 13rem;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner-img-Cat {
+  position: absolute;
+  background-image: url("../imgs/kittenArticle.jpg");
   height: 13rem;
   width: 100%;
   background-position: center;
@@ -38,9 +46,11 @@
 }
 
 .profile-img {
-  width: 8rem;
-  clip-path: circle(60px at center);
-  margin-top: 7rem;
+  width: 14rem;
+  clip-path: circle(50px at center);
+  margin-top: 9rem;
+  margin-bottom: 10px;
+  border: 3px solid white;
 }
 
 .name {
