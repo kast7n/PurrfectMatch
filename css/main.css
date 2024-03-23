@@ -192,5 +192,6 @@ h2 {
   border-radius: 5%;
 }
 .searchCards:hover {
-  box-shadow: 2px 2px #161616;
+  box-shadow: 2px 2px 2px 2px #161616;
+  transition-duration: 0.2s;
 }

@@ -1,0 +1,24 @@
+.petImage > img {
+  width: 200px;
+}
+.divider {
+  display: flex;
+  flex-direction: row;
+  color: var(--secondary);
+  gap: 1rem;
+  align-items: center;
+}
+
+.divider-line {
+  width: 90%;
+  height: 1px;
+  background: var(--secondary);
+  opacity: 0.2;
+}
+.petName {
+  color: black;
+  width: 10%;
+}
+.aboutPet {
+  width: 10%;
+}
