@@ -17,14 +17,21 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/articleCard.css">
   </head>
   <body>
     <div class="content">
       <header class="header">
+        <nav class="mobile-nav">
+          <a href="#">Home</a>
+          <a href="#">Adopt or Get Involved</a>
+          <a href="#">Dogs & Puppies</a>
+          <a href="#">Cats & Kittens</a>
+        </nav>
         <div class="menu__wrapper">
           <div class="menu__bar">
             <a href="#" title="Home" aria-label="home" class="logo">
-              <img src="imgs/PurffectMatchLogo.png" alt="logo" />
+              <img src="imgs/PurffectMatchLogo.png" alt="logo">
             </a>
             <nav>
               <ul class="navigation hide">
@@ -740,7 +747,10 @@
             <a href="#log-in" title="Log in" class="secondary"> Sign in </a>
             <a href="#sign-up" title="Sign up" class="primary"> Sign up </a>
           </div>
-          <button aria-label="Open menu" class="burger-menu">
+          <!-- <button aria-label="Open menu" class="burger-menu">
+            <div class="bar"></div>
+          </button> -->
+          <button class="hamburger">
             <div class="bar"></div>
           </button>
         </div>
@@ -896,7 +906,35 @@
               </a>
             </div>
           </div>
+          <h2 class="Articleheader">Check Out Our Articles</h2>
+        <div class="wrapper-grid">
+          <div class="articleCard_container">
+            <div class="articlecard_top">
+            <div class='banner-img-Dog'></div>
+            <img src="imgs/dogArticle.jpg" alt='profile image' class="profile-img">
+            <h1 class="name">Dog Adoption Articles</h1>
+            <p class="description">Here you will find a collection of articles all about dogs. Whether you are a new dog owner or a seasoned pro, we have something for everyone.</p>
+          </div>
+          <div class="articlecard_btm">
+            <button class='btn'>Read More</button>
+          </div>
+          </div>
+
+
+
+          <div class="articleCard_container">
+            <div class="articlecard_top">
+            <div class='banner-img-Cat'></div>
+            <img src="imgs/kittenArticle.jpg" alt='profile image' class="profile-img">
+            <h1 class="name">Cat Adoption Articles</h1>
+            <p class="description">Here you will find a collection of articles all about cats. Whether you are a new cat owner or a seasoned pro, we have something for everyone.</p>
+          </div>
+          <div class="articlecard_btm">
+            <button class='btn'>Read More</button>
+          </div>
+          </div>
         </div>
+      </div>
       </main>
     </div>
     <footer>

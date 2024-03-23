@@ -34,7 +34,7 @@ body {
   align-items: center;
   background-color: var(--background);
   opacity: 0.9;
-  z-index: 2;
+  z-index: 4;
 }
 
 .menu__wrapper {
@@ -153,8 +153,10 @@ body {
   left: 0;
   padding-top: 3rem;
   background-color: var(--background);
-  z-index: -1;
+  z-index: 0; 
 }
+
+/* fixed disappearing dropdown menu by changing z-index from -1 to 0 */
 
 .dropdown {
   position: relative;
@@ -269,7 +271,7 @@ body {
 .primary:hover {
   background-color: var(--primary-darker);
 }
-.burger-menu {
+/* .burger-menu {
   appearance: none;
   border: none;
   display: none;
@@ -312,4 +314,89 @@ body {
   .burger-menu.is-active .bar {
     opacity: 0;
   }
+} */
+
+.hamburger {
+	position: relative;
+	display: block;
+	width: 35px;
+	cursor: pointer;
+	
+	appearance: none;
+	background: none;
+	outline: none;
+	border: none;
+}
+
+.hamburger .bar, .hamburger:after, .hamburger:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 5px;
+	background-color: #FFF;
+	margin: 6px 0px;
+	transition: 0.4s;
+}
+
+.hamburger.is-active:before {
+	transform: rotate(-45deg) translate(-8px, 6px);
+}
+
+.hamburger.is-active:after {
+	transform: rotate(45deg) translate(-9px, -8px);
+}
+
+.hamburger.is-active .bar {
+	opacity: 0;
+}
+
+.mobile-nav{
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  z-index: 0;
+  background-color: #2d2d2d;
+  padding-top: 120px;
+  transition: 0.4s;
+}
+
+.mobile-nav.is-active {
+	left: 0;
+}
+
+.mobile-nav a {
+	display: block;
+	width: 100%;
+	max-width: 200px;
+	margin: 0 auto 16px;
+	text-align: center;
+	padding: 12px 16px;
+	background-color: #ded0b6;
+
+	color: #FFF;
+	text-decoration: none;
+}
+
+.mobile-nav a:hover {
+	background-color: #24104f;
+}
+
+@media (max-width: 920px) {
+  .hide{
+    display: none;
+  }
+}
+
+@media (min-width: 920px) {
+
+	.mobile-nav {
+		display: none;
+	}
+
+	.hamburger {
+		display: none;
+	}
 }

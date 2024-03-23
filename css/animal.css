@@ -1,21 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 :root {
-  /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(82, 60%, 28%);
   --title-color: hsl(0, 0%, 15%);
   --text-color: hsl(0, 0%, 35%);
   --body-color: hsl(0, 0%, 95%);
   --container-color: hsl(0, 0%, 100%);
 
-  /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Poppins", sans-serif;
   --h2-font-size: 1.25rem;
   --small-font-size: 0.813rem;
 }
 
-/*========== Responsive typography ==========*/
 @media screen and (min-width: 1120px) {
   :root {
     --h2-font-size: 1.5rem;
@@ -23,7 +17,6 @@
   }
 }
 
-/*=============== BASE ===============*/
 * {
   box-sizing: border-box;
   padding: 0;
@@ -42,7 +35,6 @@ img {
   height: auto;
 }
 
-/*=============== CARD ===============*/
 .container {
   display: grid;
   place-items: center;
@@ -104,7 +96,6 @@ img {
   text-decoration: underline;
 }
 
-/* Naming animations in hover */
 .card__article:hover .card__data {
   animation: show-data 1s forwards;
   opacity: 1;
@@ -123,7 +114,6 @@ img {
   animation: remove-data 1s forwards;
 }
 
-/* Card animation */
 @keyframes show-data {
   50% {
     transform: translateY(-10rem);
@@ -161,8 +151,6 @@ img {
   }
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For small devices */
 @media screen and (max-width: 340px) {
   .container {
     margin-inline: 1rem;
@@ -174,7 +162,6 @@ img {
   }
 }
 
-/* For medium devices */
 @media screen and (min-width: 768px) {
   .card__container {
     grid-template-columns: repeat(2, 1fr);
@@ -182,7 +169,6 @@ img {
   }
 }
 
-/* For large devices */
 @media screen and (min-width: 1120px) {
   .container {
     height: 100vh;
