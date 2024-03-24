@@ -1,0 +1,245 @@
+main {
+  background-color: #ccc;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  margin-left: 150px;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.container-left {
+  display: inline-flex;
+  margin: 40px;
+  margin-left: 200px;
+  flex-direction: row;
+
+  gap: 20px;
+}
+.firstContent {
+  width: 100%;
+}
+.firstContent .left-top {
+  font-size: x-large;
+  color: #4d4751;
+  font-family: Nexa Regular, arial, helvetica, sans-serif;
+}
+.line {
+  width: 25rem;
+  margin-top: 20px;
+  color: #4d4751;
+  opacity: 0.5;
+}
+.locLogo {
+  width: 1.8em;
+}
+.secondContent {
+  display: inline-flex;
+  margin-top: 10px;
+
+  gap: 14px;
+}
+.locDetails p {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #4d4751;
+  text-decoration: none;
+  text-transform: none;
+}
+.locDetails p a {
+  text-decoration: none;
+}
+.locDetails {
+  margin: 2px;
+}
+.container-right {
+  display: inline-flex;
+  margin: 43px;
+  margin-right: 180px;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 20px;
+  width: 100%;
+}
+
+.container-right .aboveContent :first-child {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid #6504b5;
+  background-color: white;
+  height: 33px;
+  color: #6504b5;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 10.7px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: auto;
+  padding-top: 1px;
+}
+.container-right .aboveContent :first-child:hover {
+  background-color: #6504b5;
+  color: white;
+}
+.aboveContent {
+  width: 85%;
+  margin-top: 5px;
+  height: 30%;
+}
+.aboveContent hr {
+  margin-top: 15px;
+  color: #4d4751;
+  opacity: 0.5;
+}
+.container-right .belowContent .mailLogo {
+  width: 1.2em;
+  margin-top: 5px;
+}
+.belowContent {
+  display: inline-flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  width: 85%;
+  margin: 0;
+  padding: 0;
+  height: 10%;
+}
+.belowContent a {
+  font-size: 12px;
+  color: #6504b5;
+  text-decoration: none;
+}
+.container-right .belowContent a:hover {
+  text-decoration: underline;
+}
+.container-right .rightLine {
+  color: #4d4751;
+  opacity: 0.5;
+  line-height: 20px;
+  width: 85%;
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+}
+.container-right .phoneLogo {
+  width: 1.2em;
+  margin-top: 5px;
+}
+.belowbelowContent {
+  display: inline-flex;
+  gap: 20px;
+}
+
+.belowbelowContent .number a {
+  font-size: 14px;
+  color: #6504b5;
+  text-decoration: none;
+}
+.belowbelowContent .number a:hover {
+  text-decoration: underline;
+}
+.belowbelowContent .number {
+}
+.map {
+  width: 100%;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+}
+.bodyContainer {
+  display: inline-flex;
+  margin-top: 20px !important;
+  margin: 0px 0px 0px 250px;
+  width: 100%;
+  height: 100%;
+  gap: 12px;
+  background-color: #ccc;
+}
+.bodyContainer .left {
+  width: 600px;
+  height: 500px;
+  background-color: white;
+  border-radius: 5px;
+}
+.bodyContainer .right {
+  width: 300px;
+  height: 250px;
+  background-color: white;
+  border-radius: 5px;
+}
+.left .title {
+  margin: 20px;
+  font-family: Nexa Regular, arial, helvetica, sans-serif;
+  display: block;
+  font-size: 24px;
+  color: black;
+  line-height: 1.2;
+}
+.left p {
+  margin: 20px;
+  line-height: 1.8;
+  font-size: small;
+}
+.right {
+}
+.right .shareButton button {
+  width: 90%;
+  height: 40px;
+  border: 1px solid #6504b5;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #6504b5;
+  background-color: white;
+}
+.shareButton {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+.shareButton button .share {
+  font-family: Nexa Regular, arial, helvetica, sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: smaller;
+  font-weight: 900 !important;
+}
+.shareButton button:hover {
+  background-color: #6504b5;
+  color: white;
+}
+.right p {
+  text-align: center;
+  font-size: 0.7em;
+  text-transform: capitalize;
+  margin-top: 15px;
+}
+.facebookLogo {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+  margin-left: 135px;
+  margin-top: 10px;
+  border-radius: 100px;
+  padding-top: 3px;
+
+  background-color: white;
+}
+.facebookLogo span a {
+  text-decoration: none;
+
+  font-weight: bolder;
+  color: #6504b5;
+}
+.facebookLogo:hover {
+  border: 2px solid #6504b5;
+  box-shadow: #6504b5;
+}

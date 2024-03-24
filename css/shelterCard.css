@@ -1,0 +1,107 @@
+:root {
+  --primary: #faeed1;
+  --primary-dark: #e9e2d5;
+  --primary-light: #edebe4;
+  --primary-darker: #bbab8c;
+  --headline-color: #f9f9f9;
+  --text-color: #7e7e7e;
+  --bg: #1c1c1c;
+  --footer-bg: #161616;
+  --secondary: #2e2e2e;
+  --footer-border: #3e3e3e;
+  --gray-border-hover: #505050;
+  --gray-menu-button: #7e7e7e;
+  --gray-menu-button-hover: #232323;
+  --navbar-height: 64px;
+  --gray-text-hover: #8f8f8f;
+  --gray-icon: #a0a0a0;
+  --footer-width: 64rem;
+}
+body {
+  font-family: sans-serif;
+}
+.shelterCard {
+  border-radius: 5%;
+  background-color: var(--primary);
+  width: 30%;
+  cursor: pointer;
+}
+.shelterLogo {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+  border: 2px solid var(--primary-darker);
+}
+.shelterImg {
+  display: flex;
+  justify-content: center;
+}
+.shelterCardBody > h1 {
+  margin-top: 10px;
+  font-size: 2rem;
+}
+.map {
+  width: 100%;
+}
+.shelterInfo > .location > img {
+  margin-top: 10px;
+}
+
+.shelterInfo img {
+  width: 40px;
+  height: 40px;
+}
+.location,
+.mail,
+.phone {
+  display: flex;
+  gap: 10px;
+}
+.shelterInfo {
+  margin-left: 15px;
+}
+h4 {
+  margin-bottom: 3px;
+  margin-top: 12px;
+}
+.location p {
+  margin-top: 5px;
+}
+.shelterCardBody > h1 {
+  margin-left: 20px;
+}
+.shelterCardBody > h3 {
+  margin-left: 10px;
+}
+.emailLink,
+.phoneNb {
+  text-decoration: none;
+  color: black;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+.emailLink:hover {
+  text-decoration: underline;
+  transition-duration: 0.3s;
+}
+.divider {
+  display: flex;
+  flex-direction: row;
+  color: var(--secondary);
+  gap: 1rem;
+  align-items: center;
+}
+
+.divider-line {
+  width: 90%;
+  height: 1px;
+  margin-left: 10px;
+  background: var(--secondary);
+  opacity: 0.2;
+  margin-bottom: 7px;
+}
+.shelterCard:hover {
+  box-shadow: 0px 2px 8px 0px var(--secondary);
+  transition-duration: 0.3s;
+}

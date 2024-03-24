@@ -1,6 +1,84 @@
-.petImage > img {
-  width: 200px;
+:root {
+  --primary: #faeed1;
+  --primary-dark: #e9e2d5;
+  --primary-light: #edebe4;
+  --primary-darker: #bbab8c;
+  --headline-color: #f9f9f9;
+  --text-color: #7e7e7e;
+  --bg: #1c1c1c;
+  --footer-bg: #161616;
+  --secondary: #2e2e2e;
+  --footer-border: #3e3e3e;
+  --gray-border-hover: #505050;
+  --gray-menu-button: #7e7e7e;
+  --gray-menu-button-hover: #232323;
+  --navbar-height: 64px;
+  --gray-text-hover: #8f8f8f;
+  --gray-icon: #a0a0a0;
+  --footer-width: 64rem;
 }
+body {
+  background-color: var(--primary-light);
+}
+main {
+  display: flex;
+}
+h1,
+h3 {
+  color: black;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.wholePetInfo {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-left: 2%;
+  margin-top: 10px;
+  background-color: var(--primary) !important;
+  width: 60%;
+  border-radius: 2%;
+  box-shadow: 0px 2px 8px 0px var(--secondary);
+}
+.shelterCard h3 {
+  font-weight: 200;
+  font-size: 25px;
+  margin-top: 7.5px;
+  margin-bottom: 15px;
+}
+.shelterCard {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  height: fit-content;
+}
+.petImage {
+  background-image: url("../imgs/pawBg.jpeg");
+  background-size: cover;
+  width: 99%;
+
+  margin: 5px;
+}
+.imgDivider {
+  display: flex;
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  width: 100%;
+
+  border-radius: 5%;
+}
+.imgDivider > img {
+  margin: 6px;
+  min-width: 20%;
+  max-width: 50%;
+  border-radius: 3%;
+}
+
 .divider {
   display: flex;
   flex-direction: row;
@@ -12,13 +90,38 @@
 .divider-line {
   width: 90%;
   height: 1px;
+  margin-left: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   background: var(--secondary);
   opacity: 0.2;
 }
 .petName {
   color: black;
   width: 10%;
+  margin: 20px;
+  margin-left: 40px;
+  font-size: 3rem;
 }
 .aboutPet {
   width: 10%;
+  margin-bottom: 20px;
+  color: black;
+  margin-left: 40px;
+}
+.petTags {
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+.aboutTitles {
+  width: 100%;
+  color: black;
+  margin-left: 40px;
+}
+.char {
+  margin-bottom: 20px;
+  margin-left: 40px;
 }
