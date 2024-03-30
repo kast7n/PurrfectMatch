@@ -1,0 +1,111 @@
+body {
+  background-color: #ccc;
+}
+.container {
+  display: flex;
+}
+.left-container {
+  width: 600px;
+  height: 600px;
+  background-color: white;
+  margin: 20px;
+  margin-left: 25%;
+
+  border-radius: 6px;
+}
+.left-top {
+  width: 100%;
+  height: 65%;
+  background-color: aqua;
+  background-image: url(https://images.squarespace-cdn.com/content/v1/5f82550be841401e2db634f3/1613710661040-I5C1XHNWL6X10DR95LKM/101482315_10158034263985239_5442410565525831680_o.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+}
+h3 {
+  font-family: sans-serif;
+  text-align: center;
+}
+.left-buttom {
+}
+.left-container .left-buttom :first-child {
+  margin: 15px;
+  font-size: small;
+  font-weight: bolder;
+  color: #777279;
+  text-transform: uppercase;
+}
+.left-container .left-buttom :nth-child(2) {
+  margin: 15px;
+  font-size: 25px;
+  color: #6504b5;
+  font-weight: bolder;
+}
+.left-container .left-buttom :nth-child(3) {
+  margin: 15px;
+}
+.left-container .left-buttom :last-child {
+  width: 130px;
+  height: 35px;
+  margin-left: 12px;
+  border-radius: 20px;
+  background-color: white;
+  border: 1px solid #6504b5;
+  text-transform: uppercase;
+  color: #6504b5;
+}
+.left-container .left-buttom :last-child:hover {
+  background-color: #6504b5;
+  color: white;
+}
+.dog-articles {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 50vh;
+  background-color: blue;
+  gap: 1%;
+}
+.dog-articles h3 {
+  width: fit-content;
+  margin-left: 25%;
+}
+
+.left-dog-article {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: 25%;
+}
+
+.dog-articles .smallarticles {
+  width: 200px;
+  height: 250px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.dog-articles .smallarticles .articleTop {
+  width: 100%;
+  height: 55%;
+  background-image: url(../imgs/Pets/Dogs/mrSausage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.dog-articles .smallarticles .articleBottom :first-child {
+  margin: 10px;
+  font-size: 11px;
+  font-weight: lighter;
+  color: #777279;
+  text-transform: uppercase;
+}
+.dog-articles .smallarticles .articleBottom :last-child {
+  color: #6504b5;
+  margin: 10px;
+  font-weight: bold;
+}
