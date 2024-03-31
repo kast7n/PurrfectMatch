@@ -1,7 +1,19 @@
 body {
   background-color: #ccc;
 }
+.title{
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vh;
+}
 .container {
+  display: flex;
+  flex-direction: column;
+}
+.top-cont{
+  margin-top: 20px;
   display: flex;
 }
 .left-container {
@@ -9,8 +21,7 @@ body {
   height: 600px;
   background-color: white;
   margin: 20px;
-  margin-left: 25%;
-
+  margin-left: 17%;
   border-radius: 6px;
 }
 .left-top {
@@ -26,6 +37,7 @@ body {
 h3 {
   font-family: sans-serif;
   text-align: center;
+  
 }
 .left-buttom {
 }
@@ -59,25 +71,104 @@ h3 {
   background-color: #6504b5;
   color: white;
 }
+.right-cont{
+  width: 20%;
+  height: 300px;
+  background-color: white;
+  border-radius: 8px;
+  margin: 20px;
+}
+.right-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30%;
+  
+}
+.right-content :first-child{
+  color: #6504b5;
+  font-size: x-large;
+}
+.right-content :nth-child(2){
+  font-size: small;
+}
+.right-content :last-child{
+  margin-top: 30px;
+  width: 70%;
+  height: 35px;
+  border-radius: 20px;
+  background-color:white ;
+  color: #6504b5;
+  font-weight: 800;
+  font-size: x-small;
+  border: 0.1px solid #6504b5;
+}
+.right-content :last-child:hover{
+  background-color:#6504b5;
+  color: white
+}
 .dog-articles {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
   height: 50vh;
-  background-color: blue;
   gap: 1%;
 }
-.dog-articles h3 {
-  width: fit-content;
-  margin-left: 25%;
+.cat-articles {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 50vh;
+  gap: 1%;
 }
+.other-articles {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 60vh;
+  gap: 1%;
+  margin-top: 30px;
+ 
+}
+ h3  {
+  width: fit-content;
+  margin-left: 17%;
+  flex-shrink: 1;
+  font-size: 170%;
+  
+}
+h3 a{
+  color: #4d4751;
+  font-weight: lighter;
+  text-decoration: none;
+  font-family: inherit;
+}
+h3 a:hover{
+  text-decoration: underline;
+}
+
 
 .left-dog-article {
   display: flex;
   align-items: center;
   gap: 30px;
-  margin-left: 25%;
+  margin-left: 17%;
+}
+.left-cat-article {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: 17%;
+}
+.left-other-article {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: 17%;
 }
 
 .dog-articles .smallarticles {
@@ -87,11 +178,42 @@ h3 {
   border-radius: 10px;
   cursor: pointer;
 }
+.cat-articles .smallarticles {
+  width: 200px;
+  height: 250px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.other-articles .smallarticles {
+  width: 200px;
+  height: 250px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
 
 .dog-articles .smallarticles .articleTop {
   width: 100%;
   height: 55%;
   background-image: url(../imgs/Pets/Dogs/mrSausage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px 10px 0 0;
+}
+.cat-articles .smallarticles .articleTop {
+  width: 100%;
+  height: 55%;
+  background-image: url(../imgs/Pets/Cats/bingus.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px 10px 0 0;
+}
+.other-articles .smallarticles .articleTop {
+  width: 100%;
+  height: 55%;
+  background-image: url(../imgs/Pets/Others/Sampson.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px 10px 0 0;
@@ -104,8 +226,49 @@ h3 {
   color: #777279;
   text-transform: uppercase;
 }
+.cat-articles .smallarticles .articleBottom :first-child {
+  margin: 10px;
+  font-size: 11px;
+  font-weight: lighter;
+  color: #777279;
+  text-transform: uppercase;
+}
+.other-articles .smallarticles .articleBottom :first-child {
+  margin: 10px;
+  font-size: 11px;
+  font-weight: lighter;
+  color: #777279;
+  text-transform: uppercase;
+}
 .dog-articles .smallarticles .articleBottom :last-child {
   color: #6504b5;
   margin: 10px;
   font-weight: bold;
 }
+.cat-articles .smallarticles .articleBottom :last-child {
+  color: #6504b5;
+  margin: 10px;
+  font-weight: bold;
+}
+.other-articles .smallarticles .articleBottom :last-child {
+  color: #6504b5;
+  margin: 10px;
+  font-weight: bold;
+}
+a{
+  text-decoration: none;
+}
+.smallarticles:hover{
+  border: 2px solid #6504b5;
+}
+.other-articles .title {
+  text-align: center;
+  font-size: 170%;
+  text-transform: capitalize;
+  font-weight: lighter;
+}
+
+.other-articles .title a:hover {
+  text-decoration: underline;
+}
+
