@@ -9,8 +9,10 @@
 
 .wrapper-grid {
   display: flex;
-  height: 30rem;
+  height: fit-content;
   justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
 }
 
 .articleCard_container {
@@ -19,7 +21,8 @@
   background-color: var(--primary);
   text-align: center;
   border-radius: 1rem;
-  width: 50rem;
+  width: 45rem;
+  height: 28rem;
   position: relative;
   margin: 0.5rem;
 }

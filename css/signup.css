@@ -2,6 +2,7 @@
   --primary: #faeed1;
   --primary-dark: #ded0b6;
   --primary-darker: #bbab8c;
+  --primary-light: #edebe4;
   --primary-disabled: #363435;
   --primary-lighter: #454344;
   --secondary: #1d1d1d;
@@ -16,6 +17,7 @@
 
 body {
   font-size: 16px;
+  background-color: var(--primary-light);
 }
 
 * {
@@ -83,44 +85,20 @@ button:hover {
 .form-wrapper {
   position: relative;
   display: grid;
-  grid-template-columns: 4fr 3fr;
+  grid-template-columns: 1fr 1fr;
   margin: 0 auto;
+  gap: 1rem;
+  max-height: 200rem;
+  height: 100%;
+  width: 100%;
 }
 
 .form-side {
-  padding: 9.25rem 3rem 3rem 2rem;
+  padding: 0rem 3rem 0rem 3rem;
   display: flex;
   justify-content: center;
   align-items: start;
-  background-color: var(--primary-dark);
-}
-
-.info-side {
-  height: 100vh;
-  padding: 9.25rem 3rem 3rem 2rem;
-  color: #401b3d;
-  display: flex;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  flex-grow: 1;
-  background-color: var(--primary-dark);
-}
-
-.info-side h2 {
-  margin-top: 3rem;
-  color: var(--text);
-  font-size: 1.8rem;
-  margin-bottom: 0.75rem;
-}
-
-.info-side p {
-  font-size: 1.2rem;
-}
-
-.info-side img {
-  max-width: 53.75rem;
+  background-color: var(--primary-light);
 }
 
 .welcome-message {
@@ -189,8 +167,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   color: var(--secondary);
-  gap: 1rem;
-  margin-top: 0.5rem;
 }
 
 .my-form__actions a {
@@ -267,14 +243,80 @@ button:hover {
   z-index: 10;
 }
 
-@media (max-width: 640px) {
+/* aside */
+.info-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  background: url("../imgs/headerBackground.png");
+  background-position: center;
+  max-height: 90rem;
+}
+
+.info-side .blockquote-wrapper {
+  gap: 1rem;
+  position: relative;
+  padding: 1rem;
+  max-width: 27rem;
+  background: white;
+  border-radius: 1rem;
+  opacity: 0.9;
+}
+.backfilter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5%;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5.1px);
+}
+.meetour {
+  margin-top: 10%;
+  font-size: 3rem;
+  color: var(--secondary);
+  text-shadow: 2px 2px var(--primary-darker);
+}
+.info-side .blockquote-wrapper img {
+  width: 25rem;
+  height: 25rem;
+}
+
+.info-side .blockquote-wrapper blockquote {
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.info-side .author {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.info-side .author img {
+  border-radius: 50%;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.info-side .author-name {
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (max-width: 720px) {
   .form-wrapper {
     grid-template-columns: 1fr;
-    height: 100vh;
   }
 
   .info-side {
-    flex-direction: column-reverse;
-    padding: 3rem 3rem 3rem 2rem;
+    display: none;
   }
+}
+.returns {
+  width: 100%;
+  height: 100%;
 }

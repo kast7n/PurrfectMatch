@@ -23,7 +23,7 @@ body {
 .shelterCard {
   border-radius: 5%;
   background-color: var(--primary);
-  width: 30%;
+
   cursor: pointer;
 }
 .shelterLogo {

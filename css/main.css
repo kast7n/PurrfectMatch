@@ -106,7 +106,9 @@ h3 {
 .adoptionTips {
   width: 100%;
   text-align: left;
-  display: flex;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 .FAQheader,
 .avPets,
@@ -120,6 +122,8 @@ h3 {
 .FAQlink {
   text-decoration: none;
   color: black;
+  min-width: 400px;
+  min-height: 320px;
 }
 .FAQimages {
   display: flex;
@@ -133,6 +137,8 @@ h3 {
   opacity: 0.8;
   border-radius: 5%;
   padding: 2%;
+  min-width: 400px;
+  min-height: 320px;
 }
 h2 {
   text-align: center;
@@ -153,6 +159,8 @@ h2 {
 .FAQcard {
   width: 30%;
   height: 50%;
+  min-width: 400px;
+  min-height: 320px;
   gap: 2rem;
   margin: auto;
 }
@@ -193,4 +201,15 @@ h2 {
 .searchCards:hover {
   box-shadow: 2px 2px 2px 2px #161616;
   transition-duration: 0.2s;
+}
+.cards > .FAQcard {
+  margin: 0;
+  width: 16rem;
+  height: 16rem;
+}
+.cards .FAQcardContent,
+.cards .FAQlink,
+.cards .FAQcard {
+  min-width: 16rem;
+  min-height: 16rem;
 }

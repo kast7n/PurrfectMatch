@@ -1,7 +1,23 @@
-body {
+:root {
+  --primary: #faeed1;
+  --primary-dark: #ded0b6;
+  --primary-darker: #bbab8c;
+  --primary-disabled: #363435;
+  --primary-light: #edebe4;
+  --secondary: #1d1d1d;
+  --text: #11181c;
+  --text-gray: #687076;
+  --text-placeholder: #8890a7;
+  --border: #dfe3e6;
+  --btn-bg: #535353;
+  --input-bg: #f1f2f3;
+  --background: #f8f8ff;
+  --error: #e5484d;
+}
+main {
   background-color: #ccc;
 }
-.title{
+.title {
   height: 10vh;
   display: flex;
   align-items: center;
@@ -12,7 +28,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-.top-cont{
+.top-cont {
   margin-top: 20px;
   display: flex;
 }
@@ -37,9 +53,6 @@ body {
 h3 {
   font-family: sans-serif;
   text-align: center;
-  
-}
-.left-buttom {
 }
 .left-container .left-buttom :first-child {
   margin: 15px;
@@ -71,42 +84,41 @@ h3 {
   background-color: #6504b5;
   color: white;
 }
-.right-cont{
+.right-cont {
   width: 20%;
   height: 300px;
   background-color: white;
   border-radius: 8px;
   margin: 20px;
 }
-.right-content{
+.right-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 30%;
-  
 }
-.right-content :first-child{
+.right-content :first-child {
   color: #6504b5;
   font-size: x-large;
 }
-.right-content :nth-child(2){
+.right-content :nth-child(2) {
   font-size: small;
 }
-.right-content :last-child{
+.right-content :last-child {
   margin-top: 30px;
   width: 70%;
   height: 35px;
   border-radius: 20px;
-  background-color:white ;
+  background-color: white;
   color: #6504b5;
   font-weight: 800;
   font-size: x-small;
   border: 0.1px solid #6504b5;
 }
-.right-content :last-child:hover{
-  background-color:#6504b5;
-  color: white
+.right-content :last-child:hover {
+  background-color: #6504b5;
+  color: white;
 }
 .dog-articles {
   display: flex;
@@ -132,25 +144,22 @@ h3 {
   height: 60vh;
   gap: 1%;
   margin-top: 30px;
- 
 }
- h3  {
+h3 {
   width: fit-content;
   margin-left: 17%;
   flex-shrink: 1;
   font-size: 170%;
-  
 }
-h3 a{
+h3 a {
   color: #4d4751;
   font-weight: lighter;
   text-decoration: none;
   font-family: inherit;
 }
-h3 a:hover{
+h3 a:hover {
   text-decoration: underline;
 }
-
 
 .left-dog-article {
   display: flex;
@@ -255,10 +264,10 @@ h3 a:hover{
   margin: 10px;
   font-weight: bold;
 }
-a{
+a {
   text-decoration: none;
 }
-.smallarticles:hover{
+.smallarticles:hover {
   border: 2px solid #6504b5;
 }
 .other-articles .title {
@@ -271,4 +280,3 @@ a{
 .other-articles .title a:hover {
   text-decoration: underline;
 }
-

@@ -1,8 +1,23 @@
-/* -------------------------------- 
+:root {
+  --primary: #faeed1;
+  --primary-dark: #e9e2d5;
+  --primary-light: #edebe4;
+  --primary-darker: #bbab8c;
+  --headline-color: #f9f9f9;
+  --text-color: #7e7e7e;
+  --bg: #1c1c1c;
+  --footer-bg: #161616;
+  --secondary: #2e2e2e;
+  --footer-border: #3e3e3e;
+  --gray-border-hover: #505050;
+  --gray-menu-button: #7e7e7e;
+  --gray-menu-button-hover: #232323;
+  --navbar-height: 64px;
+  --gray-text-hover: #8f8f8f;
+  --gray-icon: #a0a0a0;
+  --footer-width: 64rem;
+}
 
-Primary style
-
--------------------------------- */
 *,
 *::after,
 *::before {
@@ -28,19 +43,14 @@ body {
 }
 
 a {
-  color: #41307c;
+  color: var(--primary-darker);
   text-decoration: none;
 }
 
-/* -------------------------------- 
-
-Main Components 
-
--------------------------------- */
 .cd-header {
   position: relative;
   height: 150px;
-  background-color: #331d35;
+  background-color: var(--primary-darker);
 }
 .cd-header h1 {
   color: #ffffff;
@@ -60,7 +70,7 @@ Main Components
 
 .cd-main-content {
   position: relative;
-  min-height: 100%;
+  min-height: 60rem;
 }
 .cd-main-content:after {
   content: "";
@@ -100,13 +110,8 @@ Main Components
   }
 }
 
-/* -------------------------------- 
-
-xtab-filter 
-
--------------------------------- */
 .cd-tab-filter-wrapper {
-  background-color: #ffffff;
+  background-color: var(--primary-light);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   z-index: 1;
 }
@@ -117,7 +122,6 @@ xtab-filter
 }
 
 .cd-tab-filter {
-  /* tabbed navigation style on mobile - dropdown */
   position: relative;
   height: 50px;
   width: 140px;
@@ -125,7 +129,6 @@ xtab-filter
   z-index: 1;
 }
 .cd-tab-filter::after {
-  /* small arrow icon */
   content: "";
   position: absolute;
   right: 14px;
@@ -149,30 +152,28 @@ xtab-filter
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #ffffff;
-  box-shadow: inset 0 -2px 0 #41307c;
+  background-color: var(--primary-light);
+  box-shadow: inset 0 -2px 0 var(--primary-darker);
 }
 .cd-tab-filter li {
   display: none;
 }
 .cd-tab-filter li:first-child {
-  /* this way the placehodler is alway visible */
   display: block;
 }
 .cd-tab-filter a {
   display: block;
-  /* set same size of the .cd-tab-filter */
+
   height: 50px;
   width: 140px;
   line-height: 50px;
   padding-left: 14px;
 }
 .cd-tab-filter a.selected {
-  background: #41307c;
+  background: var(--primary-darker);
   color: #ffffff;
 }
 .cd-tab-filter.is-open::after {
-  /* small arrow rotation */
   -webkit-transform: translateY(-50%) rotate(-180deg);
   -moz-transform: translateY(-50%) rotate(-180deg);
   -ms-transform: translateY(-50%) rotate(-180deg);
@@ -180,23 +181,20 @@ xtab-filter
   transform: translateY(-50%) rotate(-180deg);
 }
 .cd-tab-filter.is-open ul {
-  box-shadow: inset 0 -2px 0 #41307c, 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -2px 0 var(--primary-dark), 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 .cd-tab-filter.is-open ul li {
   display: block;
 }
 .cd-tab-filter.is-open .placeholder a {
-  /* reduces the opacity of the placeholder on mobile when the menu is open */
   opacity: 0.4;
 }
 @media only screen and (min-width: 768px) {
   .cd-tab-filter {
-    /* tabbed navigation style on medium devices */
     width: auto;
     cursor: auto;
   }
   .cd-tab-filter::after {
-    /* hide the arrow */
     display: none;
   }
   .cd-tab-filter ul {
@@ -215,19 +213,18 @@ xtab-filter
     display: inline-block;
     padding: 0 1em;
     width: auto;
-    color: #9a9a9a;
+    color: var(--primary-darker);
     text-transform: uppercase;
     font-weight: 700;
     font-size: 1.3rem;
   }
   .no-touch .cd-tab-filter a:hover {
-    color: #41307c;
+    color: var(--gray-menu-button-hover);
   }
   .cd-tab-filter a.selected {
     background: transparent;
-    color: #41307c;
-    /* create border bottom using box-shadow property */
-    box-shadow: inset 0 -2px 0 #41307c;
+    color: var(--primary-darker);
+    box-shadow: inset 0 -2px 0 var(--primary-darker);
   }
   .cd-tab-filter.is-open ul li {
     display: inline-block;
@@ -235,7 +232,6 @@ xtab-filter
 }
 @media only screen and (min-width: 1170px) {
   .cd-tab-filter {
-    /* tabbed navigation on big devices */
     width: 100%;
     float: right;
     margin: 0;
@@ -244,16 +240,9 @@ xtab-filter
     transition: width 0.3s;
   }
   .cd-tab-filter.filter-is-visible {
-    /* reduce width when filter is visible */
     width: 80%;
   }
 }
-
-/* -------------------------------- 
-
-xgallery 
-
--------------------------------- */
 .cd-gallery {
   padding: 26px 5%;
   width: 100%;
@@ -265,7 +254,6 @@ xgallery
   margin: 20px;
 }
 .cd-gallery li.gap {
-  /* used in combination with text-align: justify to align gallery elements */
   opacity: 0;
   height: 0;
   display: inline-block;
@@ -313,16 +301,9 @@ xgallery
     margin: 20px;
   }
   .cd-gallery.filter-is-visible {
-    /* reduce width when filter is visible */
     width: 80%;
   }
 }
-
-/* -------------------------------- 
-
-xfilter 
-
--------------------------------- */
 .cd-filter {
   position: absolute;
   top: 0;
@@ -332,7 +313,6 @@ xfilter
   background: #ffffff;
   box-shadow: 4px 4px 20px transparent;
   z-index: 2;
-  /* Force Hardware Acceleration in WebKit */
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
@@ -350,14 +330,13 @@ xfilter
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .cd-filter::before {
-  /* top colored bar */
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   height: 50px;
   width: 100%;
-  background-color: #41307c;
+  background-color: var(--primary-dark);
   z-index: 2;
 }
 .cd-filter form {
@@ -370,10 +349,10 @@ xfilter
   height: 50px;
   line-height: 50px;
   width: 60px;
-  color: #ffffff;
+  color: var(--secondary);
   font-size: 1.3rem;
   text-align: center;
-  background: #37296a;
+  background: var(--primary-dark);
   opacity: 0;
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
@@ -381,7 +360,7 @@ xfilter
   z-index: 3;
 }
 .no-touch .cd-filter .cd-close:hover {
-  background: #32255f;
+  background: var(--primary-darker);
 }
 .cd-filter.filter-is-visible {
   -webkit-transform: translateX(0);
@@ -410,7 +389,6 @@ xfilter
   height: 50px;
   line-height: 50px;
   width: 60px;
-  /* image replacement */
   overflow: hidden;
   text-indent: 100%;
   color: transparent;
@@ -427,7 +405,7 @@ xfilter
     width: auto;
     left: 2%;
     text-indent: 0;
-    color: #9a9a9a;
+    color: var(--primary-darker);
     text-transform: uppercase;
     font-size: 1.3rem;
     font-weight: 700;
@@ -438,24 +416,17 @@ xfilter
     transition: color 0.3s;
   }
   .no-touch .cd-filter-trigger:hover {
-    color: #41307c;
+    color: var(--gray-menu-button-hover);
   }
   .cd-filter-trigger.filter-is-visible,
   .cd-filter-trigger.filter-is-visible:hover {
-    color: #ffffff;
+    color: var(--secondary);
   }
 }
-
-/* -------------------------------- 
-
-xcustom form elements 
-
--------------------------------- */
 .cd-filter-block {
   margin-bottom: 1.6em;
 }
 .cd-filter-block h4 {
-  /* filter block title */
   position: relative;
   margin-bottom: 0.2em;
   padding: 10px 0 10px 20px;
@@ -470,10 +441,9 @@ xcustom form elements
   cursor: pointer;
 }
 .no-touch .cd-filter-block h4:hover {
-  color: #41307c;
+  color: var(--primary-dark);
 }
 .cd-filter-block h4::before {
-  /* arrow */
   content: "";
   position: absolute;
   left: 0;
@@ -501,7 +471,6 @@ xcustom form elements
 .cd-filter-block select,
 .cd-filter-block .radio-label::before,
 .cd-filter-block .checkbox-label::before {
-  /* shared style for input elements */
   font-family: "Open Sans", sans-serif;
   border-radius: 0;
   background-color: #ffffff;
@@ -524,24 +493,20 @@ xcustom form elements
 .cd-filter-block select:focus {
   outline: none;
   background-color: #ffffff;
-  border-color: #41307c;
+  border-color: var(--primary-dark);
 }
 .cd-filter-block input[type="search"] {
-  /* custom style for the search element */
   border-color: transparent;
   background-color: #e6e6e6;
-  /* prevent jump - ios devices */
   font-size: 1.6rem !important;
 }
 .cd-filter-block input[type="search"]::-webkit-search-cancel-button {
   display: none;
 }
 .cd-filter-block .cd-select {
-  /* select element wrapper */
   position: relative;
 }
 .cd-filter-block .cd-select::after {
-  /* switcher arrow for select element */
   content: "";
   position: absolute;
   z-index: 1;
@@ -574,7 +539,6 @@ xcustom form elements
 }
 .cd-filter-block input[type="radio"],
 .cd-filter-block input[type="checkbox"] {
-  /* hide original check and radio buttons */
   position: absolute;
   left: 0;
   top: 0;
@@ -596,7 +560,6 @@ xcustom form elements
 .cd-filter-block .checkbox-label::after,
 .cd-filter-block .radio-label::before,
 .cd-filter-block .radio-label::after {
-  /* custom radio and check boxes */
   content: "";
   display: block;
   position: absolute;
@@ -615,11 +578,9 @@ xcustom form elements
 }
 .cd-filter-block .checkbox-label::after,
 .cd-filter-block .radio-label::after {
-  /* check mark - hidden */
   display: none;
 }
 .cd-filter-block .checkbox-label::after {
-  /* check mark style for check boxes */
   width: 16px;
   height: 16px;
   background: url("../imgs/svg's/cd-icon-check.svg") no-repeat center center;
@@ -629,7 +590,6 @@ xcustom form elements
   border-radius: 50%;
 }
 .cd-filter-block .radio-label::after {
-  /* check mark style for radio buttons */
   width: 6px;
   height: 6px;
   background-color: #ffffff;
@@ -637,8 +597,8 @@ xcustom form elements
 }
 .cd-filter-block input[type="radio"]:checked + label::before,
 .cd-filter-block input[type="checkbox"]:checked + label::before {
-  border-color: #41307c;
-  background-color: #41307c;
+  border-color: var(--primary-dark);
+  background-color: var(--primary-dark);
 }
 .cd-filter-block input[type="radio"]:checked + label::after,
 .cd-filter-block input[type="checkbox"]:checked + label::after {
@@ -646,7 +606,6 @@ xcustom form elements
 }
 
 @-moz-document url-prefix() {
-  /* hide custom arrow on Firefox - select element */
   .cd-filter-block .cd-select::after {
     display: none;
   }

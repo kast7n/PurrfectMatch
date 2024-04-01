@@ -22,6 +22,8 @@ body {
 }
 main {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 h1,
 h3 {
@@ -38,7 +40,7 @@ a {
   margin-left: 2%;
   margin-top: 10px;
   background-color: var(--primary) !important;
-  width: 60%;
+  width: 50rem;
   border-radius: 2%;
   box-shadow: 0px 2px 8px 0px var(--secondary);
 }
@@ -53,9 +55,11 @@ a {
   padding-bottom: 10px;
   margin-bottom: 10px;
   margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
+
   height: fit-content;
+  width: 35rem;
+  min-width: 25rem;
+  max-width: 59rem;
 }
 .petImage {
   background-image: url("../imgs/pawBg.jpeg");

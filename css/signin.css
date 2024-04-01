@@ -3,7 +3,7 @@
   --primary-dark: #ded0b6;
   --primary-darker: #bbab8c;
   --primary-disabled: #363435;
-  --primary-lighter: #454344;
+  --primary-light: #edebe4;
   --secondary: #1d1d1d;
   --text: #11181c;
   --text-gray: #687076;
@@ -25,6 +25,9 @@
 *::selection {
   background: var(--primary);
   color: white;
+}
+body {
+  background-color: var(--primary-light);
 }
 
 .socials-row {
@@ -67,8 +70,7 @@ button:hover {
 }
 
 .form-welcome-row {
-  margin-bottom: 1rem;
-  margin-top: 20px;
+  padding-bottom: 0.6rem;
 }
 
 .form-welcome-row h1 {
@@ -110,7 +112,6 @@ button:hover {
   max-height: 200rem;
   height: 100%;
   width: 100%;
-  background-color: var(--primary-dark);
 }
 
 .form-side {
