@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-    {% block title %}Results for {{ name }}{% endblock title %}
+    {% block title %}Results for {{ petName }}{% endblock title %}
     
    {% block css %}
     <link rel="stylesheet" href="../static/css/reset.css" />
@@ -22,10 +22,13 @@
                 <a class="selected" href="#0" data-type="all">All</a>
               </li>
               <li class="filter" data-filter=".color-1">
-                <a href="#0" data-type="color-1">Color 1</a>
+                <a href="#0" data-type="color-1">Cat</a>
               </li>
               <li class="filter" data-filter=".color-2">
-                <a href="#0" data-type="color-2">Color 2</a>
+                <a href="#0" data-type="color-2">Dog</a>
+              </li>
+              <li class="filter" data-filter=".color-3">
+                <a href="#0" data-type="color-2">Others</a>
               </li>
             </ul>
             <!-- cd-filters -->

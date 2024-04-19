@@ -4,15 +4,18 @@
   {% block content %}
   <div class="content">
     <main>
+      <form method="post">
       <div class="search">
-        <a href="searchResults.html">
-        <span class="material-symbols-outlined">Search</span></a>
+        
+        <button type="submit" class="material-symbols-outlined">Search</button>
         <input
           class="search-input"
           type="search"
           placeholder="Search Puppies, Kittens, etc."
+          name="searchPet"
         />
       </div>
+    </form>
 
       <div class="quick-search">
         <div class="search-box">
@@ -21,15 +24,15 @@
             Browse pets from our network over 14,500 shelters and rescues.
           </h3>
           <div class="animal-search">
-            <a href="searchResults.html" class="searchCards"
+            <a href="{{ url_for('search', name='dog') }}" class="searchCards"
               ><img class="dogs-img" src="../static/imgs/svg's/husky.svg" alt="Dogs"
             /></a>
 
-            <a href="searchResults.html" class="searchCards"
+            <a href="{{ url_for('search', name='cat') }}" class="searchCards"
               ><img class="cats-img" src="../static/imgs/svg's/cat.svg" alt="Cats"
             /></a>
 
-            <a href="searchResults.html" class="searchCards"
+            <a href="{{ url_for('search', name='other') }}" class="searchCards"
               ><img
                 class="otherAnimals-img"
                 src="../static/imgs/svg's/macaw.svg"

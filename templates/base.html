@@ -29,7 +29,12 @@
       </nav>
       <div class="menu__wrapper">
         <div class="menu__bar">
-          <a href="index.html" title="Home" aria-label="home" class="logo">
+          <a
+            href="{{ url_for('homePage') }}"
+            title="Home"
+            aria-label="home"
+            class="logo"
+          >
             <img src="../static/imgs/PurffectMatchLogo.png" alt="logo" />
           </a>
           <nav>
