@@ -26,14 +26,11 @@
   box-sizing: border-box;
 }
 
-body {
+footer {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   min-width: 18rem;
   overflow: auto;
-}
-
-footer {
   bottom: 0;
   background-color: var(--footer-bg);
   width: 100%;
@@ -112,7 +109,7 @@ footer {
 
 /* columns with links */
 
-.link-columns {
+.FooterColumns {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
@@ -120,16 +117,16 @@ footer {
   flex-grow: 1;
 }
 
-.link-columns > div {
+.FooterColumns > div {
   flex-grow: 1;
   display: flex;
   gap: 2rem;
 }
-.link-columns > div > section {
+.FooterColumns > div > section {
   min-width: 8rem;
   width: 50%;
 }
-.link-columns ul {
+.FooterColumns ul {
   display: flex;
   gap: 1rem;
   list-style-type: none;
@@ -139,17 +136,17 @@ footer {
   font-weight: 600;
 }
 
-.link-columns ul a {
+.FooterColumns ul a {
   color: var(--text-color);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 }
 
-.link-columns ul a:hover {
+.FooterColumns ul a:hover {
   color: var(--headline-color);
 }
 
-.link-columns h3 {
+.FooterColumns h3 {
   color: var(--headline-color);
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
@@ -184,7 +181,7 @@ section > h3 {
   text-align: left;
 }
 @media screen and (min-width: 600px) {
-  .link-columns > div > section {
+  .FooterColumns > div > section {
     min-width: auto;
   }
 }

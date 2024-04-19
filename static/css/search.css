@@ -26,23 +26,14 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
-html * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
+main {
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
   color: #331d35;
   background-color: #e7e7e7;
 }
 
-a {
+main a {
   color: var(--primary-darker);
   text-decoration: none;
 }
@@ -583,7 +574,8 @@ a {
 .cd-filter-block .checkbox-label::after {
   width: 16px;
   height: 16px;
-  background: url("../imgs/svg's/cd-icon-check.svg") no-repeat center center;
+  background: url("../static/imgs/svg's/cd-icon-check.svg") no-repeat center
+    center;
 }
 .cd-filter-block .radio-label::before,
 .cd-filter-block .radio-label::after {
