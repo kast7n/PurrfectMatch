@@ -20,6 +20,7 @@
   background-image: url("../imgs/headerBackground.png");
   background-position: top;
   background-repeat: no-repeat;
+  padding-top: 30px;
 }
 main {
   backdrop-filter: blur(5.1px);

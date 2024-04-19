@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+    {% block title %}Purrfect Match Pet Adoption{% endblock title %}
+    
+  {% block content %}
+  <div class="content">
+    <main>
+      <div class="search">
+        <a href="searchResults.html">
+        <span class="material-symbols-outlined">Search</span></a>
+        <input
+          class="search-input"
+          type="search"
+          placeholder="Search Puppies, Kittens, etc."
+        />
+      </div>
+
+      <div class="quick-search">
+        <div class="search-box">
+          <h1>Find your new best friend</h1>
+          <h3>
+            Browse pets from our network over 14,500 shelters and rescues.
+          </h3>
+          <div class="animal-search">
+            <a href="searchResults.html" class="searchCards"
+              ><img class="dogs-img" src="../static/imgs/svg's/husky.svg" alt="Dogs"
+            /></a>
+
+            <a href="searchResults.html" class="searchCards"
+              ><img class="cats-img" src="../static/imgs/svg's/cat.svg" alt="Cats"
+            /></a>
+
+            <a href="searchResults.html" class="searchCards"
+              ><img
+                class="otherAnimals-img"
+                src="../static/imgs/svg's/macaw.svg"
+                alt="Other Animals"
+            /></a>
+
+            <a href="searchResults.html" class="searchCards"
+              ><img
+                class="shelters-img"
+                src="../static/imgs/svg's/charity.svg"
+                alt="Selters & Rescues"
+            /></a>
+          </div>
+        </div>
+      </div>
+      <div class="mainBottom">
+        <h2 class="avPets">Pets Avaiable For Adoption</h2>
+        <div class="cards">
+          <a href="pet.html">  <figure class="card" >
+            
+            <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="Lakeview Elegance" />
+            <figcaption>
+              <h3>bingus<h3>
+              <p>A cute sphynx called bingus</p>
+            </figcaption>
+          </figure></a>
+        
+          <figure class="card">
+
+            <img src="../static/imgs/Pets/Dogs/mrSausage.jpg" alt="mrSausage" />
+            <figcaption>
+              <h3>Mr Sausage</h3>
+              <p>A cute Dachshund called Mr Sausage</p>
+            </figcaption>
+          </figure>
+          <figure class="card">
+
+            <img
+              src="../static/imgs/Pets/Others/cuteDragon.jpg"
+              alt="cuteDragon"
+            />
+            <figcaption>
+              <h3>Rex</h3>
+              <p>A cute commodo dragon called Rex</p>
+            </figcaption>
+          </figure>
+          <div class="FAQcard">
+            <a href="searchResults.html" class="FAQlink">
+              <div class="FAQcardContent">
+                <article class="artCard">
+                  <img
+                    src="../static/imgs\svg's\loupe-zoom-svgrepo-com.svg"
+                    alt="org"
+                    class="FAQimages"
+                  />
+                  <h2 class="FAQinfo">VIEW PETS</h2>
+                  <p class="FAQDetails">
+                    View the available pets.
+                  </p>
+                  <button class="FAQButton">View More</button>
+                </article>
+              </div>
+            </a>
+          </div>
+        </div>
+        <h2 class="FAQheader">PLANNING TO ADOPT A PET?</h2>
+        <div class="adoptionTips">
+          <div class="FAQcard">
+            <a href="#" class="FAQlink">
+              <div class="FAQcardContent">
+                <article class="artCard">
+                  <img
+                    src="../static/imgs\svg's\loupe-zoom-svgrepo-com.svg"
+                    alt="org"
+                    class="FAQimages"
+                  />
+                  <h2 class="FAQinfo">CHECKLIST FOR ADOPTERS</h2>
+                  <p class="FAQDetails">
+                    Make the adoption transition as smooth as possible.
+                  </p>
+                  <button class="FAQButton">Learn More</button>
+                </article>
+              </div>
+            </a>
+          </div>
+
+          <div class="FAQcard">
+            <a href="#" class="FAQlink">
+              <div class="FAQcardContent">
+                <article class="artCard">
+                  <img
+                    src="../static/imgs/svg's/heart-angle-svgrepo-com.svg"
+                    alt="org"
+                    class="FAQimages"
+                  />
+                  <h2 class="FAQinfo">COVID-19 RESOURCES</h2>
+                  <p class="FAQDetails">
+                    Find out how you can help dogs and cats.
+                  </p>
+                  <button class="FAQButton">Learn More</button>
+                </article>
+              </div>
+            </a>
+          </div>
+
+          <div class="FAQcard">
+            <a href="#" class="FAQlink">
+              <div class="FAQcardContent">
+                <article class="artCard">
+                  <img
+                    src="../static/imgs\svg's\question-and-answer-svgrepo-com.svg"
+                    alt="org"
+                    class="FAQimages"
+                  />
+                  <h2 class="FAQinfo">PET ADOPTION FAQS</h2>
+                  <p class="FAQDetails">
+                    Common questions related to pets adoption.
+                  </p>
+                  <button class="FAQButton">Learn More</button>
+                </article>
+              </div>
+            </a>
+          </div>
+        </div>
+        <h2 class="Articleheader">Check Out Our Articles</h2>
+      <div class="wrapper-grid">
+        <div class="articleCard_container">
+          <div class="articlecard_top">
+          <div class='banner-img-Dog'></div>
+          <img src="../static/imgs/dogArticle.jpg" alt='profile image' class="profile-img">
+          <h1 class="name">Dog Adoption Articles</h1>
+          <p class="description">Here you will find a collection of articles all about dogs. Whether you are a new dog owner or a seasoned pro, we have something for everyone.</p>
+        </div>
+        <div class="articlecard_btm">
+          <a href="#"><button class='btn'>Read More</button></a>
+        </div>
+        </div>
+
+
+
+        <div class="articleCard_container">
+          <div class="articlecard_top">
+          <div class='banner-img-Cat'></div>
+          <img src="../static/imgs/kittenArticle.jpg" alt='profile image' class="profile-img">
+          <h1 class="name">Cat Adoption Articles</h1>
+          <p class="description">Here you will find a collection of articles all about cats. Whether you are a new cat owner or a seasoned pro, we have something for everyone.</p>
+        </div>
+        <div class="articlecard_btm">
+          <button class='btn'>Read More</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    </main>
+  </div>
+  {% endblock content %}
+
+    {% block scripts %}
+    <script src="../js/nav.js">
+      document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+    {% endblock scripts %}
+   
+
