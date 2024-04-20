@@ -5,19 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock title %}</title>
     {% block css %} {% endblock css %}
-    <link rel="stylesheet" href="../static/css/nav.css" />
-    <link rel="stylesheet" href="../static/css/card.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/nav.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/card.css') }}"
+    />
     <link
       rel="stylesheet"
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
     />
-    <link rel="stylesheet" href="../static/css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/footer.css') }}"
+    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
-    <link rel="stylesheet" href="../static/css/main.css" />
-    <link rel="stylesheet" href="../static/css/articleCard.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/articleCard.css') }}"
+    />
   </head>
   <body>
     <header class="header">
@@ -35,7 +50,10 @@
             aria-label="home"
             class="logo"
           >
-            <img src="../static/imgs/PurffectMatchLogo.png" alt="logo" />
+            <img
+              src="{{ url_for('static', filename='imgs/PurffectMatchLogo.png') }}"
+              alt="logo"
+            />
           </a>
           <nav>
             <ul class="navigation hide">
@@ -769,7 +787,7 @@
               title="Go to Supabase Homepage"
             >
               <img
-                src="../static/imgs/PurffectMatchLogo.png"
+                src="{{ url_for('static', filename='imgs/PurffectMatchLogo.png') }}"
                 loading="lazy"
                 alt="Supabase logo"
                 class="footer-logo"

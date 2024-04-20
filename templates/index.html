@@ -24,25 +24,25 @@
             Browse pets from our network over 14,500 shelters and rescues.
           </h3>
           <div class="animal-search">
-            <a href="{{ url_for('search', name='dog') }}" class="searchCards"
-              ><img class="dogs-img" src="../static/imgs/svg's/husky.svg" alt="Dogs"
+            <a href="{{ url_for('search', type='Dogs',name='') }}" class="searchCards"
+              ><img class="dogs-img" src="{{ url_for('static', filename='imgs/svg/husky.svg') }}" alt="Dogs"
             /></a>
 
-            <a href="{{ url_for('search', name='cat') }}" class="searchCards"
-              ><img class="cats-img" src="../static/imgs/svg's/cat.svg" alt="Cats"
+            <a href="{{ url_for('search', type='Cats',name='') }}" class="searchCards"
+              ><img class="cats-img" src="{{ url_for('static', filename='imgs/svg/cat.svg') }}" alt="Cats"
             /></a>
 
-            <a href="{{ url_for('search', name='other') }}" class="searchCards"
+            <a href="{{ url_for('search', type='Others',name='') }}" class="searchCards"
               ><img
                 class="otherAnimals-img"
-                src="../static/imgs/svg's/macaw.svg"
+                src="{{ url_for('static', filename='imgs/svg/macaw.svg') }}"
                 alt="Other Animals"
             /></a>
 
             <a href="searchResults.html" class="searchCards"
               ><img
                 class="shelters-img"
-                src="../static/imgs/svg's/charity.svg"
+                src="{{ url_for('static', filename='imgs/svg/charity.svg') }}"
                 alt="Selters & Rescues"
             /></a>
           </div>
@@ -84,7 +84,7 @@
               <div class="FAQcardContent">
                 <article class="artCard">
                   <img
-                    src="../static/imgs\svg's\loupe-zoom-svgrepo-com.svg"
+                    src="../static/imgs\svg\loupe-zoom-svgrepo-com.svg"
                     alt="org"
                     class="FAQimages"
                   />
@@ -105,7 +105,7 @@
               <div class="FAQcardContent">
                 <article class="artCard">
                   <img
-                    src="../static/imgs\svg's\loupe-zoom-svgrepo-com.svg"
+                    src="../static/imgs\svg\loupe-zoom-svgrepo-com.svg"
                     alt="org"
                     class="FAQimages"
                   />
@@ -124,7 +124,7 @@
               <div class="FAQcardContent">
                 <article class="artCard">
                   <img
-                    src="../static/imgs/svg's/heart-angle-svgrepo-com.svg"
+                    src="../static/imgs/svg/heart-angle-svgrepo-com.svg"
                     alt="org"
                     class="FAQimages"
                   />
@@ -143,7 +143,7 @@
               <div class="FAQcardContent">
                 <article class="artCard">
                   <img
-                    src="../static/imgs\svg's\question-and-answer-svgrepo-com.svg"
+                    src="../static/imgs\svg\question-and-answer-svgrepo-com.svg"
                     alt="org"
                     class="FAQimages"
                   />

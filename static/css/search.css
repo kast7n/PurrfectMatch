@@ -133,7 +133,7 @@ main a {
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: url("../imgs/svg's/cd-icon-arrow.svg") no-repeat center center;
+  background: url("../imgs/svg/cd-icon-arrow.svg") no-repeat center center;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
@@ -384,8 +384,8 @@ main a {
   text-indent: 100%;
   color: transparent;
   white-space: nowrap;
-  background: transparent url("../imgs/svg's/cd-icon-filter.svg") no-repeat
-    center center;
+  background: transparent url("../imgs/svg/cd-icon-filter.svg") no-repeat center
+    center;
   z-index: 3;
 }
 .cd-filter-trigger.filter-is-visible {
@@ -441,7 +441,7 @@ main a {
   top: 50%;
   width: 16px;
   height: 16px;
-  background: url("../imgs/svg's/cd-icon-arrow.svg") no-repeat center center;
+  background: url("../imgs/svg/cd-icon-arrow.svg") no-repeat center center;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -511,7 +511,7 @@ main a {
   display: block;
   width: 16px;
   height: 16px;
-  background: url("../imgs/svg's/cd-icon-arrow.svg") no-repeat center center;
+  background: url("../imgs/svg/cd-icon-arrow.svg") no-repeat center center;
   pointer-events: none;
 }
 .cd-filter-block select {
@@ -574,7 +574,7 @@ main a {
 .cd-filter-block .checkbox-label::after {
   width: 16px;
   height: 16px;
-  background: url("../static/imgs/svg's/cd-icon-check.svg") no-repeat center
+  background: url("/static../imgs/svg/cd-icon-check.svg") no-repeat center
     center;
 }
 .cd-filter-block .radio-label::before,
