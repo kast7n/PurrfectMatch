@@ -24,15 +24,15 @@
             Browse pets from our network over 14,500 shelters and rescues.
           </h3>
           <div class="animal-search">
-            <a href="{{ url_for('search', type='Dogs',name='') }}" class="searchCards"
+            <a href="{{ url_for('search', type='dog',name='all') }}" class="searchCards"
               ><img class="dogs-img" src="{{ url_for('static', filename='imgs/svg/husky.svg') }}" alt="Dogs"
             /></a>
 
-            <a href="{{ url_for('search', type='Cats',name='') }}" class="searchCards"
+            <a href="{{ url_for('search', type='cat',name='all') }}" class="searchCards"
               ><img class="cats-img" src="{{ url_for('static', filename='imgs/svg/cat.svg') }}" alt="Cats"
             /></a>
 
-            <a href="{{ url_for('search', type='Others',name='') }}" class="searchCards"
+            <a href="{{ url_for('search', type='other',name='all') }}" class="searchCards"
               ><img
                 class="otherAnimals-img"
                 src="{{ url_for('static', filename='imgs/svg/macaw.svg') }}"

@@ -40,126 +40,19 @@
   
         <section class="cd-gallery">
           <ul>
-            <li class="mix color-1 check1 radio2 option3">
-              <a href="pet.html">  <figure class="card" >
-                
-                <img src="{{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
-                <figcaption>
-                  <h3>bingus<h3>
-                  <p>A cute sphynx called bingus</p>
-                </figcaption>
-              </figure></a>
-            </li>
+            {% for pet in filteredPets %}
             <li class="mix color-2 check2 radio2 option2">
               <a href="pet.html">  <figure class="card" >
                 
-                <img src=" {{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
+                <img src="{{ url_for('static', filename='imgs/Pets/' + pet.petType + 's/' + pet.petName + '.jpg') }}" alt="Pet Image" />
                 <figcaption>
-                  <h3>bingus<h3>
+                  <h3>{{pet.petName}}<h3>
                   <p>A cute sphynx called bingus</p>
                 </figcaption>
               </figure></a>
             </li>
-            <li class="mix color-1 check3 radio3 option1">
-              <a href="pet.html">  <figure class="card" >
-                
-                <img src=" {{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
-                <figcaption>
-                  <h3>bingus<h3>
-                  <p>A cute sphynx called bingus</p>
-                </figcaption>
-              </figure></a>
-            </li>
-            <li class="mix color-1 check3 radio2 option4">
-              <a href="pet.html">  <figure class="card" >
-                
-                <img src=" {{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
-                <figcaption>
-                  <h3>bingus<h3>
-                  <p>A cute sphynx called bingus</p>
-                </figcaption>
-              </figure></a>
-            </li>
-            <li class="mix color-1 check1 radio3 option2">
-              <a href="pet.html">  <figure class="card" >
-                
-                <img src=" {{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
-                <figcaption>
-                  <h3>bingus<h3>
-                  <p>A cute sphynx called bingus</p>
-                </figcaption>
-              </figure></a>
-            </li>
-            <li class="mix color-2 check2 radio3 option3">
-              <a href="pet.html">  <figure class="card" >
-                
-                <img src=" {{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
-                <figcaption>
-                  <h3>bingus<h3>
-                  <p>A cute sphynx called bingus</p>
-                </figcaption>
-              </figure></a>
-            </li>
-            <li class="mix color-2 check2 radio2 option1">
-              <a href="pet.html">  <figure class="card" >
-                
-                <img src=" {{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
-                <figcaption>
-                  <h3>bingus<h3>
-                  <p>A cute sphynx called bingus</p>
-                </figcaption>
-              </figure></a>
-            </li>
-            <li class="mix color-1 check1 radio3 option4">
-              <a href="pet.html">  <figure class="card" >
-                
-                <img src=" {{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
-                <figcaption>
-                  <h3>bingus<h3>
-                  <p>A cute sphynx called bingus</p>
-                </figcaption>
-              </figure></a>
-            </li>
-            <li class="mix color-2 check1 radio2 option3">
-              <a href="pet.html">  <figure class="card" >
-                
-                <img src=" {{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
-                <figcaption>
-                  <h3>bingus<h3>
-                  <p>A cute sphynx called bingus</p>
-                </figcaption>
-              </figure></a>
-            </li>
-            <li class="mix color-1 check3 radio2 option4">
-              <a href="pet.html">  <figure class="card" >
-                
-                <img src=" {{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
-                <figcaption>
-                  <h3>bingus<h3>
-                  <p>A cute sphynx called bingus</p>
-                </figcaption>
-              </figure></a>
-            </li>
-            <li class="mix color-1 check3 radio3 option2">
-              <a href="pet.html">  <figure class="card" >
-                
-                <img src=" {{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
-                <figcaption>
-                  <h3>bingus<h3>
-                  <p>A cute sphynx called bingus</p>
-                </figcaption>
-              </figure></a>
-            </li>
-            <li class="mix color-2 check1 radio3 option1">
-              <a href="pet.html">  <figure class="card" >
-                
-                <img src=" {{ url_for('static', filename='imgs/Pets/Cats/Milo.jpg') }}" alt="Lakeview Elegance" />
-                <figcaption>
-                  <h3>bingus<h3>
-                  <p>A cute sphynx called bingus</p>
-                </figcaption>
-              </figure></a>
-            </li>
+            {% endfor%}
+          
             <li class="gap"></li>
             <li class="gap"></li>
             <li class="gap"></li>
