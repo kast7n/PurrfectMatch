@@ -20,16 +20,16 @@
                 <!-- selected option on mobile -->
               </li>
               <li class="filter">
-                <a class="selected" href="#0" data-type="all">All</a>
+                <a {% if petType == 'all' %}class = 'selected'{% endif %} href="{{ url_for('search', type='all',name= petName ) }}" data-type="all">All</a>
               </li>
               <li class="filter" data-filter=".color-1">
-                <a href="#0" data-type="color-1">Cat</a>
+                <a {% if petType == 'cat' %}class = 'selected'{% endif %} href="{{ url_for('search', type='cat',name= petName ) }}" data-type="cat">Cat</a>
               </li>
               <li class="filter" data-filter=".color-2">
-                <a href="#0" data-type="color-2">Dog</a>
+                <a {% if petType == 'dog' %}class = 'selected'{% endif %} href="{{ url_for('search', type='dog',name= petName ) }}" data-type="dog">Dog</a>
               </li>
               <li class="filter" data-filter=".color-3">
-                <a href="#0" data-type="color-2">Others</a>
+                <a {% if petType == 'other' %}class = 'selected'{% endif %} href="{{ url_for('search', type='other',name= petName ) }}" data-type="other">Others</a>
               </li>
             </ul>
             <!-- cd-filters -->
@@ -68,14 +68,14 @@
               <h4>Search</h4>
   
               <div class="cd-filter-content">
-                <input type="search" placeholder="Try color-1..." />
+                <input type="search" placeholder="Enter your pet name" />
               </div>
               <!-- cd-filter-content -->
             </div>
             <!-- cd-filter-block -->
   
             <div class="cd-filter-block">
-              <h4>Check boxes</h4>
+              <h4>CHARACTERISTICS</h4>
   
               <ul class="cd-filter-content cd-filters list">
                 <li>
@@ -85,7 +85,7 @@
                     type="checkbox"
                     id="checkbox1"
                   />
-                  <label class="checkbox-label" for="checkbox1">Option 1</label>
+                  <label class="checkbox-label" for="checkbox1">Playful</label>
                 </li>
   
                 <li>
@@ -95,7 +95,7 @@
                     type="checkbox"
                     id="checkbox2"
                   />
-                  <label class="checkbox-label" for="checkbox2">Option 2</label>
+                  <label class="checkbox-label" for="checkbox2">Quiet</label>
                 </li>
   
                 <li>
