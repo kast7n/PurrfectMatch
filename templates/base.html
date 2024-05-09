@@ -766,8 +766,12 @@
           </nav>
         </div>
         <div class="action-buttons">
-          <a href="signin.html" title="Log in" class="secondary"> Sign in </a>
-          <a href="signup.html" title="Sign up" class="primary"> Sign up </a>
+          <a href="{{ url_for('signin') }}" title="Log in" class="secondary">
+            Sign in
+          </a>
+          <a href="{{ url_for('signup') }}" title="Sign up" class="primary">
+            Sign up
+          </a>
         </div>
 
         <button class="hamburger">
