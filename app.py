@@ -41,5 +41,8 @@ def search(type,name):
     session.close()
 
     return render_template("searchResults.html",petType = type,petName = name,filteredPets = pets)
+@app.route('/articles')
+def articles():
+    return render_template('articles.html')
 
 app.run(debug=True)
