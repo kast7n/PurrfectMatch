@@ -42,4 +42,23 @@ def search(type,name):
 
     return render_template("searchResults.html",petType = type,petName = name,filteredPets = pets)
 
+@app.route("/pet/<petID>")
+def pet(petID):
+    curr_pet = {}
+    return render_template("pet.html",ID = petID,pet = curr_pet)
+
+@app.route("/shelter/<shelterID>")
+def shelter(shelterID):
+    curr_shelter = {}
+    return render_template("shelter.html",shelter = curr_shelter)
+
+@app.route("/signin")
+def signin():
+    return render_template("signin.html")
+
+
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
 app.run(debug=True)
