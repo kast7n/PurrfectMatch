@@ -1,85 +1,127 @@
 :root {
-    --primary: #faeed1;
-    --primary-dark: #ded0b6;
-    --primary-darker: #bbab8c;
-    --primary-disabled: #363435;
-    --primary-light: #edebe4;
-    --secondary: #1d1d1d;
-    --text: #11181c;
-    --text-gray: #687076;
-    --text-placeholder: #8890a7;
-    --border: #dfe3e6;
-    --btn-bg: #535353;
-    --input-bg: #f1f2f3;
-    --background: #f8f8ff;
-    --error: #e5484d;
+  --primary: #faeed1;
+  --primary-dark: #ded0b6;
+  --primary-darker: #bbab8c;
+  --primary-disabled: #363435;
+  --primary-light: #edebe4;
+  --secondary: #1d1d1d;
+  --text: #11181c;
+  --text-gray: #687076;
+  --text-placeholder: #8890a7;
+  --border: #dfe3e6;
+  --btn-bg: #535353;
+  --input-bg: #f1f2f3;
+  --background: #f8f8ff;
+  --error: #e5484d;
+}
+.post {
+  margin-top: 4rem;
+  margin-bottom: 10rem;
+  background-color: var(--primary-light);
+}
+.post-container {
+  display: flex;
+  gap: 1.5rem;
+}
+.post-thumb {
+  width: 55%;
+  margin-left: 3rem;
+}
+.post-image {
+  width: 90%;
+  height: 90%;
+  margin-top: 2rem;
+  border-radius: 10rem solid var(--primary-dark);
+  border-radius: 1rem;
+}
+.post-image:hover {
+    box-shadow: 0px 2px 8px 0px var(--secondary);
+    transition-duration: 0.5s;
   }
-.article-container{
-    width: 100%;
-}
-.article-section{
-    width: 85%;
-    margin: 20px auto;
-}
-.article-section .articles-title{
-    width: 60%;
-    text-align: center;
-    margin: auto;
-}
-.article-section .articles-title h2{
-    font-size: 40px;
-    color: var(--primary-darker);
-    text-transform: uppercase;
-}
-.article-cards{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 15px;
-    margin-bottom: 50px;
-}
-.article-card{
-    width: 325px;
-    margin: 20px;
-    background-color: var(--primary-light);
-    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
-    overflow: hidden;
-}
-.article-image{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-.article-content{
-    padding: 16px;
-}
-.article-title{
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: var(--primary-disabled);
-}
-.article-date{
-    font-size: 12px;
-    color: var(--primary-darker);
-    margin-bottom: 4px;
-}
-.article-description{
-    font-size: 14px;
-    color: var(--btn-bg);
-    line-height: 1.5;
-}
-.read-more{
-    display: inline-block;
-    padding: 8px 12px;
-    background-color: var(--primary);
-    color: var(--primary-dark);
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 16px;
-}
-.read-more:hover{
-    background-color: var(--primary-darker);
+.post-info {
+  width: 30%;
 }
 
+.post-body {
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+}
+.post-title {
+  margin-top: 6rem;
+  font-size: 4rem;
+}
 
-
+.article-container {
+  width: 100%;
+  background-color: var(--primary-light);
+}
+.article-section {
+  width: 85%;
+  margin: 20px auto;
+}
+.article-section .articles-title {
+  width: 60%;
+  text-align: center;
+  margin: auto;
+}
+.article-section .articles-title h2 {
+  font-size: 40px;
+  color: var(--primary-darker);
+  text-transform: uppercase;
+}
+.article-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+.article-card {
+  width: 325px;
+  margin: 20px;
+  background-color: var(--primary-light);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+.article-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.article-content {
+  padding: 16px;
+}
+.article-title {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--primary-disabled);
+}
+.article-date {
+  font-size: 12px;
+  color: var(--primary-darker);
+  margin-bottom: 4px;
+}
+.article-description {
+  font-size: 14px;
+  color: var(--btn-bg);
+  line-height: 1.5;
+}
+.read-more {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: var(--text-gray);
+  color: var(--primary-dark);
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 16px;
+  border-radius: 0.5rem;
+}
+.read-more:hover {
+  background-color: var(--primary-darker);
+  transition-duration: 0.2s;
+}
+.article-card:hover {
+  box-shadow: 0px 2px 8px 0px var(--secondary);
+  transition-duration: 0.5s;
+}

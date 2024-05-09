@@ -1,14 +1,37 @@
-{% extends "base.html" %} 
-{% block title %}Purrfect Match Pet Adoption{% endblock title %}
-{% block css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/articles.css') }}" />
-<link rel="stylesheet" href="{{ url_for('static', filename='css/articleCard.css') }}" />
-{% endblock css %}
-    
-{% block content %}
+{% extends "base.html" %} {% block title %}Purrfect Match Pet Adoption{%
+endblock title %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/articles.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/articleCard.css') }}"
+/>
+{% endblock css %} {% block content %}
 <main>
+  <div class="post">
+    <div class="post-container">
+      <div class="post-thumb">
+        <img
+          src="../static/imgs/Pets/Cats/bingus.jpg"
+          alt=""
+          class="post-image"
+        />
+      </div>
+      <div class="post-info">
+        <h2 class="post-title">Main Article</h2>
+        <p class="post-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure rem
+          suscipit maxime ratione quisquam animi laborum eum aspernatur corporis
+          quod. Adipisci repellendus dolorem ullam! Magni delectus distinctio
+          laudantium repellendus tempore!
+        </p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
 
-<section></section>
+    </div>
+      </div>
 
 
 
@@ -25,7 +48,11 @@
 
 
 
-<div class="article-container">
+
+
+
+
+  <div class="article-container">
     <div class="article-section">
         <div class="articles-title">
             <h2 class="article-section-title">Dogs</h2>
@@ -34,7 +61,7 @@
 
 <div class="article-cards">
   <div class="article-card">
-    <img src="" alt="" class="article-image"/>
+    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
     <div class="article-content">
       <h2 class="article-title">Article Title</h2>
       <p class="article-date">May 9, 2024</p>
@@ -50,7 +77,7 @@
 
 
   <div class="article-card">
-    <img src="" alt="" class="article-image"/>
+    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
     <div class="article-content">
       <h2 class="article-title">Article Title</h2>
       <p class="article-date">May 9, 2024</p>
@@ -67,7 +94,7 @@
 
 
   <div class="article-card">
-    <img src="" alt="" class="article-image"/>
+    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
     <div class="article-content">
       <h2 class="article-title">Article Title</h2>
       <p class="article-date">May 9, 2024</p>
@@ -88,136 +115,132 @@
 <!-- end of dog sectionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
 
 
-
-
-
-<div class="article-section">
-    <div class="articles-title">
-        <h2 class="article-section-title">Cats</h2>
-    </div>
+<div class="article-container">
+  <div class="article-section">
+      <div class="articles-title">
+          <h2 class="article-section-title">Cats</h2>
+      </div>
 
 
 <div class="article-cards">
-<div class="article-card">
-<img src="" alt="" class="article-image"/>
-<div class="article-content">
-  <h2 class="article-title">Article Title</h2>
-  <p class="article-date">May 9, 2024</p>
-  <p class="article-description">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-    vero facilis consectetur ipsam molestiae provident eos nihil totam
-    voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-    eveniet velit molestias.
-  </p>
-  <a href="#" class="read-more">Read More</a>
-</div>
-</div>
+  <div class="article-card">
+    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <div class="article-content">
+      <h2 class="article-title">Article Title</h2>
+      <p class="article-date">May 9, 2024</p>
+      <p class="article-description">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
+        vero facilis consectetur ipsam molestiae provident eos nihil totam
+        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
+        eveniet velit molestias.
+      </p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </div>
 
 
-<div class="article-card">
-<img src="" alt="" class="article-image"/>
-<div class="article-content">
-  <h2 class="article-title">Article Title</h2>
-  <p class="article-date">May 9, 2024</p>
-  <p class="article-description">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-    vero facilis consectetur ipsam molestiae provident eos nihil totam
-    voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-    eveniet velit molestias.
-  </p>
-  <a href="#" class="read-more">Read More</a>
-</div>
-</div>
+  <div class="article-card">
+    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <div class="article-content">
+      <h2 class="article-title">Article Title</h2>
+      <p class="article-date">May 9, 2024</p>
+      <p class="article-description">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
+        vero facilis consectetur ipsam molestiae provident eos nihil totam
+        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
+        eveniet velit molestias.
+      </p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </div>
 
 
 
-<div class="article-card">
-<img src="" alt="" class="article-image"/>
-<div class="article-content">
-  <h2 class="article-title">Article Title</h2>
-  <p class="article-date">May 9, 2024</p>
-  <p class="article-description">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-    vero facilis consectetur ipsam molestiae provident eos nihil totam
-    voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-    eveniet velit molestias.
-  </p>
-  <a href="#" class="read-more">Read More</a>
-</div>
-</div>
-</div>
+  <div class="article-card">
+    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <div class="article-content">
+      <h2 class="article-title">Article Title</h2>
+      <p class="article-date">May 9, 2024</p>
+      <p class="article-description">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
+        vero facilis consectetur ipsam molestiae provident eos nihil totam
+        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
+        eveniet velit molestias.
+      </p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </div>
 </div>
 
 <!-- end of cat sectionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
 
 
-<div class="article-section">
-    <div class="articles-title">
-        <h2 class="article-section-title">Others</h2>
-    </div>
+
+<div class="article-container">
+  <div class="article-section">
+      <div class="articles-title">
+          <h2 class="article-section-title">Other Animals</h2>
+      </div>
 
 
 <div class="article-cards">
-<div class="article-card">
-<img src="" alt="" class="article-image"/>
-<div class="article-content">
-  <h2 class="article-title">Article Title</h2>
-  <p class="article-date">May 9, 2024</p>
-  <p class="article-description">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-    vero facilis consectetur ipsam molestiae provident eos nihil totam
-    voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-    eveniet velit molestias.
-  </p>
-  <a href="#" class="read-more">Read More</a>
-</div>
-</div>
+  <div class="article-card">
+    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <div class="article-content">
+      <h2 class="article-title">Article Title</h2>
+      <p class="article-date">May 9, 2024</p>
+      <p class="article-description">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
+        vero facilis consectetur ipsam molestiae provident eos nihil totam
+        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
+        eveniet velit molestias.
+      </p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </div>
 
 
-<div class="article-card">
-<img src="" alt="" class="article-image"/>
-<div class="article-content">
-  <h2 class="article-title">Article Title</h2>
-  <p class="article-date">May 9, 2024</p>
-  <p class="article-description">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-    vero facilis consectetur ipsam molestiae provident eos nihil totam
-    voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-    eveniet velit molestias.
-  </p>
-  <a href="#" class="read-more">Read More</a>
-</div>
-</div>
-
-
-
-<div class="article-card">
-<img src="" alt="" class="article-image"/>
-<div class="article-content">
-  <h2 class="article-title">Article Title</h2>
-  <p class="article-date">May 9, 2024</p>
-  <p class="article-description">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-    vero facilis consectetur ipsam molestiae provident eos nihil totam
-    voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-    eveniet velit molestias.
-  </p>
-  <a href="#" class="read-more">Read More</a>
-</div>
-</div>
-</div>
-</div>
+  <div class="article-card">
+    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <div class="article-content">
+      <h2 class="article-title">Article Title</h2>
+      <p class="article-date">May 9, 2024</p>
+      <p class="article-description">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
+        vero facilis consectetur ipsam molestiae provident eos nihil totam
+        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
+        eveniet velit molestias.
+      </p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </div>
 
 
 
-
-
-
-
-
-
+  <div class="article-card">
+    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <div class="article-content">
+      <h2 class="article-title">Article Title</h2>
+      <p class="article-date">May 9, 2024</p>
+      <p class="article-description">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
+        vero facilis consectetur ipsam molestiae provident eos nihil totam
+        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
+        eveniet velit molestias.
+      </p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </div>
 </div>
 
 
+
+
+
+
+
+
+
+</div>
 </main>
 {% endblock content %}
