@@ -596,6 +596,14 @@ main a {
 .cd-filter-block input[type="checkbox"]:checked + label::after {
   display: block;
 }
+.apply-filter {
+  background-color: var(--primary);
+  width: 100%;
+  height: 50px;
+}
+.apply-filter:hover {
+  background-color: var(--gray-menu-button);
+}
 
 @-moz-document url-prefix() {
   .cd-filter-block .cd-select::after {
