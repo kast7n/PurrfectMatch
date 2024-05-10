@@ -75,37 +75,64 @@
             <!-- cd-filter-block -->
   
             <div class="cd-filter-block">
-              <h4>CHARACTERISTICS</h4>
+              <h4>Personality Traits</h4>
   
               <ul class="cd-filter-content cd-filters list">
                 <li>
                   <input
                     class="filter"
-                    data-filter=".check1"
+                    data-filter="Affectionate"
                     type="checkbox"
-                    id="checkbox1"
+                    id="Affectionate"
                   />
-                  <label class="checkbox-label" for="checkbox1">Playful</label>
+                  <label class="checkbox-label" for="Affectionate">Affectionate</label>
                 </li>
   
                 <li>
                   <input
                     class="filter"
-                    data-filter=".check2"
+                    data-filter="Independent"
                     type="checkbox"
-                    id="checkbox2"
+                    id="Independent"
                   />
-                  <label class="checkbox-label" for="checkbox2">Quiet</label>
+                  <label class="checkbox-label" for="Independent">Independent</label>
                 </li>
   
                 <li>
                   <input
                     class="filter"
-                    data-filter=".check3"
+                    data-filter="Social"
                     type="checkbox"
-                    id="checkbox3"
+                    id="Social"
                   />
-                  <label class="checkbox-label" for="checkbox3">Option 3</label>
+                  <label class="checkbox-label" for="Social">Social</label>
+                </li>
+                <li>
+                  <input
+                    class="filter"
+                    data-filter="Shy"
+                    type="checkbox"
+                    id="Shy"
+                  />
+                  <label class="checkbox-label" for="Shy">Shy</label>
+                </li>
+                <li>
+                  <input
+                    class="filter"
+                    data-filter="Playful"
+                    type="checkbox"
+                    id="Playful"
+                  />
+                  <label class="checkbox-label" for="Playful">Playful</label>
+                </li>
+                <li>
+                  <input
+                    class="filter"
+                    data-filter="Lap Cat"
+                    type="checkbox"
+                    id="Lap Cat"
+                  />
+                  <label class="checkbox-label" for="Lap Cat">Lap Cat</label>
                 </li>
               </ul>
               <!-- cd-filter-content -->
@@ -113,16 +140,32 @@
             <!-- cd-filter-block -->
   
             <div class="cd-filter-block">
-              <h4>Select</h4>
+              <h4>Coat Length</h4>
   
               <div class="cd-filter-content">
                 <div class="cd-select cd-filters">
                   <select class="filter" name="selectThis" id="selectThis">
                     <option value="">Choose an option</option>
-                    <option value=".option1">Option 1</option>
-                    <option value=".option2">Option 2</option>
-                    <option value=".option3">Option 3</option>
-                    <option value=".option4">Option 4</option>
+                    <option value="Short">Short</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Long">Long</option>
+                    <option value="Hairless">Hairless</option>
+                  </select>
+                </div>
+                <!-- cd-select -->
+              </div>
+              <!-- cd-filter-content -->
+            </div>
+            <div class="cd-filter-block">
+              <h4>Activity Levels:</h4>
+  
+              <div class="cd-filter-content">
+                <div class="cd-select cd-filters">
+                  <select class="filter" name="selectThis" id="selectThis">
+                    <option value="">Choose an option</option>
+                    <option value="Active">Active</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Low">Low</option>
                   </select>
                 </div>
                 <!-- cd-select -->
@@ -132,7 +175,7 @@
             <!-- cd-filter-block -->
   
             <div class="cd-filter-block">
-              <h4>Radio buttons</h4>
+              <h4>House Training</h4>
   
               <ul class="cd-filter-content cd-filters list">
                 <li>
@@ -141,10 +184,10 @@
                     data-filter=""
                     type="radio"
                     name="radioButton"
-                    id="radio1"
+                    id="All"
                     checked
                   />
-                  <label class="radio-label" for="radio1">All</label>
+                  <label class="radio-label" for="All">All</label>
                 </li>
   
                 <li>
@@ -153,9 +196,9 @@
                     data-filter=".radio2"
                     type="radio"
                     name="radioButton"
-                    id="radio2"
+                    id="Yes"
                   />
-                  <label class="radio-label" for="radio2">Choice 2</label>
+                  <label class="radio-label" for="Yes">Yes</label>
                 </li>
   
                 <li>
@@ -164,14 +207,15 @@
                     data-filter=".radio3"
                     type="radio"
                     name="radioButton"
-                    id="radio3"
+                    id="No"
                   />
-                  <label class="radio-label" for="radio3">Choice 3</label>
+                  <label class="radio-label" for="No">No</label>
                 </li>
               </ul>
               <!-- cd-filter-content -->
             </div>
             <!-- cd-filter-block -->
+            <button class="apply-filter" type="submit">Filter</button>
           </form>
   
           <a href="#0" class="cd-close">Close</a>

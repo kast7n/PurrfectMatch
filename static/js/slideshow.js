@@ -5,10 +5,10 @@ window.onload = function () {
 var i = 0;
 var images = [];
 
-images[0] = "imgs/Pets/Dogs/goldebBud.jpg";
-images[1] = "imgs/Pets/Cats/hitlerCat.jpg";
-images[2] = "imgs/Pets/Cats/bingus.jpg";
-images[3] = "imgs/Pets/Others/froufrou.jpg";
+images[0] = "static/imgs/Pets/Dogs/goldebBud.jpg";
+images[1] = "static/imgs/Pets/Cats/hitlerCat.jpg";
+images[2] = "static/imgs/Pets/Cats/bingus.jpg";
+images[3] = "static/imgs/Pets/Others/froufrou.jpg";
 function changeImg() {
   document.getElementsByClassName("returns")[0].src = images[i];
   console.log(i);

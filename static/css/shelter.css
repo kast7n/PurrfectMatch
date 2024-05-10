@@ -26,16 +26,17 @@ a {
 .container {
   display: flex;
   width: 100%;
-  margin-left: 150px;
-
-  padding: 0;
+  margin-left: 7.5%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 20px;
   margin: 0;
 }
 
 .container-left {
   display: inline-flex;
-  margin: 40px;
-  margin-left: 200px;
+  margin: 1%;
+
   flex-direction: row;
 
   gap: 20px;
@@ -49,9 +50,6 @@ a {
   font-family: Nexa Regular, arial, helvetica, sans-serif;
 }
 .line {
-  width: 25rem;
-  margin-top: 20px;
-
   opacity: 0.5;
 }
 .locLogo {
@@ -79,12 +77,12 @@ a {
 }
 .container-right {
   display: inline-flex;
-  margin: 43px;
-  margin-right: 180px;
+  margin: 1%;
+
   flex-direction: column;
   flex-grow: 1;
   gap: 20px;
-  width: 100%;
+  width: fit-content;
 }
 
 .container-right .aboveContent :first-child {
@@ -172,25 +170,27 @@ a {
 .bodyContainer {
   display: inline-flex;
   margin-top: 20px !important;
-  margin: 0px 0px 0px 250px;
+  justify-content: space-evenly;
   width: 100%;
   height: 100%;
   gap: 12px;
 }
 .bodyContainer .left {
-  width: 600px;
-  height: 500px;
+  width: 60%;
+  height: 40%;
 
   border-radius: 5px;
 }
 .bodyContainer .right {
   display: flex;
   flex-direction: column;
-  width: 20%;
-  margin: 20px;
+  width: 30%;
+  margin: 20px 0 20px 0;
   padding: 20px;
+  min-width: 120px;
+  max-height: 700px;
   background-color: var(--primary-dark);
-  opacity: 0.7;
+  opacity: 0.9;
   border-radius: 5px;
 }
 
