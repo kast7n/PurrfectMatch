@@ -40,14 +40,14 @@
   
         <section class="cd-gallery">
           <ul>
-            {% for pet in filteredPets %}
+            {% for pet,shelter_name,PetDescription in filteredPets %}
             <li class="mix color-2 check2 radio2 option2">
               <a href="pet.html">  <figure class="card" >
                 
-                <img src="{{ url_for('static', filename='imgs/Pets/' + pet.petType + 's/' + pet.petName + '.jpg') }}" alt="Pet Image" />
+                <img src="{{ url_for('static', filename='imgs/Shelters/'+ shelter_name + '/' +  pet.pet_type + 's/' + pet.name + '.jpg') }}" alt="Pet Image" />
                 <figcaption>
-                  <h3>{{pet.petName}}<h3>
-                  <p>A cute sphynx called bingus</p>
+                  <h3>{{ pet.name }}<h3>
+                  <p>{{ PetDescription }}</p>
                 </figcaption>
               </figure></a>
             </li>
@@ -60,6 +60,7 @@
           </ul>
           <div class="cd-fail-message">No results found</div>
         </section>
+      
         <!-- cd-gallery -->
   
         <div class="cd-filter">
