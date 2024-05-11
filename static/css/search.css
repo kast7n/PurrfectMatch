@@ -620,3 +620,23 @@ main a {
     height: fit-content;
   }
 }
+.pagination {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 5px;
+}
+
+.Previous_Page,
+.Next_Page {
+  color: var(--primary-darker);
+}
+.Previous_Page:hover,
+.Next_Page:hover {
+  color: var(--gray-menu-button);
+}
+.pages_nb {
+  width: fit-content;
+  text-wrap: nowrap;
+}

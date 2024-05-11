@@ -102,6 +102,12 @@ def homePage():
 
 @app.route("/search/<type>/<name>")
 def search(type,name):
+    page = request.args.get('page',1,type=int)
+    per_page = 25
+    start = (page - 1) * per_page
+    end = start + per_page
+    
+
     pets = []
     session = Session()
     if type == "all":
@@ -114,12 +120,14 @@ def search(type,name):
     join(PetDescription, PetDescription.pet_id == Pet.id).\
     options(joinedload(Pet.shelter)).\
     filter(condition).all()
+    total_pages = (len(pets) + per_page - 1) // per_page
+    pets_on_page = pets[start:end]
 
 
 
     session.close()
 
-    return render_template("searchResults.html",petType = type,petName = name,filteredPets = pets)
+    return render_template("searchResults.html",petType = type,petName = name,filteredPets = pets_on_page,total_pages = total_pages,page = page)
 @app.route('/articles')
 def articles():
     return render_template('articles.html')

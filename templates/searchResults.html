@@ -59,8 +59,18 @@
             
           </ul>
           <div class="cd-fail-message">No results found</div>
+          <div class="pagination">
+            {% if page > 1 %}
+            <a href="{{ url_for('search', type=petType,name= petName,page=page-1 ) }}" class="Previous_Page">Previous</a>
+            {% endif %}
+            <span class="pages_nb">Page {{page}} of {{total_pages}}</span>
+            {% if page < total_pages %}
+            <a href="{{ url_for('search', type=petType,name= petName,page=page+1 ) }}" class="Next_Page">Next</a>
+            {% endif %}
+          </div>
         </section>
-      
+
+ 
         <!-- cd-gallery -->
   
         <div class="cd-filter">
