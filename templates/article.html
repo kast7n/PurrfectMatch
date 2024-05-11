@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %}Purrfect Match Pet Adoption{%
+endblock title %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/articlePageExtension.css') }}"
+/>
+
+{% endblock css %} {% block content %}
+<main>
+  <div class="wholePetInfo">
+    <h1 class="petName">Bingus</h1>
+    <div class="divider">
+      <div class="divider-line"></div>
+    </div>
+    <div class="petImage">
+      <div class="imgDivider">
+        <img
+          src="{{ url_for('static', filename='imgs/Pets/Cats/bingus.jpg') }}"
+          alt="clickedPetImage"
+        />
+      </div>
+    </div>
+    <div class="divider">
+      <div class="divider-line"></div>
+    </div>
+    <div class="petInfo">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus
+        eligendi ad inventore! Velit aspernatur fugit praesentium illo error
+        eveniet consequuntur pariatur! Ullam libero, repellendus sed ea eos
+        blanditiis molestias repudiandae?
+      </p>
+    </div>
+  </div>
+</main>
+
+{% endblock content %}

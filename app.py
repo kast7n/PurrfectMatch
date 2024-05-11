@@ -64,4 +64,12 @@ def signin():
 def signup():
     return render_template("signup.html")
 
+@app.route("/article")
+def article():
+    return render_template("article.html")
+
+@app.route("/form")
+def form():
+    return render_template("form.html")
+
 app.run(debug=True)
