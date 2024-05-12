@@ -11,67 +11,81 @@ endblock title %} {% block css %}
 {% endblock css %} {% block content %}
 <main>
   <div class="wholePetInfo">
-    <h1 class="petName">Bingus</h1>
+    <h1 class="petName">{{pet_and_shelter_info[0][0].name}}</h1>
     <div class="divider">
       <div class="divider-line"></div>
     </div>
     <div class="petImage">
       <div class="imgDivider">
         <img
-          src="{{ url_for('static', filename='imgs/Pets/' + ID + '.jpg') }}"
+          src="{{ url_for('static', filename='imgs/Shelters/'+ pet_and_shelter_info[0][1].name + '/' +  pet_and_shelter_info[0][0].pet_type + 's/' + pet_and_shelter_info[0][0].name + '.jpg') }}"
           alt="clickedPetImage"
         />
       </div>
     </div>
-    <div class="divider">
-      <div class="divider-line"></div>
-    </div>
+
     <div class="petInfo">
-      <p class="petTags">Adult . Male . Medium . Tabby (Brown / Chocolate)</p>
       <div class="divider">
         <div class="divider-line"></div>
       </div>
       <h3 class="aboutPet">About</h3>
 
+      <h4 class="aboutTitles">Who Am I?</h4>
+      <p class="petChar char">{{pet_and_shelter_info[0][2].description}}</p>
+      <h4 class="aboutTitles">Gender</h4>
+      <p class="petChar char">{{pet_and_shelter_info[0][0].gender}}</p>
       <h4 class="aboutTitles">CHARACTERISTICS</h4>
-      <p class="petChar char">Quiet, Playful, Independent, Curious</p>
+      <p class="petChar char">{{pet_and_shelter_info[1]}}</p>
 
       <h4 class="aboutTitles">COAT LENGTH</h4>
-      <p class="petCoatLength char">Short</p>
+      <p class="petCoatLength char">
+        {{pet_and_shelter_info[0][0].coat_length}}
+      </p>
 
       <h4 class="aboutTitles">HOUSE-TRAINED</h4>
       <p class="petHouseTrained char">Yes</p>
 
       <h4 class="aboutTitles">HEALTH</h4>
-      <p class="petHealth char">Vaccinations up to date, spayed / neutered.</p>
+      <p class="petHealth char">{{pet_and_shelter_info[0][0].health}}</p>
 
-      <h4 class="aboutTitles">GOOD IN A HOME WITH</h4>
-      <p class="petGoodWith char">Other cats.</p>
+      <h4 class="aboutTitles">House Trained</h4>
+      <p class="petGoodWith char">
+        {{pet_and_shelter_info[0][0].house_training}}
+      </p>
 
-      <h4 class="aboutTitles">PREFERS A HOME WITHOUT</h4>
-      <p class="petPreference char">Dogs, other animals.</p>
+      <h4 class="aboutTitles">Good In Home</h4>
+      <p class="petGoodWith char">
+        {{pet_and_shelter_info[0][0].good_in_home}}
+      </p>
+
+      <h4 class="aboutTitles">Activity Level</h4>
+      <p class="petPreference char">
+        {{pet_and_shelter_info[0][0].activity_level}}
+      </p>
 
       <h4 class="aboutTitles">ADOPTION FEE</h4>
-      <p class="petAdoptionFee char">$180.00</p>
+      <p class="petAdoptionFee char">
+        {{pet_and_shelter_info[0][0].adoption_fee}}
+      </p>
     </div>
 
     <div class="shelterInfo"></div>
   </div>
-  <a href="{{ url_for('shelter', shelterID = 5) }}">
+  <a href="{{ url_for('shelter', shelterID = pet_and_shelter_info[0][1].id) }}">
     <div class="shelterCard">
       <div class="shelterImg">
         <img
-          src="{{ url_for('static', filename='imgs/svg/charity.svg') }}"
+          src="{{ url_for('static', filename='imgs/Shelters/'+ pet_and_shelter_info[0][1].name + '/logo.png') }}"
           alt=""
           class="shelterLogo"
         />
       </div>
       <div class="shelterCardBody">
-        <h1>Valley SPCA La Vallee inc.</h1>
-        <h3>Dsl De Drummond, NB</h3>
+        <h1>{{pet_and_shelter_info[0][1].name}}</h1>
+        <h3>{{pet_and_shelter_info[0][1].po_box}}</h3>
         <div class="map">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13255.928249635665!2d35.4976952091655!3d33.838573221807486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f19c98f32763d%3A0x3a56fac9bfdf2eec!2sCroissant%20Al-Doha!5e0!3m2!1sen!2slb!4v1711284572730!5m2!1sen!2slb"
+            src="{{pet_and_shelter_info[0][1].googlemap_link}}"
             width="100%"
             height="50%"
             style="border: 0"
@@ -89,7 +103,7 @@ endblock title %} {% block css %}
             <div>
               <h4>Location Address</h4>
               <p class="locationAddress">
-                15 Falls Brook Hill Road Dsl De Drummond, NB E3Y 1X4
+                {{pet_and_shelter_info[0][1].address}}
               </p>
             </div>
           </div>
@@ -102,7 +116,7 @@ endblock title %} {% block css %}
               alt="mailIcon"
             />
             <a href="info@valleyspcalavallee.com" class="emailLink"
-              ><p class="email">info@valleyspcalavallee.com</p></a
+              ><p class="email">{{pet_and_shelter_info[0][1].email}}</p></a
             >
           </div>
           <div class="divider">
@@ -113,7 +127,7 @@ endblock title %} {% block css %}
               src="{{ url_for('static', filename='imgs/svg/phone-svgrepo-com.svg') }}"
               alt="mailIcon"
             />
-            <p class="phoneNb">(506) 473-1803</p>
+            <p class="phoneNb">{{pet_and_shelter_info[0][1].phone_number}}</p>
           </div>
         </div>
       </div>

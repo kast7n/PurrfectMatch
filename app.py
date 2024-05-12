@@ -26,7 +26,6 @@ class Shelter(Base):
     donation_link = Column(String(255))
 
     pets = relationship("Pet", back_populates="shelter")
-
 class Pet(Base):
     __tablename__ = 'pet'
 
@@ -46,7 +45,6 @@ class Pet(Base):
     pet_characteristics = relationship("PetCharacteristics", back_populates="pet")
     adoption_applications = relationship("AdoptionApplication", back_populates="pet")
     pet_description = relationship("PetDescription", uselist=False, back_populates="pet")
-
 class PetDescription(Base):
     __tablename__ = 'pet_description'
     pet_id = Column(Integer, ForeignKey('pet.id'), primary_key=True)
@@ -134,8 +132,21 @@ def articles():
 
 @app.route("/pet/<petID>")
 def pet(petID):
-    curr_pet = {}
-    return render_template("pet.html",ID = petID,pet = curr_pet)
+    pet_and_shelter_info = []
+    pet_characteristics = []
+    session = Session()
+    pet_and_shelter_info = session.query(Pet, Shelter,PetDescription) \
+    .join(Shelter) \
+    .join(PetDescription) \
+    .filter(Pet.id == petID) \
+    .all()
+    pet_characteristics = session.query(PetCharacteristics).filter(PetCharacteristics.pet_id == petID).all()
+    session.close()
+    characteristics_str = ', '.join([char.characteristic for char in pet_characteristics])
+    pet_and_shelter_info.append(characteristics_str)
+    print(pet_and_shelter_info[1])
+
+    return render_template("pet.html",ID = petID,pet_and_shelter_info = pet_and_shelter_info)
 
 @app.route("/shelter/<shelterID>")
 def shelter(shelterID):

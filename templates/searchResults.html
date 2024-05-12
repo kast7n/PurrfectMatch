@@ -42,7 +42,7 @@
           <ul>
             {% for pet,shelter_name,PetDescription in filteredPets %}
             <li class="mix color-2 check2 radio2 option2">
-              <a href="pet.html">  <figure class="card" >
+              <a href="{{ url_for('pet', petID=pet.id) }}">  <figure class="card" >
                 
                 <img src="{{ url_for('static', filename='imgs/Shelters/'+ shelter_name + '/' +  pet.pet_type + 's/' + pet.name + '.jpg') }}" alt="Pet Image" />
                 <figcaption>
