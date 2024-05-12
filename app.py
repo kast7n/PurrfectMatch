@@ -150,7 +150,10 @@ def pet(petID):
 
 @app.route("/shelter/<shelterID>")
 def shelter(shelterID):
-    curr_shelter = {}
+    
+    session = Session()
+    curr_shelter = session.query(Shelter).filter(Shelter.id == shelterID).all()
+    print(curr_shelter)
     return render_template("shelter.html",shelter = curr_shelter)
 
 @app.route("/signin")

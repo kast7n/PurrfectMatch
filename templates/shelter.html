@@ -12,15 +12,15 @@
             <div class="imglogo"><svg xmlns="http://www.w3.org/2000/svg" 
               viewBox="0 0 512 512" style= "enable-background:new 0 0 512 512 "width=90 xml:space="preserve"><style>.st1{fill:#3d2a3d}.st12{fill:#fff}</style><path class="st1" d="M0 256C0 114.6 114.6 0 256 0s256 114.6 256 256-114.6 256-256 256S0 397.4 0 256z" id="Layer_9"/><g id="Layer_7"><path class="st12" d="M379 373.5c0 20.2-16.3 36.5-36.5 36.5h-177c-20.2 0-36.5-16.3-36.5-36.5v-107c0-20.2 16.3-36.5 36.5-36.5h177c20.2 0 36.5 16.3 36.5 36.5v107z"/><path class="st12" d="M264.6 133.8c-5.6-5.5-14.7-5.5-20.3 0l-120.8 119c-5.6 5.5-2.7 10.2 6.4 10.2h248.9c9.1 0 12-4.7 6.4-10.2l-120.6-119z"/><path class="st1" d="M309 356.5c0 14.6-11.8 26.5-26.5 26.5h-55.1c-14.6 0-26.5-11.8-26.5-26.5v-.1c0-14.6 11.8-26.5 26.5-26.5h55.1c14.7.1 26.5 11.9 26.5 26.6z"/><ellipse class="st1" cx="254.5" cy="336.5" rx="26.9" ry="33.6"/><path class="st1" d="M302.8 283.4c0 11.5-9.3 20.8-20.8 20.8s-20.8-9.3-20.8-20.8 9.3-20.8 20.8-20.8 20.8 9.3 20.8 20.8zM247.8 283.4c0 11.5-9.3 20.8-20.8 20.8s-20.8-9.3-20.8-20.8 9.3-20.8 20.8-20.8 20.8 9.3 20.8 20.8z"/><g><path class="st1" d="M208 319.1c0 9.6-7.8 17.4-17.4 17.4-9.6 0-17.4-7.8-17.4-17.4 0-9.6 7.8-17.4 17.4-17.4 9.6 0 17.4 7.8 17.4 17.4zM335.8 319.1c0 9.6-7.8 17.4-17.4 17.4-9.6 0-17.4-7.8-17.4-17.4 0-9.6 7.8-17.4 17.4-17.4 9.6 0 17.4 7.8 17.4 17.4z"/></g><g><path d="M407.7 234.7c-13.1-14.3-27.7-27.4-41.5-41-21.8-21.4-43.6-42.9-65.4-64.3-4.9-4.8-9.8-9.7-14.7-14.5-14.6-14.4-37-16.9-54.6-6.7-4.1 2.4-7.5 5.7-10.9 9-18 17.7-36 35.4-53.9 53.1-14.7 14.5-29.5 29-44.2 43.5-7 6.9-14.5 13.6-21.1 20.9-11 12-11.9 30.5 0 42.4 11.2 11.2 31.4 12.1 42.4 0 13.1-14.3 27.7-27.4 41.5-41 21.8-21.4 43.6-42.9 65.4-64.3 3.7-3.7 7.4-7.3 11.1-11l3-3 .6-.6c-1.6 1.6-6 3.7-1.2 1.5l-7.2 3c1.4-.5 2.6-.8 4-1-2.7.4-5.3.7-8 1.1.9-.1 1.8-.1 2.8 0-2.7-.4-5.3-.7-8-1.1 1.4.2 2.7.5 4 1l-7.2-3c3.3 1.5 3.4 3-1.3-1.6l.4.4 2.1 2.1c2.8 2.7 5.5 5.4 8.3 8.1 9.4 9.3 18.9 18.6 28.3 27.9 21.9 21.6 43.8 43.1 65.7 64.7 5.7 5.6 11.6 11 17 16.8 11 12.1 31.2 11.2 42.4 0 12.1-11.9 11.2-30.3.2-42.4z" style="fill:#db4646"/></g></g></svg></div>
             <div class="firstContent">
-              <p class="left-top">Houston Chow Chow Connections  </p>
+              <p class="left-top">{{shelter[0].name}}</p>
               <hr class="line">
              <div class="secondContent">
               <div class="locLogo"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 5a21 21 0 0 0-21 21c0 17 21 33 21 33s21-16 21-33A21 21 0 0 0 32 5zm7 20v10h-5v-5a2 2 0 0 0-2-2 2 2 0 0 0-2 2v5h-5V25h-4l11-9 11 9z" data-name="home location"/></svg></div>
                <div class="locDetails">
-                <p>448 West 15th Street</p>
-                <p>Box 553</p>
-                <p>Houston, TX 77008</p>
-                <p><a href="">Get directions</a></p>
+                <p>{{shelter[0].address}}</p>
+                <p>{{shelter[0].po_box}}</p>
+                {% set normal_url = shelter[0].googlemap_link|replace('/embed/v1/', '/') %}
+                <p><a href="{{ normal_url }}">Get directions</a></p>
                </div>
              </div> 
 
@@ -29,21 +29,21 @@
          </div>
          <div class="container-right">
              <div class="aboveContent">
-              <button >view our pets</button>
+              <a href="">view our pets</a>
               <hr>
              </div>
              <div class="belowContent">
               <div class="mailLogo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 5v4l-10 4L2 9V5a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1zM2 11.154V19a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-7.846l-10 4z"/></svg>
               </div>
-              <div class="belowDetails"><a href="mailto:">purrfectmatch@gmail.com</a></div>
+              <div class="belowDetails"><a href="mailto:">{{shelter[0].email}}</a></div>
               
 
              </div>
              <hr class="rightLine">
              <div class="belowbelowContent">
               <div class="phoneLogo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.384,17.752a2.108,2.108,0,0,1-.522,3.359,7.543,7.543,0,0,1-5.476.642C10.5,20.523,3.477,13.5,2.247,8.614a7.543,7.543,0,0,1,.642-5.476,2.108,2.108,0,0,1,3.359-.522L8.333,4.7a2.094,2.094,0,0,1,.445,2.328A3.877,3.877,0,0,1,8,8.2c-2.384,2.384,5.417,10.185,7.8,7.8a3.877,3.877,0,0,1,1.173-.781,2.092,2.092,0,0,1,2.328.445Z"/></svg></div>
-              <div class="number"><a href="tel:+961">(409) 682-0665</a></div>
+              <div class="number"><a href="tel:+961">{{shelter[0].phone_number}}</a></div>
              </div>
 
          </div>
@@ -56,22 +56,12 @@
         <div class="bodyContainer">
           <div class="left">
             <p class="title">Our Mission</p>
-            <p>Rock N Second Chances Rescue is a non-profit organization dedicated to saving dogs from over populated, high kill shelters. We work with committed volunteers, fosters, veterinarians and other rescues partnering to find safe new homes for each dog we save.
-              • Partnering with like-minded recues and organizations to achieve a common goal of saving and rehoming recused animals.
-              • Providing dogs with temporary care through our foster programs and /or boarding facility.
-              • Ensuring the dogs rescued receive proper care using our local veterinarian services.
-              • Locating successful placement by using our application and interview process.
-              • Provide education to evaluate and train shelter dogs
-              • Educating the public and adaptors on responsible pet care and relationships.
-              • Helping senior citizens with veterinarian care when a need is made / requested.
-              • Finding those special dogs that can become trained as emotional support companions.
-              • Long term goal is to expand to include other animals in need of rescue.
-              Rock N Second Chances Rescue seeks to bring a better life to both a dog in need and a family seeking that special friend. No funds that Rock N Second Chances Rescue acquire will be used to benefit a single individual, with the exception in exchange for services benefitting Rock N Second Chances Rescue. If for some reason this non-profit should fail any funds remaining will be donated to another like-minded non-profit rescue.</p>
+            <p>{{shelter[0].description}}</p>
            
           </div>
           <div class="right">
             <h4>Check us on other platforms</h4>
-            <div class="rightImg"><img src="{{ url_for('static', filename='imgs/pets/5.jpg') }}" alt="pet"></div>
+            <div class="rightImg"><img src="{{ url_for('static', filename='imgs/Shelters/'+ shelter[0].name + '/' + shelter[0].name + '.jpg') }}" alt="pet"></div>
             <div class="shareButton"> <button ><svg  xmlns="http://www.w3.org/2000/svg" width="21" height="22.928" color="#6504b5;"><path d="M1.056 21.928c0-6.531 5.661-9.034 10.018-9.375V18.1L22.7 9.044 11.073 0v4.836a10.5 10.5 0 0 0-7.344 3.352C-.618 12.946-.008 21 .076 21.928z"/></svg><abbr class="share">share</abbr></button></div>
             <p>follow us</p>
             <div title="icon-facebook" class="facebookLogo">
