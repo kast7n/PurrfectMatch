@@ -1,10 +1,9 @@
 
 from flask import Flask,render_template,redirect,request    
-from flask_sqlalchemy import pagination
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker,relationship,joinedload
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import TIMESTAMP, Boolean, ForeignKey, or_,and_,Column, Integer, String, Text
+from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, String, Text
 
 
 app = Flask(__name__,template_folder='templates')
