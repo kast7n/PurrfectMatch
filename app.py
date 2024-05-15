@@ -1,30 +1,23 @@
 
 from flask import Flask,render_template,redirect,request    
 import sqlalchemy
-from sqlalchemy.orm import sessionmaker,relationship,joinedload
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker,relationship,joinedload,declarative_base
 from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, String, Text
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__,template_folder='templates')
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:12345@localhost/PurrfectMatch'
 Base = declarative_base()
+engine = sqlalchemy.create_engine('mysql+pymysql://root:12345@127.0.0.1:3306/PurrfectMatch')
+Session = sessionmaker(bind=engine)
+db = SQLAlchemy(app)
 
-class Shelter(Base):
-    __tablename__ = 'shelter'
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255))
-    address = Column(String(255))
-    po_box = Column(String(255))
-    googlemap_link = Column(Text)
-    email = Column(String(255))
-    phone_number = Column(String(255))
-    description = Column(Text)
-    website_link = Column(String(255))
-    donation_link = Column(String(255))
 
-    pets = relationship("Pet", back_populates="shelter")
+
+
+
 class Pet(Base):
     __tablename__ = 'pet'
 
@@ -87,8 +80,10 @@ class AdoptionApplicationReply(Base):
     application = relationship("AdoptionApplication", back_populates="replies")   
 
 
-engine = sqlalchemy.create_engine('mysql+pymysql://root:12345@127.0.0.1:3306/PurrfectMatch')
-Session = sessionmaker(bind=engine)
+import shelter
+from shelter import Shelter
+
+
 
 @app.route("/", methods = ["GET","POST"])
 def homePage():
