@@ -4,20 +4,8 @@ from fastapi.encoders import jsonable_encoder
 from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, String, Text
 from sqlalchemy.orm import sessionmaker,relationship,joinedload
 
+from dataClasses import *
 
-class Shelter(db.Model):
-    __tablename__ = 'shelter'
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255))
-    address = Column(String(255))
-    po_box = Column(String(255))
-    googlemap_link = Column(Text)
-    email = Column(String(255))
-    phone_number = Column(String(255))
-    description = Column(Text)
-    website_link = Column(String(255))
-    donation_link = Column(String(255))
-   # pets = relationship("Pet", back_populates="shelter")
 
 @app.route('/api/shelters', methods=['GET'])
 def getShelters():

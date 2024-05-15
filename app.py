@@ -13,75 +13,13 @@ engine = sqlalchemy.create_engine('mysql+pymysql://root:12345@127.0.0.1:3306/Pur
 Session = sessionmaker(bind=engine)
 db = SQLAlchemy(app)
 
-
-
-
-
-
-class Pet(Base):
-    __tablename__ = 'pet'
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255))
-    coat_length = Column(String(255))
-    activity_level = Column(String(255))
-    house_training = Column(String(255))
-    pet_type = Column(String(255))
-    shelter_id = Column(Integer, ForeignKey('shelter.id'))
-    health = Column(String(255))
-    good_in_home = Column(Boolean)
-    adoption_fee = Column(Integer)
-    gender = Column(String(10))
-
-    shelter = relationship("Shelter", back_populates="pets")
-    pet_characteristics = relationship("PetCharacteristics", back_populates="pet")
-    adoption_applications = relationship("AdoptionApplication", back_populates="pet")
-    pet_description = relationship("PetDescription", uselist=False, back_populates="pet")
-class PetDescription(Base):
-    __tablename__ = 'pet_description'
-    pet_id = Column(Integer, ForeignKey('pet.id'), primary_key=True)
-    description = Column(Text)
-    pet = relationship("Pet", back_populates="pet_description")
-class PetCharacteristics(Base):
-    __tablename__ = 'pet_characteristics'
-
-    pet_id = Column(Integer, ForeignKey('pet.id'), primary_key=True)
-    characteristic = Column(String(255), primary_key=True)
-
-    pet = relationship("Pet", back_populates="pet_characteristics")
-class Article(Base):
-    __tablename__ = 'article'
-
-    article_id = Column(Integer, primary_key=True, autoincrement=True)
-    article_name = Column(String(255))
-    image = Column(Text)
-    article_info = Column(Text)
-class AdoptionApplication(Base):
-    __tablename__ = 'adoption_application'
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    username = Column(String(255))
-    email = Column(String(255))
-    phone_number = Column(String(255))
-    address = Column(String(255))
-    description = Column(Text)
-    pet_id = Column(Integer, ForeignKey('pet.id'))
-
-    pet = relationship("Pet", back_populates="adoption_applications")
-    replies = relationship("AdoptionApplicationReply", back_populates="application")
-class AdoptionApplicationReply(Base):
-    __tablename__ = 'adoption_application_reply'
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    application_id = Column(Integer, ForeignKey('adoption_application.id'))
-    reply_text = Column(Text)
-    reply_date = Column(TIMESTAMP, server_default="CURRENT_TIMESTAMP")
-
-    application = relationship("AdoptionApplication", back_populates="replies")   
-
+from dataClasses import *
 
 import shelter
-from shelter import Shelter
+import pet
+
+
+
 
 
 
