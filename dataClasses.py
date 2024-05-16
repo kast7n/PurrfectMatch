@@ -1,6 +1,7 @@
 from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, String, Text
 from sqlalchemy.orm import sessionmaker,relationship,joinedload
 from __main__ import db
+from flask_login import UserMixin
 
 
 class Shelter(db.Model):
@@ -79,4 +80,15 @@ class AdoptionApplicationReply(db.Model):
     reply_date = Column(TIMESTAMP, server_default=" ")
 
     application = relationship("AdoptionApplication", back_populates="replies")   
+
+class User(UserMixin,db.Model):
+    __tablename__ = 'users'
+    
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    username = Column(String(255), nullable=False)
+    email = Column(String(255), nullable=False)
+    password = Column(String(255), nullable=False)
+    role = Column(String(255), nullable=False)
+    shelter_id = Column(Integer, ForeignKey('shelter.id', ondelete='CASCADE'))
+    shelter = relationship('Shelter')
 

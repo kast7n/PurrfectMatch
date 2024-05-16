@@ -771,16 +771,21 @@
             Log out
           </a>
           {% if current_user.role =='shelter' %}
-          <a href="{{ url_for('managePets') }}" title="Manage pets" class="secondary">
+          <a
+            href="{{ url_for('manageshelter') }}"
+            title="Manage pets"
+            class="secondary"
+          >
             Manage Pets
           </a>
-          <a href="{{ url_for('editShelter') }}" title="Edit Shelter" class="secondary">
+          <a
+            href="{{ url_for('editShelter') }}"
+            title="Edit Shelter"
+            class="secondary"
+          >
             Edit Shelter
           </a>
-          {% endif %}
-
-          {% else %}
-
+          {% endif %} {% else %}
 
           <a href="{{ url_for('signin') }}" title="Log in" class="secondary">
             Sign in

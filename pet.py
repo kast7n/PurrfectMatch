@@ -46,7 +46,8 @@ def deletePet(id):
     db.session.delete(pet)
     for i in charac:
         db.session.delete(i)
-    db.session.delete(descrip[0])
+    if len(descrip) > 0:
+        db.session.delete(descrip[0])
     db.session.commit()
     return jsonify({'message' : 'delete success'}), 200
 

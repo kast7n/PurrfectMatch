@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"
+    />
+  </head>
+
+  <body>
+    <div>
+      <h1 class="manageTitle">Manage Shelter</h1>
+
+      <h2 id="table_title">Manage Pets</h2>
+      <div class="managementNavigation">
+        <button class="navBtn" type="button">Manage Pets</button>
+        {% if user.role =='admin' %}
+        <button class="navBtn" type="button">Manage Shelters</button>
+        <button class="navBtn" type="button">Manage Users</button>
+        {% endif %}
+      </div>
+
+      <table id="managePets">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>pet_type</th>
+            <th>shelter_id</th>
+            <th>gender</th>
+            <th>activity_level</th>
+            <th>actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          var url = "/api/pets/shelter/" + "{{ shelter_id }}";
+          if ("{{ user.role }}" == "admin") {
+            url = "/api/pets";
+          }
+
+          var table = $("#managePets").DataTable({
+            ajax: {
+              url: url,
+              method: "GET",
+              dataSrc: "",
+            },
+            columns: [
+              { data: "id" },
+              { data: "name" },
+              { data: "pet_type" },
+              { data: "shelter_id" },
+              { data: "gender" },
+              { data: "activity_level" },
+              {
+                data: null,
+                render: function (data, type, row) {
+                  var editBtn = '<a href="/pet/edit/' + data.id + '">Edit</a>';
+                  var deleteBtn =
+                    '<a href="#" class="delete-pet" data-id="' +
+                    data.id +
+                    '">Delete</a>';
+                  return editBtn + " | " + deleteBtn;
+                },
+              },
+            ],
+          });
+
+          // Attach click event handler to delete buttons
+          $("#managePets").on("click", ".delete-pet", function (e) {
+            e.preventDefault();
+            var petId = $(this).data("id");
+            deletePet(petId);
+          });
+
+          // Function to delete a pet using AJAX
+          function deletePet(petId) {
+            $.ajax({
+              url: "/api/pet/" + petId,
+              method: "DELETE",
+              success: function (response) {
+                // Handle success response
+                console.log("Pet deleted successfully");
+                // Refresh the DataTable
+                table.ajax.reload();
+              },
+              error: function (error) {
+                // Handle error response
+                console.error("Error deleting pet:", error);
+              },
+            });
+          }
+        });
+      </script>
+    </div>
+  </body>
+</html>

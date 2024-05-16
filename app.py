@@ -25,17 +25,6 @@ import pet
 login_manager = LoginManager(app)
 
 
-class User(UserMixin,db.Model):
-    __tablename__ = 'users'
-    
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    username = Column(String(255), nullable=False)
-    email = Column(String(255), nullable=False)
-    password = Column(String(255), nullable=False)
-    role = Column(String(255), nullable=False)
-
-
-
 app.config['SECRET_KEY'] = 'ali'
 @login_manager.user_loader
 def load_user(user_id):
@@ -154,9 +143,10 @@ def logout():
     logout_user()
     return redirect(url_for('homePage'))
 
-@app.route('/managePets')
-@login_required
-def managePets():
+@app.route('/manageshelter')
+def manageshelter():
+    if current_user.is_authenticated and current_user.role == "shelter":
+        return render_template('manage.html',shelter_id = current_user.shelter_id,user = current_user)
     return redirect(url_for('homePage'))
 
 @app.route('/editShelter')
