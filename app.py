@@ -1,8 +1,7 @@
 
 from flask import Flask,render_template,redirect,request,url_for  
 import sqlalchemy
-from sqlalchemy.orm import sessionmaker,relationship,joinedload
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker,relationship,joinedload,declarative_base
 from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, String, Text
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -10,90 +9,23 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__,template_folder='templates')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:12345@localhost/PurrfectMatch'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:12345@localhost/PurrfectMatch'
+
 engine = sqlalchemy.create_engine('mysql+pymysql://root:12345@127.0.0.1:3306/PurrfectMatch')
 Session = sessionmaker(bind=engine)
-
 Base = declarative_base()
-
+engine = sqlalchemy.create_engine('mysql+pymysql://root:12345@127.0.0.1:3306/PurrfectMatch')
 db = SQLAlchemy(app)
+
+from dataClasses import *
+
+import shelter
+import pet
+
 login_manager = LoginManager(app)
 
-class Shelter(Base):
-    __tablename__ = 'shelter'
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255))
-    address = Column(String(255))
-    po_box = Column(String(255))
-    googlemap_link = Column(Text)
-    email = Column(String(255))
-    phone_number = Column(String(255))
-    description = Column(Text)
-    website_link = Column(String(255))
-    donation_link = Column(String(255))
-
-    pets = relationship("Pet", back_populates="shelter")
-class Pet(Base):
-    __tablename__ = 'pet'
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255))
-    coat_length = Column(String(255))
-    activity_level = Column(String(255))
-    house_training = Column(String(255))
-    pet_type = Column(String(255))
-    shelter_id = Column(Integer, ForeignKey('shelter.id'))
-    health = Column(String(255))
-    good_in_home = Column(Boolean)
-    adoption_fee = Column(Integer)
-    gender = Column(String(10))
-
-    shelter = relationship("Shelter", back_populates="pets")
-    pet_characteristics = relationship("PetCharacteristics", back_populates="pet")
-    adoption_applications = relationship("AdoptionApplication", back_populates="pet")
-    pet_description = relationship("PetDescription", uselist=False, back_populates="pet")
-class PetDescription(Base):
-    __tablename__ = 'pet_description'
-    pet_id = Column(Integer, ForeignKey('pet.id'), primary_key=True)
-    description = Column(Text)
-    pet = relationship("Pet", back_populates="pet_description")
-class PetCharacteristics(Base):
-    __tablename__ = 'pet_characteristics'
-
-    pet_id = Column(Integer, ForeignKey('pet.id'), primary_key=True)
-    characteristic = Column(String(255), primary_key=True)
-
-    pet = relationship("Pet", back_populates="pet_characteristics")
-class Article(Base):
-    __tablename__ = 'article'
-
-    article_id = Column(Integer, primary_key=True, autoincrement=True)
-    article_name = Column(String(255))
-    image = Column(Text)
-    article_info = Column(Text)
-class AdoptionApplication(Base):
-    __tablename__ = 'adoption_application'
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    username = Column(String(255))
-    email = Column(String(255))
-    phone_number = Column(String(255))
-    address = Column(String(255))
-    description = Column(Text)
-    pet_id = Column(Integer, ForeignKey('pet.id'))
-
-    pet = relationship("Pet", back_populates="adoption_applications")
-    replies = relationship("AdoptionApplicationReply", back_populates="application")
-class AdoptionApplicationReply(Base):
-    __tablename__ = 'adoption_application_reply'
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    application_id = Column(Integer, ForeignKey('adoption_application.id'))
-    reply_text = Column(Text)
-    reply_date = Column(TIMESTAMP, server_default="CURRENT_TIMESTAMP")
-
-    application = relationship("AdoptionApplication", back_populates="replies")   
 class User(UserMixin,db.Model):
     __tablename__ = 'users'
     
@@ -109,6 +41,7 @@ app.config['SECRET_KEY'] = 'ali'
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))   
+
 
 @app.route("/", methods = ["GET","POST"])
 def homePage():
@@ -185,6 +118,11 @@ def article():
 def form():
     return render_template("form.html")
 
+
+@app.route("/pet/add")
+def addPetForm():
+    return render_template("petForm.html")
+
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
     if current_user.is_authenticated:
@@ -226,6 +164,7 @@ def managePets():
 @login_required
 def editShelter():
     return redirect(url_for('homePage'))
+
 
 
 app.run(debug=True)
