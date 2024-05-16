@@ -15,7 +15,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:12345@localhost/Pu
 engine = sqlalchemy.create_engine('mysql+pymysql://root:12345@127.0.0.1:3306/PurrfectMatch')
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
-engine = sqlalchemy.create_engine('mysql+pymysql://root:12345@127.0.0.1:3306/PurrfectMatch')
 db = SQLAlchemy(app)
 
 from dataClasses import *
