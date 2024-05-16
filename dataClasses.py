@@ -40,13 +40,13 @@ class PetDescription(db.Model):
     __tablename__ = 'pet_description'
     pet_id = Column(Integer, ForeignKey('pet.id'), primary_key=True)
     description = Column(Text)
-    pet = relationship("Pet", back_populates="pet_description")
+    pet = relationship("Pet", back_populates="pet_description",cascade='delete')
 
 class PetCharacteristics(db.Model):
     __tablename__ = 'pet_characteristics'
     pet_id = Column(Integer, ForeignKey('pet.id'), primary_key=True)
     characteristic = Column(String(255), primary_key=True)
-    pet = relationship("Pet", back_populates="pet_characteristics")
+    pet = relationship("Pet", back_populates="pet_characteristics",cascade='delete')
 
 class Article(db.Model):
     __tablename__ = 'article'

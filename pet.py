@@ -18,6 +18,11 @@ def getShelterPets(shelterID):
      pets = Pet.query.filter(Pet.shelter_id == shelterID).all()
      return (jsonable_encoder(pets))
 
+@app.route('/api/pet/<int:id>', methods=['GET'])
+def getPet(id):
+     pet = Pet.query.get_or_404(id)
+     return (jsonable_encoder(pet))
+
 @app.route('/api/pet', methods=['POST'])
 def addPet():
     pet = Pet(name=request.json['name'], coat_length=request.json['coat_length'],activity_level=request.json['activity_level'],house_training=request.json['house_training'],pet_type=request.json['pet_type'],           
@@ -39,10 +44,8 @@ def deletePet(id):
     charac = PetCharacteristics.query.filter(PetCharacteristics.pet_id == id).all()
     descrip = PetDescription.query.filter(PetDescription.pet_id == id).all()
     db.session.delete(pet)
-
     for i in charac:
         db.session.delete(i)
-
     db.session.delete(descrip[0])
     db.session.commit()
     return jsonify({'message' : 'delete success'}), 200
@@ -51,8 +54,6 @@ def deletePet(id):
 @app.route('/api/pet/<int:id>', methods=['PUT'])
 def updatePet(id):
     pet = Pet.query.get_or_404(id)
-    
-
     pet.name=request.json['name']
     pet.coat_length=request.json['coat_length']
     pet.activity_level=request.json['activity_level']
