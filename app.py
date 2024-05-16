@@ -105,4 +105,8 @@ def article():
 def form():
     return render_template("form.html")
 
+@app.route("/pet/add")
+def addPetForm():
+    return render_template("petForm.html")
+
 app.run(debug=True)

@@ -1,0 +1,162 @@
+{% extends "base.html" %} {% block title %}Purrfect Match Pet Adoption{%
+endblock title %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/form.css') }}"
+/>
+
+{% endblock css %} {% block content %}
+<main>
+  <div class="container">
+    <div class="title">Add/Edit Pet</div>
+    <form action="#">
+      <div class="user-details">
+        <div class="input-box">
+          <label class="details" for="name">Pet Name:</label>
+          <input
+            type="text"
+            placeholder="Enter the pets name"
+            id="name"
+            required
+          />
+        </div>
+        <div class="drop-box">
+          <label class="details">Coat_Length:</label>
+          <select
+            class="coat_length petdropdown"
+            name="coat_length"
+            id="coat_length"
+            required
+          >
+            <option value="">Choose an option</option>
+            <option value="Short">Short</option>
+            <option value="Medium">Medium</option>
+            <option value="Long">Long</option>
+            <option value="Hairless">Hairless</option>
+          </select>
+        </div>
+        <div class="drop-box">
+          <label class="details">Activity level:</label>
+          <select
+            class="activity_level petdropdown"
+            name="activity_level"
+            id="activity_level"
+            required
+          >
+            <option value="">Choose an option</option>
+            <option value="Active">Active</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <div class="radio-box">
+          <label class="details">House training:</label>
+
+          <ul class="house_training radio">
+
+            <li>
+              <input
+                class="filter"
+                data-filter=".radio2"
+                type="radio"
+                name="radioButton"
+                id="Yes"
+              />
+              <label class="radio-label" for="Yes">Yes</label>
+            </li>
+
+            <li>
+              <input
+                class="filter"
+                data-filter=".radio3"
+                type="radio"
+                name="radioButton"
+                id="No"
+              />
+              <label class="radio-label" for="No">No</label>
+            </li>
+          </ul>
+        </div>
+        <div class="drop-box">
+          <label class="details">Pet Type:</label>
+          <select
+            class="pet_type petdropdown"
+            name="pet_type"
+            id="pet_type"
+            required
+          >
+            <option value="">Choose an option</option>
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <label class="details" for="health">health:</label>
+          <input
+            type="text"
+            placeholder="Enter the pets health info"
+            id="health"
+            required
+          />
+        </div>
+        <div class="input-box">
+          <label class="details" for="adoption_fee">Adoption Fee:</label>
+          <input
+            type="number"
+            placeholder="Enter the pets adoption fee"
+            id="adoption_fee"
+            required
+          />
+        </div>
+        <div class="radio-box">
+          <label class="details">Gender:</label>
+
+          <ul class="gender radio">
+            <li>
+              <input
+                class="filter"
+                value="Female"
+                type="radio"
+                name="radioButton"
+                id="Female"
+              />
+              <label class="radio-label" for="radiomale">Female</label>
+            </li>
+
+            <li>
+              <input
+                class="filter"
+                value="Male"
+                type="radio"
+                name="radioButton"
+                id="radiomale"
+              />
+              <label class="radio-label" for="radiomale">Male</label>
+            </li>
+          </ul>
+        </div>
+        <div class="input-box">
+          <label class="details" for="characteristics"
+            >Pet characteristics:</label
+          >
+          <input
+            type="text"
+            placeholder="Enter the pets characteristics seperated by space"
+            id="characteristics"
+            required
+          />
+        </div>
+        <div class="input-box" id="extra-info">
+          <label class="details" for="extra">For any extra information:</label>
+          <input type="text" id="extra" />
+        </div>
+        <div class="button">
+          <button type="submit"><p>Apply</p></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+
+{% endblock content %}
