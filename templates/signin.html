@@ -7,7 +7,7 @@ css %}
 {% endblock css %} {% block content %}
 <div class="form-wrapper">
   <main class="form-side">
-    <form class="my-form">
+    <form method="post" class="my-form" action="/signin">
       <div class="form-welcome-row">
         <a href="index.html" title="Logo">
           <img
@@ -70,7 +70,7 @@ css %}
       <div class="my-form__actions">
         <div class="my-form__row">
           <span>Don't have an account?</span>
-          <a href="#" title="Reset Password"> Sign Up Now </a>
+          <a href="{{ url_for('signup') }}" title="Reset Password"> Sign Up Now </a>
         </div>
       </div>
     </form>
