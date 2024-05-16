@@ -1,16 +1,21 @@
 
-from flask import Flask,render_template,redirect,request    
+from flask import Flask,render_template,redirect,request,url_for  
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker,relationship,joinedload,declarative_base
 from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, String, Text
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__,template_folder='templates')
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:12345@localhost/PurrfectMatch'
-Base = declarative_base()
+
 engine = sqlalchemy.create_engine('mysql+pymysql://root:12345@127.0.0.1:3306/PurrfectMatch')
 Session = sessionmaker(bind=engine)
+Base = declarative_base()
+engine = sqlalchemy.create_engine('mysql+pymysql://root:12345@127.0.0.1:3306/PurrfectMatch')
 db = SQLAlchemy(app)
 
 from dataClasses import *
@@ -18,9 +23,24 @@ from dataClasses import *
 import shelter
 import pet
 
+login_manager = LoginManager(app)
+
+
+class User(UserMixin,db.Model):
+    __tablename__ = 'users'
+    
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    username = Column(String(255), nullable=False)
+    email = Column(String(255), nullable=False)
+    password = Column(String(255), nullable=False)
+    role = Column(String(255), nullable=False)
 
 
 
+app.config['SECRET_KEY'] = 'ali'
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))   
 
 
 @app.route("/", methods = ["GET","POST"])
@@ -28,7 +48,7 @@ def homePage():
     if request.method == "POST":
         searchURL = request.form["searchPet"]
         return redirect(f"/search/all/{searchURL}")
-    return render_template("index.html")
+    return render_template("index.html", auth = current_user.is_authenticated , user = current_user)
 
 @app.route("/search/<type>/<name>")
 def search(type,name):
@@ -88,14 +108,7 @@ def shelter(shelterID):
     print(curr_shelter)
     return render_template("shelter.html",shelter = curr_shelter)
 
-@app.route("/signin")
-def signin():
-    return render_template("signin.html")
 
-
-@app.route("/signup")
-def signup():
-    return render_template("signup.html")
 
 @app.route("/article")
 def article():
@@ -105,8 +118,53 @@ def article():
 def form():
     return render_template("form.html")
 
+
 @app.route("/pet/add")
 def addPetForm():
     return render_template("petForm.html")
+
+@app.route('/signin', methods=['GET', 'POST'])
+def signin():
+    if current_user.is_authenticated:
+        return redirect(url_for('homePage'))
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        user = User.query.filter_by(email=email).first()
+        if user and check_password_hash(user.password, password):
+            login_user(user)
+            return redirect(url_for('homePage'))
+        
+    return render_template('signin.html')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if current_user.is_authenticated:
+        return redirect(url_for('homePage'))
+    if request.method == 'POST':
+        new_user=User(email = request.form['email'], username = request.form['username'], password = generate_password_hash(request.form['password']), role="user")
+        db.session.add(new_user)
+        db.session.commit()
+        login_user(new_user)
+        return redirect(url_for('homePage'))
+        
+    return render_template('signup.html')
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('homePage'))
+
+@app.route('/managePets')
+@login_required
+def managePets():
+    return redirect(url_for('homePage'))
+
+@app.route('/editShelter')
+@login_required
+def editShelter():
+    return redirect(url_for('homePage'))
+
+
 
 app.run(debug=True)
