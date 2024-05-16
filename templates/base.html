@@ -766,12 +766,30 @@
           </nav>
         </div>
         <div class="action-buttons">
+          {% if auth %}
+          <a href="{{ url_for('logout') }}" title="Log out" class="secondary">
+            Log out
+          </a>
+          {% if current_user.role =='shelter' %}
+          <a href="{{ url_for('managePets') }}" title="Manage pets" class="secondary">
+            Manage Pets
+          </a>
+          <a href="{{ url_for('editShelter') }}" title="Edit Shelter" class="secondary">
+            Edit Shelter
+          </a>
+          {% endif %}
+
+          {% else %}
+
+
           <a href="{{ url_for('signin') }}" title="Log in" class="secondary">
             Sign in
           </a>
           <a href="{{ url_for('signup') }}" title="Sign up" class="primary">
             Sign up
           </a>
+
+          {% endif %}
         </div>
 
         <button class="hamburger">
