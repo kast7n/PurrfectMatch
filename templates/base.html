@@ -770,7 +770,7 @@
           <a href="{{ url_for('logout') }}" title="Log out" class="secondary">
             Log out
           </a>
-          {% if current_user.role =='shelter' %}
+          {% if current_user.role !='user' %}
           <a
             href="{{ url_for('manageshelter') }}"
             title="Manage pets"
@@ -778,13 +778,7 @@
           >
             Manage Pets
           </a>
-          <a
-            href="{{ url_for('editShelter') }}"
-            title="Edit Shelter"
-            class="secondary"
-          >
-            Edit Shelter
-          </a>
+
           {% endif %} {% else %}
 
           <a href="{{ url_for('signin') }}" title="Log in" class="secondary">

@@ -143,10 +143,20 @@ def logout():
     logout_user()
     return redirect(url_for('homePage'))
 
-@app.route('/manageshelter')
-def manageshelter():
-    if current_user.is_authenticated and current_user.role == "shelter":
-        return render_template('manage.html',shelter_id = current_user.shelter_id,user = current_user)
+@app.route('/managePets')
+def managePets():
+    if current_user.is_authenticated and current_user.role != "user":
+        return render_template('managePets.html',shelter_id = current_user.shelter_id,user = current_user)
+    return redirect(url_for('homePage'))
+@app.route('/manageShelters')
+def manageShelters():
+    if current_user.is_authenticated and current_user.role == "admin":
+        return render_template('manageShelters.html',shelter_id = current_user.shelter_id,user = current_user)
+    return redirect(url_for('homePage'))
+@app.route('/manageUsers')
+def manageUsers():
+    if current_user.is_authenticated and current_user.role == "admin":
+        return render_template('manage.html',shelter_id = current_user.shelter_id,user = current_user,management = "manageUsers")
     return redirect(url_for('homePage'))
 
 @app.route('/editShelter')

@@ -1,9 +1,6 @@
 from flask import jsonify, request
-from __main__ import app, db, AdoptionApplication
+from __main__ import app, db
 from fastapi.encoders import jsonable_encoder
-from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, String, Text
-from sqlalchemy.orm import sessionmaker,relationship,joinedload
-
 from dataClasses import *
 
 
@@ -48,6 +45,7 @@ def deletePet(id):
         db.session.delete(i)
     if len(descrip) > 0:
         db.session.delete(descrip[0])
+
     db.session.commit()
     return jsonify({'message' : 'delete success'}), 200
 
