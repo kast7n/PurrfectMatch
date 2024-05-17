@@ -772,11 +772,11 @@
           </a>
           {% if current_user.role !='user' %}
           <a
-            href="{{ url_for('manageshelter') }}"
-            title="Manage pets"
+            href="{{ url_for('manageShelters') }}"
+            title="Manage Shelters"
             class="secondary"
           >
-            Manage Pets
+            Manage Shelters
           </a>
 
           {% endif %} {% else %}

@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"
-    />
-  </head>
+{% extends "base.html" %} {% block title %}Purrfect Match Pet Adoption{%
+  endblock title %}
+  {% block css %}
+  <link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"
+/>
+<link rel="stylesheet" href="../static/css/bootstrap4.min.css">
+{% endblock css %} {% block content %}
 
-  <body>
+  <main>
     <div>
       <h1 class="manageTitle">Management</h1>
 
@@ -21,16 +22,16 @@
         {% endif %}
       </div>
 
-      <table id="manageShelters">
+      <table id="manageShelters" class="table table-striped">
         <thead>
           <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>address</th>
-            <th>po_box</th>
-            <th>email</th>
-            <th>phone_number</th>
-            <th>actions</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Po Box</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -94,5 +95,5 @@
         });
       </script>
     </div>
-  </body>
-</html>
+  </main>
+  {% endblock content %}

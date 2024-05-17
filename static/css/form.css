@@ -23,7 +23,7 @@
 }
 main {
   display: flex;
-  height: 100vh;
+  height: 120vh;
   justify-content: center;
   align-items: center;
   padding: 10px;
@@ -97,7 +97,7 @@ form .user-details .input-box {
 .drop-box {
   width: 90%;
   height: 70px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 .petdropdown {
   height: 45px;
@@ -112,4 +112,20 @@ form .user-details .input-box {
 
 .details {
   margin-bottom: 20px;
+  font-weight: 600;
+}
+.radio-box{
+  margin-bottom: 15px;
+}
+.house_training{
+  margin-bottom: 5px;
+}
+.dropbox > .details{
+  margin-bottom: 15px;
+}
+li{
+  list-style-type: none;
+}
+.petform-container{
+  height: 800px;
 }
