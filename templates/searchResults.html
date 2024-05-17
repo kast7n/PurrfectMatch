@@ -20,16 +20,16 @@
                 <!-- selected option on mobile -->
               </li>
               <li class="filter">
-                <a {% if petType == 'all' %}class = 'selected'{% endif %} href="{{ url_for('search', type='all',name= petName ) }}" data-type="all">All</a>
+                <a {% if petType == 'all' %}class = 'selected'{% endif %} href="{{ url_for('search', type='all',name= petName,characteristic=petCharacteristic, coat=petCoat, activity=petActivity, house=petHouse) }}" data-type="all">All</a>
               </li>
-              <li class="filter" data-filter=".color-2">
-                <a {% if petType == 'cat' %}class = 'selected'{% endif %} href="{{ url_for('search', type='cat',name= petName ) }}" data-type="cat">Cat</a>
+              <li class="filter" >
+                <a {% if petType == 'cat' %}class = 'selected'{% endif %} href="{{ url_for('search', type='cat',name= petName,characteristic=petCharacteristic, coat=petCoat, activity=petActivity, house=petHouse) }}" data-type="cat">Cat</a>
               </li>
-              <li class="filter" data-filter=".color-2">
-                <a {% if petType == 'dog' %}class = 'selected'{% endif %} href="{{ url_for('search', type='dog',name= petName ) }}" data-type="dog">Dog</a>
+              <li class="filter" >
+                <a {% if petType == 'dog' %}class = 'selected'{% endif %} href="{{ url_for('search', type='dog',name= petName,characteristic=petCharacteristic, coat=petCoat, activity=petActivity, house=petHouse) }}" data-type="dog">Dog</a>
               </li>
-              <li class="filter" data-filter=".color-3">
-                <a {% if petType == 'other' %}class = 'selected'{% endif %} href="{{ url_for('search', type='other',name= petName ) }}" data-type="other">Others</a>
+              <li class="filter" >
+                <a {% if petType == 'other' %}class = 'selected'{% endif %} href="{{ url_for('search', type='other',name= petName,characteristic=petCharacteristic, coat=petCoat, activity=petActivity, house=petHouse) }}" data-type="other">Others</a>
               </li>
             </ul>
             <!-- cd-filters -->
@@ -41,7 +41,7 @@
         <section class="cd-gallery">
           <ul>
             {% for pet,shelter_name,PetDescription in filteredPets %}
-            <li class="mix color-2 check2 radio2 option2">
+            <li class="mix color-1 radio1 radio3 option1 option3 option4 color-2 check2 radio2 option2 all">
               <a href="{{ url_for('pet', petID=pet.id) }}">  <figure class="card" >
                 
                 <img src="{{ url_for('static', filename='imgs/Shelters/'+ shelter_name + '/' +  pet.pet_type + 's/' + pet.name + '.jpg') }}" alt="Pet Image" />
@@ -61,11 +61,11 @@
           <div class="cd-fail-message">No results found</div>
           <div class="pagination">
             {% if page > 1 %}
-            <a href="{{ url_for('search', type=petType,name= petName,page=page-1 ) }}" class="Previous_Page">Previous</a>
+            <a href="{{ url_for('search', type=petType,name= petName,page=page-1,characteristic=petCharacteristic, coat=petCoat, activity=petActivity, house=petHouse) }}" class="Previous_Page">Previous</a>
             {% endif %}
             <span class="pages_nb">Page {{page}} of {{total_pages}}</span>
             {% if page < total_pages %}
-            <a href="{{ url_for('search', type=petType,name= petName,page=page+1 ) }}" class="Next_Page">Next</a>
+            <a href="{{ url_for('search', type=petType,name= petName,page=page+1,characteristic=petCharacteristic, coat=petCoat, activity=petActivity, house=petHouse ) }}" class="Next_Page">Next</a>
             {% endif %}
           </div>
         </section>
@@ -77,17 +77,14 @@
           <form>
             <div class="cd-filter-block">
               <h4>Search</h4>
-  
-              <div class="cd-filter-content">
-                <input id="searchInpit" type="search" placeholder="Enter your pet name" />
-              </div>
+                <input id="nameInput" type="search" placeholder="Enter your pet name" />
               <!-- cd-filter-content -->
             </div>
             <!-- cd-filter-block -->
   
             <div class="cd-filter-block">
-              <h4>Personality Traits</h4>
-              <input type="search" placeholder="Enter pets characteristics" />
+              <h4>Characteristic</h4>
+              <input id="characteristicInput" type="search" placeholder="Enter pets characteristics" />
               <!-- cd-filter-content -->
             </div>
             <!-- cd-filter-block -->
@@ -97,8 +94,8 @@
   
               <div class="cd-filter-content">
                 <div class="cd-select cd-filters">
-                  <select class="filter" name="selectThis" id="selectThis">
-                    <option value="">Choose an option</option>
+                  <select class="filter" name="selectThis" id="coatInput">
+                    <option value="all">Choose an option</option>
                     <option value="Short">Short</option>
                     <option value="Medium">Medium</option>
                     <option value="Long">Long</option>
@@ -114,8 +111,8 @@
   
               <div class="cd-filter-content">
                 <div class="cd-select cd-filters">
-                  <select class="filter" name="selectThis" id="selectThis">
-                    <option value="">Choose an option</option>
+                  <select class="filter" name="selectThis" id="activityInput">
+                    <option value="all">Choose an option</option>
                     <option value="Active">Active</option>
                     <option value="Moderate">Moderate</option>
                     <option value="Low">Low</option>
@@ -134,10 +131,10 @@
                 <li>
                   <input
                     class="filter"
-                    data-filter=""
+                    value="all"
                     type="radio"
                     name="radioButton"
-                    id="All"
+                    id="AllHouse"
                     checked
                   />
                   <label class="radio-label" for="All">All</label>
@@ -146,10 +143,10 @@
                 <li>
                   <input
                     class="filter"
-                    data-filter=".radio2"
+                    value="yes"
                     type="radio"
                     name="radioButton"
-                    id="Yes"
+                    id="YesHouse"
                   />
                   <label class="radio-label" for="Yes">Yes</label>
                 </li>
@@ -157,10 +154,10 @@
                 <li>
                   <input
                     class="filter"
-                    data-filter=".radio3"
+                    value="no"
                     type="radio"
                     name="radioButton"
-                    id="No"
+                    id="NoHouse"
                   />
                   <label class="radio-label" for="No">No</label>
                 </li>
@@ -168,7 +165,7 @@
               <!-- cd-filter-content -->
             </div>
             <!-- cd-filter-block -->
-            <button class="apply-filter" type="button" onclick="applyFilter(event,'{{ petType }}')">Filter</button>
+            <button class="apply-filter" type="button" onclick="applyFilter(event,'{{ petType }}','{{ name }}','{{ petCharacteristic }}','{{ petCoat }}','{{ petActivity }}'),'{{ petHouse }}'">Filter</button>
           </form>
   
           <a href="#0" class="cd-close">Close</a>
@@ -190,18 +187,32 @@
           <script src="{{ url_for('static', filename='js/jquery.mixitup.min.js') }}"></script>
           <script src=" {{ url_for('static', filename='js/main.js') }}"></script>
           <script>
-            function applyFilter(event,petType) {
+            function applyFilter(event,petType,name,characteristic,coat,activity,house) {
               event.preventDefault(); // Prevents the default behavior of the anchor tag
-              var name = ""
-              name += document.getElementById('searchInpit').value;
-              if(name == ""){
-                name = "all"
+              console.log(name);
+              if(document.getElementById('nameInput').value == ""){
+                name = name;
+                }
+              else{
+                
+                name = document.getElementById('nameInput').value;
               }
-              
+              if(document.getElementById('characteristicInput').value == ""){
+                
+                characteristic = characteristic;}
+                else{
+                  characteristic = document.getElementById('characteristicInput').value;
+              }
+              var coatElement = document.getElementById('coatInput');
+              var coat = coatElement.value;
+              var activityElement = document.getElementById('activityInput');
+              var activity = activityElement.value;
+              var houseButton = document.querySelector('input[name="radioButton"]:checked');
+              var house = houseButton ? houseButton.value : '';
           
               // Use the value to construct the URL for redirection
-              var url = "/search/" + petType  +"/" + name;
-              console.log(url)
+              var url = "/search/" + petType  +"/" + name + "/" + characteristic + "/" + coat  + "/" + activity  + "/" + house;
+              console.log(url);
           
               // Redirect to the constructed URL
               window.location.href = url;
