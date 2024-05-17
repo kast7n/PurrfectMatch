@@ -2,7 +2,7 @@
 from flask import Flask,render_template,redirect,request,url_for  
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker,relationship,joinedload,declarative_base
-from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, String, Text
+from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, String, Text,or_
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -21,6 +21,7 @@ from dataClasses import *
 
 import shelter
 import pet
+import user
 
 login_manager = LoginManager(app)
 
@@ -68,7 +69,7 @@ def search(type,name):
     return render_template("searchResults.html",petType = type,petName = name,filteredPets = pets_on_page,total_pages = total_pages,page = page)
 @app.route('/articles')
 def articles():
-    return render_template('articles.html')
+    return render_template('articles.html', auth = current_user.is_authenticated )
 
 @app.route("/pet/<petID>")
 def pet(petID):
@@ -86,7 +87,9 @@ def pet(petID):
     pet_and_shelter_info.append(characteristics_str)
     print(pet_and_shelter_info[1])
 
-    return render_template("pet.html",ID = petID,pet_and_shelter_info = pet_and_shelter_info)
+    return render_template("pet.html",ID = petID,pet_and_shelter_info = pet_and_shelter_info, auth = current_user.is_authenticated )
+
+
 
 @app.route("/shelter/<shelterID>")
 def shelter(shelterID):
@@ -94,22 +97,22 @@ def shelter(shelterID):
     session = Session()
     curr_shelter = session.query(Shelter).filter(Shelter.id == shelterID).all()
     print(curr_shelter)
-    return render_template("shelter.html",shelter = curr_shelter)
+    return render_template("shelter.html",shelter = curr_shelter, auth = current_user.is_authenticated )
 
 
 
 @app.route("/article")
 def article():
-    return render_template("article.html")
+    return render_template("article.html", auth = current_user.is_authenticated )
 
 @app.route("/form")
 def form():
-    return render_template("form.html")
+    return render_template("form.html", auth = current_user.is_authenticated )
 
 
 @app.route("/pet/add")
 def addPetForm():
-    return render_template("petForm.html")
+    return render_template("petForm.html", auth = current_user.is_authenticated )
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
@@ -146,18 +149,22 @@ def logout():
 @app.route('/managePets')
 def managePets():
     if current_user.is_authenticated and current_user.role != "user":
-        return render_template('managePets.html',shelter_id = current_user.shelter_id,user = current_user)
+        return render_template('managePets.html',shelter_id = current_user.shelter_id,user = current_user, auth = current_user.is_authenticated )
     return redirect(url_for('homePage'))
 @app.route('/manageShelters')
 def manageShelters():
     if current_user.is_authenticated and current_user.role == "admin":
         return render_template('manageShelters.html',shelter_id = current_user.shelter_id,user = current_user)
     return redirect(url_for('homePage'))
+
+
 @app.route('/manageUsers')
 def manageUsers():
     if current_user.is_authenticated and current_user.role == "admin":
-        return render_template('manage.html',shelter_id = current_user.shelter_id,user = current_user,management = "manageUsers")
+        return render_template('manageUsers.html',user = current_user,management = "manageUsers", auth = current_user.is_authenticated )
     return redirect(url_for('homePage'))
+
+
 
 @app.route('/editShelter')
 @login_required

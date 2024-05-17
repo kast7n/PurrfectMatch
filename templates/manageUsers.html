@@ -26,15 +26,14 @@ endblock title %} {% block css %}
       {% endif %}
     </div>
 
-    <table id="managePets" class="table table-striped">
+    <table id="manageUsers" class="table table-striped">
       <thead>
         <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Pet Type</th>
-          <th>Shelter Id</th>
-          <th>Gender</th>
-          <th>Activity Level</th>
+          <th>ID</th>
+          <th>username</th>
+          <th>email</th>
+          <th>role</th>
+          <th>shelter_id</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -45,12 +44,8 @@ endblock title %} {% block css %}
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script>
       $(document).ready(function () {
-        var url = "/api/pets/shelter/" + "{{ shelter_id }}";
-        if ("{{ user.role }}" == "admin") {
-          url = "/api/pets";
-        }
-
-        var table = $("#managePets").DataTable({
+        var url = "/api/users";
+        var table = $("#manageUsers").DataTable({
           ajax: {
             url: url,
             method: "GET",
@@ -58,11 +53,10 @@ endblock title %} {% block css %}
           },
           columns: [
             { data: "id" },
-            { data: "name" },
-            { data: "pet_type" },
+            { data: "username" },
+            { data: "email" },
+            { data: "role" },
             { data: "shelter_id" },
-            { data: "gender" },
-            { data: "activity_level" },
             {
               data: null,
               render: function (data, type, row) {
@@ -87,7 +81,7 @@ endblock title %} {% block css %}
         // Function to delete a pet using AJAX
         function deletePet(petId) {
           $.ajax({
-            url: "/api/pet/" + petId,
+            url: "/api/user/" + petId,
             method: "DELETE",
             success: function (response) {
               // Handle success response
