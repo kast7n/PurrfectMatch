@@ -22,7 +22,7 @@
               <li class="filter">
                 <a {% if petType == 'all' %}class = 'selected'{% endif %} href="{{ url_for('search', type='all',name= petName ) }}" data-type="all">All</a>
               </li>
-              <li class="filter" data-filter=".color-1">
+              <li class="filter" data-filter=".color-2">
                 <a {% if petType == 'cat' %}class = 'selected'{% endif %} href="{{ url_for('search', type='cat',name= petName ) }}" data-type="cat">Cat</a>
               </li>
               <li class="filter" data-filter=".color-2">
@@ -79,7 +79,7 @@
               <h4>Search</h4>
   
               <div class="cd-filter-content">
-                <input type="search" placeholder="Enter your pet name" />
+                <input id="searchInpit" type="search" placeholder="Enter your pet name" />
               </div>
               <!-- cd-filter-content -->
             </div>
@@ -87,65 +87,7 @@
   
             <div class="cd-filter-block">
               <h4>Personality Traits</h4>
-  
-              <ul class="cd-filter-content cd-filters list">
-                <li>
-                  <input
-                    class="filter"
-                    data-filter="Affectionate"
-                    type="checkbox"
-                    id="Affectionate"
-                  />
-                  <label class="checkbox-label" for="Affectionate">Affectionate</label>
-                </li>
-  
-                <li>
-                  <input
-                    class="filter"
-                    data-filter="Independent"
-                    type="checkbox"
-                    id="Independent"
-                  />
-                  <label class="checkbox-label" for="Independent">Independent</label>
-                </li>
-  
-                <li>
-                  <input
-                    class="filter"
-                    data-filter="Social"
-                    type="checkbox"
-                    id="Social"
-                  />
-                  <label class="checkbox-label" for="Social">Social</label>
-                </li>
-                <li>
-                  <input
-                    class="filter"
-                    data-filter="Shy"
-                    type="checkbox"
-                    id="Shy"
-                  />
-                  <label class="checkbox-label" for="Shy">Shy</label>
-                </li>
-                <li>
-                  <input
-                    class="filter"
-                    data-filter="Playful"
-                    type="checkbox"
-                    id="Playful"
-                  />
-                  <label class="checkbox-label" for="Playful">Playful</label>
-                </li>
-                <li>
-                  <input
-                    class="filter"
-                    data-filter="Lap Cat"
-                    type="checkbox"
-                    id="Lap Cat"
-                  />
-                  <label class="checkbox-label" for="Lap Cat">Lap Cat</label>
-                </li>
-              </ul>
+              <input type="search" placeholder="Enter pets characteristics" />
               <!-- cd-filter-content -->
             </div>
             <!-- cd-filter-block -->
@@ -226,7 +168,7 @@
               <!-- cd-filter-content -->
             </div>
             <!-- cd-filter-block -->
-            <button class="apply-filter" type="submit">Filter</button>
+            <button class="apply-filter" type="button" onclick="applyFilter(event,'{{ petType }}')">Filter</button>
           </form>
   
           <a href="#0" class="cd-close">Close</a>
@@ -247,5 +189,23 @@
           <script src="{{ url_for('static', filename='js/jquery-2.1.1.js') }}"></script>
           <script src="{{ url_for('static', filename='js/jquery.mixitup.min.js') }}"></script>
           <script src=" {{ url_for('static', filename='js/main.js') }}"></script>
+          <script>
+            function applyFilter(event,petType) {
+              event.preventDefault(); // Prevents the default behavior of the anchor tag
+              var name = ""
+              name += document.getElementById('searchInpit').value;
+              if(name == ""){
+                name = "all"
+              }
+              
+          
+              // Use the value to construct the URL for redirection
+              var url = "/search/" + petType  +"/" + name;
+              console.log(url)
+          
+              // Redirect to the constructed URL
+              window.location.href = url;
+            }
+          </script>
           <!-- Resource jQuery -->
           {% endblock scripts %}
