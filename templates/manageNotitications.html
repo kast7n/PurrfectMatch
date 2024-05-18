@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% block title %}Purrfect Match Pet Adoption{%
+endblock title %} {% block css %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"
+/>
+<link rel="stylesheet" href="../static/css/bootstrap4.min.css" />
+{% endblock css %} {% block content %}
+<main>
+  <div>
+    <h1 class="manageTitle">Manage Shelter</h1>
+
+    <h2 id="table_title">Manage Pets</h2>
+    <div class="managementNavigation">
+      {% if user.role !='user' %}
+      <a class="navBtn" href="{{ url_for('managePets') }}" type="button"
+        >Manage Pets</a
+      >
+      {% endif %} {% if user.role =='admin' %}
+      <a class="navBtn" href="{{ url_for('manageShelters') }}" type="button"
+        >Manage Shelters</a
+      >
+      <a class="navBtn" href="{{ url_for('manageUsers') }}" type="button"
+        >Manage Users</a
+      >
+      {% endif %}
+    </div>
+    <div class="table-responsive">
+      <table id="manageUsers" class="table table-striped managementTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>pet name</th>
+            <th>reply date</th>
+            <th>reply text</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var url = "/api/notifications/" + "{{ user.id }}";
+        console.log(url);
+        var table = $("#manageUsers").DataTable({
+          ajax: {
+            url: url,
+            method: "GET",
+            dataSrc: "",
+          },
+          columns: [
+            { data: "application_id" },
+            { data: "pet_name" },
+            { data: "reply_date" },
+            { data: "reply_text" },
+          ],
+        });
+      });
+    </script>
+  </div>
+</main>
+{% endblock content %}

@@ -770,23 +770,27 @@
           <a href="{{ url_for('logout') }}" title="Log out" class="secondary">
             Log out
           </a>
-          {% if current_user.role !='user' %}
+          {% if current_user.role =='user' %}
           <a
-            href="{{ url_for('manageShelters') }}"
-            title="Manage Shelters"
+            href="{{ url_for('notification') }}"
+            title="Notification"
             class="secondary"
           >
-            Manage Shelters
+            <img
+              src="/static/imgs/svg/notification-svgrepo-com.svg"
+              alt="notification"
+            />
           </a>
-          {% if current_user.role =='shelter' %}
+          {% endif %} {% if current_user.role !='user' %}
           <a
-            href="{{ url_for('manageApplications') }}"
-            title="Manage Applications"
+            href="{{ url_for('managePets') }}"
+            title="Management"
             class="secondary"
           >
-            Manage Applications
+            Manage
           </a>
-          {% endif %} {% endif %} {% else %}
+
+          {% endif %} {% else %}
 
           <a href="{{ url_for('signin') }}" title="Log in" class="secondary">
             Sign in
@@ -973,18 +977,26 @@
                 <h3>About Dogs & Puppies</h3>
                 <ul>
                   <li>
-                    <a href="/articles#dogsArticles" title="All About Dogs & Puppies"
+                    <a
+                      href="/articles#dogsArticles"
+                      title="All About Dogs & Puppies"
                       >All About Dogs & Puppies</a
                     >
                   </li>
                   <li>
-                    <a href="/search/dog/all/all/all/all/all" title="Dog Adoption">Dog Adoption</a>
+                    <a
+                      href="/search/dog/all/all/all/all/all"
+                      title="Dog Adoption"
+                      >Dog Adoption</a
+                    >
                   </li>
                   <li>
                     <a href="/article/4" title="Dog Breeds">Dog Breeds</a>
                   </li>
                   <li>
-                    <a href="/article/6" title="Feeding Your Dog">Feeding Your Doge</a>
+                    <a href="/article/6" title="Feeding Your Dog"
+                      >Feeding Your Doge</a
+                    >
                   </li>
                   <li>
                     <a href="/article/5" title="Dog Health & Wellness"
@@ -997,18 +1009,26 @@
                 <h3>About Cats & Kittens</h3>
                 <ul>
                   <li>
-                    <a href="/articles#catsArticles" title="All About Cats & Kittens"
+                    <a
+                      href="/articles#catsArticles"
+                      title="All About Cats & Kittens"
                       >All About Cats & Kittens</a
                     >
                   </li>
                   <li>
-                    <a href="/search/cat/all/all/all/all/all" title="Cat Adoption">Cat Adoption</a>
+                    <a
+                      href="/search/cat/all/all/all/all/all"
+                      title="Cat Adoption"
+                      >Cat Adoption</a
+                    >
                   </li>
                   <li>
                     <a href="/article/7" title="Cat Breeds">Cat Breeds</a>
                   </li>
                   <li>
-                    <a href="/article/9" title="Feeding Your Cat">Feeding Your Cat</a>
+                    <a href="/article/9" title="Feeding Your Cat"
+                      >Feeding Your Cat</a
+                    >
                   </li>
                   <li>
                     <a href="/article/8" title="Cat Health & Wellness"

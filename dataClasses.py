@@ -79,6 +79,7 @@ class AdoptionApplicationReply(db.Model):
     application_id = Column(Integer, ForeignKey('adoption_application.id'))
     reply_text = Column(Text)
     pet_id = Column(Integer, ForeignKey('pet.id'))
+    user_id = Column(Integer)
     reply_date = Column(TIMESTAMP, server_default=" ")
     pet = relationship("Pet", back_populates="applications")
     application = relationship("AdoptionApplication", back_populates="replies")   

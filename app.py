@@ -1,4 +1,3 @@
-
 from flask import Flask,render_template,redirect,request,url_for  
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker,relationship,joinedload,declarative_base
@@ -218,10 +217,10 @@ def manageUsers():
 
 
 
-@app.route('/editShelter')
+@app.route('/notification')
 @login_required
-def editShelter():
-    return redirect(url_for('homePage'))
+def notification():
+    return render_template('manageNotitications.html',user = current_user,management = "manageApplications", auth = current_user.is_authenticated )
 
 @app.route('/manageApplications')
 @login_required
@@ -231,5 +230,5 @@ def manageApplications():
     return redirect(url_for('homePage'))
 
 
-
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

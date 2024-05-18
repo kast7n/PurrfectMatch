@@ -42,11 +42,34 @@ def acceptApplication(id):
      applications = AdoptionApplication.query.get_or_404(id)
      pet = Pet.query.get_or_404(applications.pet_id)
 
-     applicationReply = AdoptionApplicationReply(application_id = id,pet_id = applications.pet_id,reply_text = "Your request have been accepted")
+     applicationReply = AdoptionApplicationReply(application_id = id,pet_id = applications.pet_id,reply_text = "Your request have been accepted",user_id = applications.user_id)
      
      db.session.add(applicationReply)
+     
      #db.session.delete(applications)
      #db.session.delete(pet)
      db.session.commit()
     
      return jsonify({'message' : 'Accepted successfully'}), 201  
+
+@app.route('/api/notifications/<int:id>', methods=['GET'])
+def notifications(id):
+     applicationReply = AdoptionApplicationReply.query.filter(AdoptionApplicationReply.user_id == 8).all()
+     print(applicationReply)
+     pet= []
+     for app in applicationReply:
+          pet.append(Pet.query.filter(Pet.id == app.pet_id).all())
+     print(pet)
+     counter = 0
+     application_data = []
+     for application in applicationReply:
+          application_data.append({
+               'application_id': application.id,
+               'reply_text': application.reply_text,
+               'reply_date': application.reply_date,
+               'pet_name': pet[counter][0].name
+          })
+          counter+=1
+     
+     
+     return (jsonify(application_data))

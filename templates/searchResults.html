@@ -165,7 +165,7 @@
               <!-- cd-filter-content -->
             </div>
             <!-- cd-filter-block -->
-            <button class="apply-filter" type="button" onclick="applyFilter(event,'{{ petType }}','{{ name }}','{{ petCharacteristic }}','{{ petCoat }}','{{ petActivity }}'),'{{ petHouse }}'">Filter</button>
+            <button class="apply-filter" type="button" onclick="applyFilter(event,'{{ petType }}','{{ petName }}','{{ petCharacteristic }}','{{ petCoat }}','{{ petActivity }}'),'{{ petHouse }}'">Filter</button>
           </form>
   
           <a href="#0" class="cd-close">Close</a>
@@ -189,7 +189,6 @@
           <script>
             function applyFilter(event,petType,name,characteristic,coat,activity,house) {
               event.preventDefault(); // Prevents the default behavior of the anchor tag
-              console.log(name);
               if(document.getElementById('nameInput').value == ""){
                 name = name;
                 }
@@ -197,6 +196,7 @@
                 
                 name = document.getElementById('nameInput').value;
               }
+      
               if(document.getElementById('characteristicInput').value == ""){
                 
                 characteristic = characteristic;}
