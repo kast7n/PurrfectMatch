@@ -134,3 +134,24 @@ a {
   width: 100%;
   height: auto;
 }
+.linkToForm {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.adoptionApplication {
+  display: block;
+  height: 35px;
+  width: 130px;
+  background-color: var(--primary-darker);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 3px;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 40%;
+  line-height: 35px;
+  margin-top: 65px;
+}

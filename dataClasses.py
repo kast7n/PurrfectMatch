@@ -91,4 +91,3 @@ class User(UserMixin,db.Model):
     role = Column(String(255), nullable=False)
     shelter_id = Column(Integer, ForeignKey('shelter.id', ondelete='CASCADE'))
     shelter = relationship('Shelter')
-

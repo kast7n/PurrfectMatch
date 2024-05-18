@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Purrfect Match Pet Adoption{% endblock title %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="../static/css/bootstrap4.min.css" />
+{% endblock css %}
+{% block content %}
+<main>
+    <table id="manageApplications" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Description</th> 
+            <th>Pet ID</th> 
+          </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#manageApplications').DataTable({
+                ajax: {
+                    url: '/api/applications',
+                    method: 'GET',
+                    dataSrc: ''
+                },
+
+                columns: [
+                    { data: 'id' },
+                    { data: 'username' },
+                    { data: 'email' },
+                    { data: 'phone_number' },
+                    { data: 'address' },
+                    { data: 'description' },
+                    { data: 'pet_id' },   
+              {
+                data: null,
+                render: function (data, type, row) {
+                  var editBtn = '<a href="/pet/edit/' + data.id + '">Edit</a>';
+                  var deleteBtn =
+                    '<a href="#" class="delete-pet" data-id="' +
+                    data.id +
+                    '">Delete</a>';
+                  return editBtn + " | " + deleteBtn;
+                },
+              },
+            ],
+          });
+          //hule trkutun mtl m enta knt aamelun bel manage pets
+  
+          $("#manageApplications").on("click", ".delete-pet", function (e) {
+            e.preventDefault();
+            var petId = $(this).data("id");
+            deletePet(petId);
+          });
+          function deletePet(petId) {
+            $.ajax({
+              url: "/api/pet/" + petId,
+              method: "DELETE",
+              success: function (response) {
+                console.log("Pet deleted successfully");
+                table.ajax.reload();
+              },
+              error: function (error) {
+                console.error("Error deleting pet:", error);
+              },
+            });
+          }
+        });
+      </script>
+</main>
+{% endblock content %}

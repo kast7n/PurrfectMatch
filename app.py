@@ -22,6 +22,7 @@ from dataClasses import *
 import shelter
 import pet
 import user
+import applications
 
 login_manager = LoginManager(app)
 
@@ -152,9 +153,28 @@ def shelter(shelterID):
 def article():
     return render_template("article.html", auth = current_user.is_authenticated )
 
-@app.route("/form")
-def form():
-    return render_template("form.html", auth = current_user.is_authenticated )
+@app.route("/form/<petID>" , methods=['GET', 'POST'])
+def form(petID):
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        phone = request.form['phone']
+        age = request.form['age']
+        address = request.form['address']
+        occupation = request.form['occupation']
+        extra = request.form['extra']
+        new_application = AdoptionApplication(
+            username=name,
+            email=email,
+            phone_number=phone,
+            address=address,
+            description=extra,
+            pet_id= petID
+        )
+        db.session.add(new_application)
+        db.session.commit()
+        return redirect(url_for('homePage'))
+    return render_template("form.html", auth = current_user.is_authenticated ,petID=petID)
 
 
 @app.route("/pet/add")
@@ -216,6 +236,13 @@ def manageUsers():
 @app.route('/editShelter')
 @login_required
 def editShelter():
+    return redirect(url_for('homePage'))
+
+@app.route('/manageApplications')
+@login_required
+def manageApplications():
+    if current_user.is_authenticated and current_user.role == "shelter":
+        return render_template('manageApplications.html',user = current_user,management = "manageApplications", auth = current_user.is_authenticated )
     return redirect(url_for('homePage'))
 
 

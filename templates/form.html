@@ -9,35 +9,35 @@ endblock title %} {% block css %}
 <main>
   <div class="container">
     <div class="title">Pet Adoption Application</div>
-    <form action="#">
+    <form method="post" action="{{ url_for('form', petID=petID) }}">
       <div class="user-details">
         <div class="input-box">
           <label class="details" for="name">Full Name:</label>
-          <input type="text" placeholder="Enter your name" id="name" required />
+          <input type="text" placeholder="Enter your name" id="name" name="name" required />
         </div>
         <div class="input-box">
           <label class="details" for="email">Email:</label>
-          <input type="email" placeholder="Enter your email" id="email" />
+          <input type="email" placeholder="Enter your email" id="email" name="email" />
         </div>
         <div class="input-box">
           <label class="details" for="phone">Phone:</label>
-          <input type="text" placeholder="Enter your phone number" id="phone" />
+          <input type="text" placeholder="Enter your phone number" id="phone" name="phone" />
         </div>
         <div class="input-box">
             <label class="details" for="age">Age:</label>
-            <input type="text" placeholder="Enter your age" id="age" />
+            <input type="text" placeholder="Enter your age" id="age" name="age" />
           </div>
         <div class="input-box">
           <label class="details" for="address">Full Address:</label>
-          <input type="text" placeholder="Enter your address"  id="address"required />
+          <input type="text" placeholder="Enter your address" id="address" name="address" required />
         </div>
         <div class="input-box">
             <label class="details" for="occupation">Occupation:</label>
-            <input type="text" placeholder="Enter your occupation"  id="address"required />
+            <input type="text" placeholder="Enter your occupation" id="occupation" name="occupation" required />
           </div>
         <div class="input-box" id="extra-info">
           <label class="details" for="extra">For any extra information:</label>
-          <input type="text" id="extra"/>
+          <input type="text" id="extra" name="extra"/>
         </div>
         <div class="button">
             <button type="submit"><p>Apply</p></button>
@@ -48,3 +48,6 @@ endblock title %} {% block css %}
 </main>
 
 {% endblock content %}
+
+
+

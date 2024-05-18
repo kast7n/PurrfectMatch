@@ -778,7 +778,15 @@
           >
             Manage Shelters
           </a>
-
+          {% if current_user.role =='shelter' %}
+          <a
+            href="{{ url_for('manageApplications') }}"
+            title="Manage Applications"
+            class="secondary"
+          >
+            Manage Applications
+          </a>
+          {% endif %}
           {% endif %} {% else %}
 
           <a href="{{ url_for('signin') }}" title="Log in" class="secondary">
