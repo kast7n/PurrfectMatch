@@ -39,7 +39,7 @@
                 alt="Other Animals"
             /></a>
 
-            <a href="searchResults.html" class="searchCards"
+            <a href="/search/all/all/all/all/all/all" class="searchCards"
               ><img
                 class="shelters-img"
                 src="{{ url_for('static', filename='imgs/svg/charity.svg') }}"
@@ -51,36 +51,18 @@
       <div class="mainBottom">
         <h2 class="avPets">Pets Avaiable For Adoption</h2>
         <div class="cards">
-          <a href="pet.html">  <figure class="card" >
+          {% for pet,shelter_name,PetDescription in pets %}
+          <a href="{{ url_for('pet', petID=pet.id) }}">  <figure class="card" >
             
-            <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="Lakeview Elegance" />
+            <img src="{{ url_for('static', filename='imgs/Shelters/'+ shelter_name + '/' +  pet.pet_type + 's/' + pet.name + '.jpg') }}" alt="{{ pet.name }}" />
             <figcaption>
-              <h3>bingus<h3>
-              <p>A cute sphynx called bingus</p>
+              <h3>{{ pet.name }}<h3>
+              <p>{{ PetDescription }}</p>
             </figcaption>
           </figure></a>
-        
-          <figure class="card">
-
-            <img src="../static/imgs/Pets/Dogs/mrSausage.jpg" alt="mrSausage" />
-            <figcaption>
-              <h3>Mr Sausage</h3>
-              <p>A cute Dachshund called Mr Sausage</p>
-            </figcaption>
-          </figure>
-          <figure class="card">
-
-            <img
-              src="../static/imgs/Pets/Others/cuteDragon.jpg"
-              alt="cuteDragon"
-            />
-            <figcaption>
-              <h3>Rex</h3>
-              <p>A cute commodo dragon called Rex</p>
-            </figcaption>
-          </figure>
+          {% endfor%}
           <div class="FAQcard">
-            <a href="searchResults.html" class="FAQlink">
+            <a href="/search/all/all/all/all/all/all" class="FAQlink">
               <div class="FAQcardContent">
                 <article class="artCard">
                   <img

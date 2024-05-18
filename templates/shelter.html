@@ -4,9 +4,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/shelter.css') }}">
     {% endblock css %}
     {% block content %}
-    <main>
-      <div class="container">
-        
+    <main class="shelterPage">
+      <div class="container ">
         
          <div class="container-left">
             <div class="imglogo"><svg xmlns="http://www.w3.org/2000/svg" 
@@ -29,7 +28,8 @@
          </div>
          <div class="container-right">
              <div class="aboveContent">
-              <a href="">view our pets</a>
+              <a href="https://{{ shelter[0].donation_link}}">Donate to us</a>
+              <a href="https://{{ shelter[0].website_link}}">Check us out</a>
               <hr>
              </div>
              <div class="belowContent">

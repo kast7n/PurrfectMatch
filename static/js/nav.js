@@ -15,3 +15,13 @@ window.onload = function () {
 		mobile_menu.classList.toggle('is-active');
 	});
 };
+
+function redirectToArticle(id) {
+  window.location.href = "/article/" + id;
+}
+function redirectToDogAdoption() {
+  window.location.href = "/search/dog/all/all/all/all/all";
+}
+function redirectToCatAdoption() {
+  window.location.href = "/search/cat/all/all/all/all/all";
+}

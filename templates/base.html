@@ -37,10 +37,10 @@
   <body>
     <header class="header">
       <nav class="mobile-nav">
-        <a href="#">Home</a>
-        <a href="#">Adopt or Get Involved</a>
-        <a href="#">Dogs & Puppies</a>
-        <a href="#">Cats & Kittens</a>
+        <a href="/">Home</a>
+        <a href="/articles">Helpful Articles</a>
+        <a href="/search/all/all/all/all/all/all">Adopt a pet</a>
+        <a href="/article/1">About Us</a>
       </nav>
       <div class="menu__wrapper">
         <div class="menu__bar">
@@ -75,7 +75,7 @@
                 <div class="dropdown__wrapper">
                   <div class="dropdown">
                     <ul class="list-items-with-description">
-                      <li>
+                      <li onclick="redirectToArticle(2)">
                         <div class="icon-wrapper">
                           <svg
                             viewBox="0 0 512 512"
@@ -123,7 +123,7 @@
                           <p>Benefits of bringing a pet into your life</p>
                         </div>
                       </li>
-                      <li>
+                      <li onclick="redirectToArticle(3)">
                         <div class="icon-wrapper">
                           <svg
                             fill="#ffffff"
@@ -172,7 +172,7 @@
                           <p>Learn more about the shelters</p>
                         </div>
                       </li>
-                      <li>
+                      <li onclick="redirectToArticle(1)">
                         <div class="icon-wrapper">
                           <svg
                             height="200px"
@@ -273,7 +273,7 @@
                 <div class="dropdown__wrapper">
                   <div class="dropdown">
                     <ul class="list-items-with-description">
-                      <li>
+                      <li onclick="redirectToDogAdoption()">
                         <div class="icon-wrapper">
                           <svg
                             fill="#ffffff"
@@ -300,7 +300,7 @@
                           <p>Learn more about dog adoption</p>
                         </div>
                       </li>
-                      <li>
+                      <li onclick="redirectToArticle(4)">
                         <div class="icon-wrapper">
                           <svg
                             fill="#ffffff"
@@ -392,7 +392,7 @@
                           <p>Learn about each dog breeds speciality</p>
                         </div>
                       </li>
-                      <li>
+                      <li onclick="redirectToArticle(5)">
                         <div class="icon-wrapper">
                           <svg
                             height="200px"
@@ -490,7 +490,7 @@
                         </div>
                       </li>
 
-                      <li>
+                      <li onclick="redirectToArticle(6)">
                         <div class="icon-wrapper">
                           <svg
                             height="200px"
@@ -556,7 +556,7 @@
                 <div class="dropdown__wrapper">
                   <div class="dropdown">
                     <ul class="list-items-with-description">
-                      <li>
+                      <li onclick="redirectToCatAdoption()">
                         <div class="icon-wrapper">
                           <svg
                             fill="#ffffff"
@@ -583,7 +583,7 @@
                           <p>Learn more about cat adoption</p>
                         </div>
                       </li>
-                      <li>
+                      <li onclick="redirectToArticle(7)">
                         <div class="icon-wrapper">
                           <svg
                             fill="#ffffff"
@@ -614,7 +614,7 @@
                           <p>Learn about each cat breed speciality</p>
                         </div>
                       </li>
-                      <li>
+                      <li onclick="redirectToArticle(8)">
                         <div class="icon-wrapper">
                           <svg
                             height="200px"
@@ -712,7 +712,7 @@
                         </div>
                       </li>
 
-                      <li>
+                      <li onclick="redirectToArticle(9)">
                         <div class="icon-wrapper">
                           <svg
                             fill="#ffffff"
@@ -786,8 +786,7 @@
           >
             Manage Applications
           </a>
-          {% endif %}
-          {% endif %} {% else %}
+          {% endif %} {% endif %} {% else %}
 
           <a href="{{ url_for('signin') }}" title="Log in" class="secondary">
             Sign in
@@ -974,29 +973,23 @@
                 <h3>About Dogs & Puppies</h3>
                 <ul>
                   <li>
-                    <a href="#" title="All About Dogs & Puppies"
+                    <a href="/articles#dogsArticles" title="All About Dogs & Puppies"
                       >All About Dogs & Puppies</a
                     >
                   </li>
                   <li>
-                    <a href="#" title="Dog Adoption">Dog Adoption</a>
+                    <a href="/search/dog/all/all/all/all/all" title="Dog Adoption">Dog Adoption</a>
                   </li>
                   <li>
-                    <a href="#" title="Dog Breeds">Dog Breeds</a>
+                    <a href="/article/4" title="Dog Breeds">Dog Breeds</a>
                   </li>
                   <li>
-                    <a href="#" title="Feeding Your Dog">Feeding Your Doge</a>
+                    <a href="/article/6" title="Feeding Your Dog">Feeding Your Doge</a>
                   </li>
                   <li>
-                    <a href="#" title="Dog Behavior">Dog Behavior</a>
-                  </li>
-                  <li>
-                    <a href="#" title="Dog Health & Wellness"
+                    <a href="/article/5" title="Dog Health & Wellness"
                       >Dog Health & Wellness</a
                     >
-                  </li>
-                  <li>
-                    <a href="#" title="Dog Training">Dog Training</a>
                   </li>
                 </ul>
               </section>
@@ -1004,29 +997,23 @@
                 <h3>About Cats & Kittens</h3>
                 <ul>
                   <li>
-                    <a href="#" title="All About Cats & Kittens"
+                    <a href="/articles#catsArticles" title="All About Cats & Kittens"
                       >All About Cats & Kittens</a
                     >
                   </li>
                   <li>
-                    <a href="#" title="Cat Adoption">Cat Adoption</a>
+                    <a href="/search/cat/all/all/all/all/all" title="Cat Adoption">Cat Adoption</a>
                   </li>
                   <li>
-                    <a href="#" title="Cat Breeds">Cat Breeds</a>
+                    <a href="/article/7" title="Cat Breeds">Cat Breeds</a>
                   </li>
                   <li>
-                    <a href="#" title="Feeding Your Cat">Feeding Your Cat</a>
+                    <a href="/article/9" title="Feeding Your Cat">Feeding Your Cat</a>
                   </li>
                   <li>
-                    <a href="#" title="Cat Behavior">Cat Behavior</a>
-                  </li>
-                  <li>
-                    <a href="#" title="Cat Health & Wellness"
+                    <a href="/article/8" title="Cat Health & Wellness"
                       >Cat Health & Wellness</a
                     >
-                  </li>
-                  <li>
-                    <a href="#" title="Cat Training">Cat Training</a>
                   </li>
                 </ul>
               </section>
@@ -1041,6 +1028,7 @@
       </div>
     </footer>
 
-    {% block scripts %} {% endblock scripts %}
+    {% block scripts %}{% endblock scripts %}
   </body>
+  <script src="../static/js/nav.js"></script>
 </html>

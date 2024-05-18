@@ -2,7 +2,7 @@
 from flask import Flask,render_template,redirect,request,url_for  
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker,relationship,joinedload,declarative_base
-from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, String, Text,or_
+from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, String, Text,or_, func
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -38,37 +38,15 @@ def homePage():
     if request.method == "POST":
         searchURL = request.form["searchPet"]
         return redirect({{ url_for('search', type='all', name=searchURL, characteristic='all', coat='all', activity='all', house='all') }})
-    return render_template("index.html", auth = current_user.is_authenticated , user = current_user)
-""""
-@app.route("/search/<type>/<name>/<characteristic>/<coat>/<activity>/<house>")
-def search(type,name,characteristic,coat,activity,house):
-    page = request.args.get('page',1,type=int)
-    per_page = 25
-    start = (page - 1) * per_page
-    end = start + per_page
-    
-    pets = []
     session = Session()
-    if type == "all":
-        condition = Pet.name == name if name != "all" else True
-    else:
-        condition = Pet.pet_type == type if name == "all" else and_(Pet.name == name, Pet.pet_type == type)
 
-    pets = session.query(Pet, Shelter.name,PetCharacteristics.characteristic, PetDescription.description).\
-    join(Shelter).\
-    join(PetDescription, PetDescription.pet_id == Pet.id).\
-    join(PetCharacteristics, PetCharacteristics.pet_id == Pet.id)\
-    .options(joinedload(Pet.shelter)).\
-    filter(condition).all()
-    total_pages = (len(pets) + per_page - 1) // per_page
-    pets_on_page = pets[start:end]
-
-
-
-    session.close()
-
-    return render_template("searchResults.html",petType = type,petName = name,filteredPets = pets_on_page,total_pages = total_pages,page = page)
-"""
+    pets = session.query(Pet, Shelter.name, PetDescription.description).\
+        join(Shelter).\
+        join(PetDescription, PetDescription.pet_id == Pet.id).\
+        options(joinedload(Pet.shelter)).\
+        join(PetCharacteristics, PetCharacteristics.pet_id == Pet.id)\
+        .order_by(func.random()).limit(3).all()
+    return render_template("index.html", auth = current_user.is_authenticated , user = current_user, pets = pets)
 
 @app.route("/search/<type>/<name>/<characteristic>/<coat>/<activity>/<house>")
 def search(type, name, characteristic, coat, activity, house):
@@ -104,7 +82,7 @@ def search(type, name, characteristic, coat, activity, house):
         options(joinedload(Pet.shelter)).\
         join(PetCharacteristics, PetCharacteristics.pet_id == Pet.id).\
         filter(condition)\
-       .all()
+       .order_by(func.random()).all()
 
     total_pages = (len(pets) + per_page - 1) // per_page
     pets_on_page = pets[start:end]

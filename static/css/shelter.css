@@ -87,9 +87,25 @@ a {
 
 .container-right .aboveContent :first-child {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 5px;
   border: 1px solid var(--gray-menu-button);
-  background-color: white;
+  background-color: var(--primary-light);
+  height: 33px;
+  color: var(--primary-darker);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 10.7px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: auto;
+  padding-top: 1px;
+}
+.container-right .aboveContent :nth-child(2) {
+  width: 100%;
+  border-radius: 5px;
+  margin-left: 100px;
+  border: 1px solid var(--gray-menu-button);
+  background-color: var(--primary-light);
   height: 33px;
   color: var(--primary-darker);
   font-style: normal;
@@ -101,7 +117,11 @@ a {
   padding-top: 1px;
 }
 .container-right .aboveContent :first-child:hover {
-  background-color: var(--gray-menu-button-hover);
+  background-color: var(--primary-dark);
+  color: white;
+}
+.container-right .aboveContent :nth-child(2):hover {
+  background-color: var(--primary-dark);
   color: white;
 }
 .aboveContent {
@@ -270,4 +290,26 @@ a {
 .facebookLogo:hover {
   border: 2px solid var(--gray-menu-button-hover);
   box-shadow: var(--gray-menu-button-hover);
+}
+ .shelterPage  p{
+  font-size: 20px !important; 
+}
+.left-top{
+  text-align: center;
+  font-size: 30px;
+}
+.shelterPage a{
+  font-size: 20px !important;
+  text-decoration: none;
+  width: 100px;
+}
+.title{
+  font-weight: 600;
+  font-size: 40px;
+}
+.mailLogo{
+  font-size: 1.2rem;
+}
+.phoneLogo{
+  font-size: 1.2rem;
 }

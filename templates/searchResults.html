@@ -44,7 +44,7 @@
             <li class="mix color-1 radio1 radio3 option1 option3 option4 color-2 check2 radio2 option2 all">
               <a href="{{ url_for('pet', petID=pet.id) }}">  <figure class="card" >
                 
-                <img src="{{ url_for('static', filename='imgs/Shelters/'+ shelter_name + '/' +  pet.pet_type + 's/' + pet.name + '.jpg') }}" alt="Pet Image" />
+                <img src="{{ url_for('static', filename='imgs/Shelters/'+ shelter_name + '/' +  pet.pet_type + 's/' + pet.name + '.jpg') }}" alt="{{ pet.name }}" />
                 <figcaption>
                   <h3>{{ pet.name }}<h3>
                   <p>{{ PetDescription }}</p>
