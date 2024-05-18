@@ -36,6 +36,7 @@ class Pet(db.Model):
     pet_characteristics = relationship("PetCharacteristics", back_populates="pet")
     adoption_applications = relationship("AdoptionApplication", back_populates="pet")
     pet_description = relationship("PetDescription", uselist=False, back_populates="pet")
+    applications = relationship("AdoptionApplicationReply", back_populates="pet")
 
 class PetDescription(db.Model):
     __tablename__ = 'pet_description'
@@ -77,8 +78,9 @@ class AdoptionApplicationReply(db.Model):
     id = Column(Integer, primary_key=True, autoincrement=True)
     application_id = Column(Integer, ForeignKey('adoption_application.id'))
     reply_text = Column(Text)
+    pet_id = Column(Integer, ForeignKey('pet.id'))
     reply_date = Column(TIMESTAMP, server_default=" ")
-
+    pet = relationship("Pet", back_populates="applications")
     application = relationship("AdoptionApplication", back_populates="replies")   
 
 class User(UserMixin,db.Model):

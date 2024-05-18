@@ -14,43 +14,19 @@ endblock title %} {% block css %}
     <div class="post-container">
       <div class="post-thumb">
         <img
-          src="../static/imgs/Pets/Cats/bingus.jpg"
-          alt=""
+          src="../static/imgs/articles/{{article[0].image}}.jpg"
+          alt="{{article[0].image}}"
           class="post-image"
         />
       </div>
       <div class="post-info">
-        <h2 class="post-title">Main Article</h2>
+        <h2 class="post-title"> {{article[0].article_name}}</h2>
         <p class="post-body">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure rem
-          suscipit maxime ratione quisquam animi laborum eum aspernatur corporis
-          quod. Adipisci repellendus dolorem ullam! Magni delectus distinctio
-          laudantium repellendus tempore!
-        </p>
-        <a href="#" class="main-read-more">Read More</a>
+          {{article[0].article_info[:300]}}...
+        <a href="{{ url_for('article',articleID=article[0].article_id) }}" class="main-read-more">Read More</a>
       </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <div class="article-container">
     <div class="article-section">
@@ -61,50 +37,44 @@ endblock title %} {% block css %}
 
 <div class="article-cards">
   <div class="article-card">
-    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <img           src="../static/imgs/articles/{{article[3].image}}.jpg"
+          alt="{{article[3].image}}" class="article-image"/>
     <div class="article-content">
-      <h2 class="article-title">Article Title</h2>
+      <h2 class="article-title">{{article[3].article_name}}</h2>
       <p class="article-date">May 9, 2024</p>
       <p class="article-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-        vero facilis consectetur ipsam molestiae provident eos nihil totam
-        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-        eveniet velit molestias.
+{{article[3].article_info[:300]}}...
       </p>
-      <a href="#" class="read-more">Read More</a>
+      <a href="{{ url_for('article',articleID=article[3].article_id) }}" class="read-more">Read More</a>
     </div>
   </div>
 
 
   <div class="article-card">
-    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <img           src="../static/imgs/articles/{{article[4].image}}.jpg"
+          alt="{{article[4].image}}" class="article-image"/>
     <div class="article-content">
-      <h2 class="article-title">Article Title</h2>
+      <h2 class="article-title">{{article[4].article_name}}</h2>
       <p class="article-date">May 9, 2024</p>
       <p class="article-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-        vero facilis consectetur ipsam molestiae provident eos nihil totam
-        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-        eveniet velit molestias.
+{{article[4].article_info[:300]}}...
       </p>
-      <a href="#" class="read-more">Read More</a>
+      <a href="{{ url_for('article',articleID=article[4].article_id) }}" class="read-more">Read More</a>
     </div>
   </div>
 
 
 
   <div class="article-card">
-    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <img           src="../static/imgs/articles/{{article[5].image}}.jpg"
+          alt="{{article[5].image}}" class="article-image"/>
     <div class="article-content">
-      <h2 class="article-title">Article Title</h2>
+      <h2 class="article-title">{{article[5].article_name}}</h2>
       <p class="article-date">May 9, 2024</p>
       <p class="article-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-        vero facilis consectetur ipsam molestiae provident eos nihil totam
-        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-        eveniet velit molestias.
+{{article[5].article_info[:300]}}...
       </p>
-      <a href="#" class="read-more">Read More</a>
+      <a href="{{ url_for('article',articleID=article[5].article_id) }}" class="read-more">Read More</a>
     </div>
   </div>
 </div>
@@ -124,50 +94,44 @@ endblock title %} {% block css %}
 
 <div class="article-cards">
   <div class="article-card">
-    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <img           src="../static/imgs/articles/{{article[6].image}}.jpg"
+          alt="{{article[6].image}}" class="article-image"/>
     <div class="article-content">
-      <h2 class="article-title">Article Title</h2>
+      <h2 class="article-title">{{article[6].article_name}}</h2>
       <p class="article-date">May 9, 2024</p>
       <p class="article-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-        vero facilis consectetur ipsam molestiae provident eos nihil totam
-        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-        eveniet velit molestias.
+{{article[6].article_info[:300]}}...
       </p>
-      <a href="#" class="read-more">Read More</a>
+      <a href="{{ url_for('article',articleID=article[6].article_id) }}" class="read-more">Read More</a>
     </div>
   </div>
 
 
   <div class="article-card">
-    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <img           src="../static/imgs/articles/{{article[7].image}}.jpg"
+          alt="{{article[7].image}}" class="article-image"/>
     <div class="article-content">
-      <h2 class="article-title">Article Title</h2>
+      <h2 class="article-title">{{article[7].article_name}}</h2>
       <p class="article-date">May 9, 2024</p>
       <p class="article-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-        vero facilis consectetur ipsam molestiae provident eos nihil totam
-        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-        eveniet velit molestias.
+{{article[7].article_info[:300]}}...
       </p>
-      <a href="#" class="read-more">Read More</a>
+      <a href="{{ url_for('article',articleID=article[7].article_id) }}" class="read-more">Read More</a>
     </div>
   </div>
 
 
 
   <div class="article-card">
-    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <img           src="../static/imgs/articles/{{article[8].image}}.jpg"
+          alt="{{article[8].image}}" class="article-image"/>
     <div class="article-content">
-      <h2 class="article-title">Article Title</h2>
+      <h2 class="article-title">{{article[8].article_name}}</h2>
       <p class="article-date">May 9, 2024</p>
       <p class="article-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-        vero facilis consectetur ipsam molestiae provident eos nihil totam
-        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-        eveniet velit molestias.
+{{article[8].article_info[:300]}}...
       </p>
-      <a href="#" class="read-more">Read More</a>
+      <a href="{{ url_for('article',articleID=article[8].article_id) }}" class="read-more">Read More</a>
     </div>
   </div>
 </div>
@@ -179,56 +143,50 @@ endblock title %} {% block css %}
 <div class="article-container">
   <div class="article-section">
       <div class="articles-title">
-          <h2 class="article-section-title">Other Animals</h2>
+          <h2 class="article-section-title">Others</h2>
       </div>
 
 
 <div class="article-cards">
   <div class="article-card">
-    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <img           src="../static/imgs/articles/{{article[1].image}}.jpg"
+          alt="{{article[1].image}}" class="article-image"/>
     <div class="article-content">
-      <h2 class="article-title">Article Title</h2>
+      <h2 class="article-title">{{article[1].article_name}}</h2>
       <p class="article-date">May 9, 2024</p>
       <p class="article-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-        vero facilis consectetur ipsam molestiae provident eos nihil totam
-        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-        eveniet velit molestias.
+{{article[1].article_info[:300]}}...
       </p>
-      <a href="#" class="read-more">Read More</a>
+      <a href="{{ url_for('article',articleID=article[1].article_id) }}"" class="read-more">Read More</a>
     </div>
   </div>
 
 
   <div class="article-card">
-    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <img           src="../static/imgs/articles/{{article[2].image}}.jpg"
+          alt="{{article[2].image}}" class="article-image"/>
     <div class="article-content">
-      <h2 class="article-title">Article Title</h2>
+      <h2 class="article-title">{{article[0].article_name}}</h2>
       <p class="article-date">May 9, 2024</p>
       <p class="article-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-        vero facilis consectetur ipsam molestiae provident eos nihil totam
-        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-        eveniet velit molestias.
+{{article[2].article_info[:300]}}...
       </p>
-      <a href="#" class="read-more">Read More</a>
+      <a href="{{ url_for('article',articleID=article[2].article_id) }}" class="read-more">Read More</a>
     </div>
   </div>
 
 
 
   <div class="article-card">
-    <img src="../static/imgs/Pets/Cats/bingus.jpg" alt="" class="article-image"/>
+    <img           src="../static/imgs/articles/{{article[0].image}}.jpg"
+          alt="{{article[0].image}}" class="article-image"/>
     <div class="article-content">
-      <h2 class="article-title">Article Title</h2>
+      <h2 class="article-title">{{article[0].article_name}}</h2>
       <p class="article-date">May 9, 2024</p>
       <p class="article-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi odit,
-        vero facilis consectetur ipsam molestiae provident eos nihil totam
-        voluptate dolor nulla beatae distinctio voluptates accusamus ullam
-        eveniet velit molestias.
+{{article[0].article_info[:300]}}...
       </p>
-      <a href="#" class="read-more">Read More</a>
+      <a href="{{ url_for('article',articleID=article[0].article_id) }}" class="read-more">Read More</a>
     </div>
   </div>
 </div>

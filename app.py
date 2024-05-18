@@ -117,7 +117,9 @@ def search(type, name, characteristic, coat, activity, house):
 
 @app.route('/articles')
 def articles():
-    return render_template('articles.html', auth = current_user.is_authenticated )
+    session = Session()
+    articles = session.query(Article).all()
+    return render_template('articles.html', auth = current_user.is_authenticated,article = articles)
 
 @app.route("/pet/<petID>")
 def pet(petID):
@@ -144,14 +146,17 @@ def shelter(shelterID):
     
     session = Session()
     curr_shelter = session.query(Shelter).filter(Shelter.id == shelterID).all()
-    print(curr_shelter)
+    session.close()
+    
     return render_template("shelter.html",shelter = curr_shelter, auth = current_user.is_authenticated )
 
 
 
-@app.route("/article")
-def article():
-    return render_template("article.html", auth = current_user.is_authenticated )
+@app.route("/article/<articleID>")
+def article(articleID):
+    session = Session()
+    article = session.query(Article).filter(Article.article_id == articleID).all()
+    return render_template("article.html", auth = current_user.is_authenticated,article = article )
 
 @app.route("/form/<petID>" , methods=['GET', 'POST'])
 def form(petID):
@@ -173,6 +178,7 @@ def form(petID):
         )
         db.session.add(new_application)
         db.session.commit()
+        db.session.close()
         return redirect(url_for('homePage'))
     return render_template("form.html", auth = current_user.is_authenticated ,petID=petID)
 
@@ -203,6 +209,7 @@ def signup():
         new_user=User(email = request.form['email'], username = request.form['username'], password = generate_password_hash(request.form['password']), role="user")
         db.session.add(new_user)
         db.session.commit()
+        db.session.close()
         login_user(new_user)
         return redirect(url_for('homePage'))
         
@@ -221,7 +228,7 @@ def managePets():
 @app.route('/manageShelters')
 def manageShelters():
     if current_user.is_authenticated and current_user.role == "admin":
-        return render_template('manageShelters.html',shelter_id = current_user.shelter_id,user = current_user)
+        return render_template('manageShelters.html',shelter_id = current_user.shelter_id,user = current_user, auth = current_user.is_authenticated)
     return redirect(url_for('homePage'))
 
 

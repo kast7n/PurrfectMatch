@@ -9227,3 +9227,6 @@ a.text-dark:hover {
 .manageShelters {
   width: 90%;
 }
+.managementTable {
+  min-height: 350px;
+}

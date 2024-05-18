@@ -1,79 +1,108 @@
-{% extends "base.html" %}
-{% block title %}Purrfect Match Pet Adoption{% endblock title %}
-{% block css %}
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
+{% extends "base.html" %} {% block title %}Purrfect Match Pet Adoption{%
+endblock title %} {% block css %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"
+/>
 <link rel="stylesheet" href="../static/css/bootstrap4.min.css" />
-{% endblock css %}
-{% block content %}
+{% endblock css %} {% block content %}
 <main>
-    <table id="manageApplications" class="table table-striped">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Address</th>
-            <th>Description</th> 
-            <th>Pet ID</th> 
-          </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+  <table id="manageApplications" class="table table-striped managementTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Description</th>
+        <th>Pet name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            var table = $('#manageApplications').DataTable({
-                ajax: {
-                    url: '/api/applications',
-                    method: 'GET',
-                    dataSrc: ''
-                },
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var table = $("#manageApplications").DataTable({
+        ajax: {
+          url: "/api/applications/" + "{{ user.shelter_id }}",
+          method: "GET",
+          dataSrc: "",
+        },
+        lengthMenu: [10, 20, 30, 40, 50], // Adjust the available page lengths
+        pageLength: 10,
+        columns: [
+          { data: "application_id" },
+          { data: "username" },
+          { data: "email" },
+          { data: "phone_number" },
+          { data: "address" },
+          { data: "description" },
+          { data: "pet_name" },
+          {
+            data: null,
+            render: function (data, type, row) {
+              var acceptBtn =
+                '<a href="#" class="accept-application" data-id="' +
+                data.application_id +
+                '">Accept</a>';
+              var deleteBtn =
+                '<a href="#" class="delete-pet" data-id="' +
+                data.application_id +
+                '">Delete</a>';
+              return acceptBtn + " | " + deleteBtn;
+            },
+          },
+        ],
+      });
+      //hule trkutun mtl m enta knt aamelun bel manage pets
 
-                columns: [
-                    { data: 'id' },
-                    { data: 'username' },
-                    { data: 'email' },
-                    { data: 'phone_number' },
-                    { data: 'address' },
-                    { data: 'description' },
-                    { data: 'pet_id' },   
-              {
-                data: null,
-                render: function (data, type, row) {
-                  var editBtn = '<a href="/pet/edit/' + data.id + '">Edit</a>';
-                  var deleteBtn =
-                    '<a href="#" class="delete-pet" data-id="' +
-                    data.id +
-                    '">Delete</a>';
-                  return editBtn + " | " + deleteBtn;
-                },
-              },
-            ],
-          });
-          //hule trkutun mtl m enta knt aamelun bel manage pets
-  
-          $("#manageApplications").on("click", ".delete-pet", function (e) {
-            e.preventDefault();
-            var petId = $(this).data("id");
-            deletePet(petId);
-          });
-          function deletePet(petId) {
-            $.ajax({
-              url: "/api/pet/" + petId,
-              method: "DELETE",
-              success: function (response) {
-                console.log("Pet deleted successfully");
-                table.ajax.reload();
-              },
-              error: function (error) {
-                console.error("Error deleting pet:", error);
-              },
-            });
-          }
+      $("#manageApplications").on("click", ".delete-pet", function (e) {
+        e.preventDefault();
+        var petId = $(this).data("id");
+        deletePet(petId);
+      });
+      $("#manageApplications").on("click", ".accept-application", function (e) {
+        e.preventDefault();
+        var applicationID = $(this).data("id");
+        console.log(applicationID);
+        acceptApplication(applicationID);
+      });
+
+      function deletePet(petId) {
+        $.ajax({
+          url: "/api/applications/" + petId,
+          method: "DELETE",
+          success: function (response) {
+            console.log("Pet deleted successfully");
+            table.ajax.reload();
+          },
+          error: function (error) {
+            console.error("Error deleting pet:", error);
+          },
         });
-      </script>
+      }
+
+      function acceptApplication(applicationID) {
+        console.log(applicationID);
+        $.ajax({
+          url: "/api/applications/accept/" + applicationID,
+          method: "POST",
+          success: function (response) {
+            console.log("application accepted successfully");
+            table.ajax.reload();
+          },
+          error: function (error) {
+            console.error("Error accepting application:", error);
+          },
+        });
+      }
+    });
+  </script>
 </main>
 {% endblock content %}

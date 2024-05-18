@@ -17,8 +17,8 @@
 
 .post-container {
   display: flex;
-  margin-top: 4rem;
-  margin-bottom: 10rem;
+
+  margin-bottom: 3rem;
   background-color: var(--primary-light);
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -59,7 +59,8 @@
 }
 .article-section {
   width: 85%;
-  margin: 20px auto;
+  margin: 0 auto;
+  padding-bottom: 30px;
 }
 .article-section .articles-title {
   width: 60%;
@@ -76,7 +77,6 @@
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 15px;
-  margin-bottom: 50px;
 }
 .article-card {
   width: 325px;

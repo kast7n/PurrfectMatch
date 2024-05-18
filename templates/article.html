@@ -8,14 +8,14 @@ endblock title %} {% block css %}
 {% endblock css %} {% block content %}
 <main>
   <div class="wholePetInfo">
-    <h1 class="petName">Bingus</h1>
+    <h1 class="articleName">{{article[0].article_name}}</h1>
     <div class="divider">
       <div class="divider-line"></div>
     </div>
     <div class="petImage">
       <div class="imgDivider">
         <img
-          src="{{ url_for('static', filename='imgs/Pets/Cats/bingus.jpg') }}"
+          src="../static/imgs/articles/{{article[0].image}}.jpg"
           alt="clickedPetImage"
         />
       </div>
@@ -24,12 +24,7 @@ endblock title %} {% block css %}
       <div class="divider-line"></div>
     </div>
     <div class="petInfo">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus
-        eligendi ad inventore! Velit aspernatur fugit praesentium illo error
-        eveniet consequuntur pariatur! Ullam libero, repellendus sed ea eos
-        blanditiis molestias repudiandae?
-      </p>
+      <p>{{article[0].article_info}}</p>
     </div>
   </div>
 </main>
