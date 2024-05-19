@@ -1,5 +1,6 @@
 window.onload = function () {
   changeImg();
+  console.log("teststs")
 };
 
 var i = 0;

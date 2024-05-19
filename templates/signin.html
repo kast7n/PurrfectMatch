@@ -80,12 +80,13 @@ css %}
       <h3 class="meetour">Meet some of the pals</h3>
 
       <div class="blockquote-wrapper">
-        <img alt="Returns" class="returns" />
+        <img onclick="" alt="Returns" class="returns" id="slides" src="../static/imgs/Pets/Dogs/goldebBud.jpg "/>
       </div>
     </div>
   </aside>
 </div>
 
 {% endblock content %} {% block scripts %}
-<script src="../static/js/slideshow.js"></script>
+<script src="{{ url_for('static', filename='/js/slideshow.js') }}"></script>
+<script>changeImg()</script>
 {% endblock scripts %}

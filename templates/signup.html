@@ -176,5 +176,6 @@ css %}
   </aside>
 </div>
 {% endblock content %} {% block scripts %}
-<script src="../static/js/slideshow.js"></script>
+<script src="{{ url_for('static', filename='/js/slideshow.js') }}"></script>
+<script>changeImg()</script>
 {% endblock scripts %}
