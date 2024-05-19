@@ -13,10 +13,18 @@ endblock title %} {% block css %}
 
     <h2 id="table_title">Manage Pets</h2>
     <div class="managementNavigation">
+      {% if user.role !='user' %}
       <a class="navBtn" href="{{ url_for('managePets') }}" type="button"
         >Manage Pets</a
       >
-      {% if user.role =='admin' %}
+      {% endif %} {% if user.role =='shelter' %}
+      <a class="navBtn" href="{{ url_for('manageApplications') }}" type="button"
+        >Manage Applications</a
+      >
+      <a class="navBtn" href="{{ url_for('addPetForm') }}" type="button"
+        >Add Pet</a
+      >
+      {% endif %} {% if user.role =='admin' %}
       <a class="navBtn" href="{{ url_for('manageShelters') }}" type="button"
         >Manage Shelters</a
       >
@@ -67,12 +75,11 @@ endblock title %} {% block css %}
             {
               data: null,
               render: function (data, type, row) {
-                var editBtn = '<a href="/pet/edit/' + data.id + '">Edit</a>';
                 var deleteBtn =
                   '<a href="#" class="delete-pet" data-id="' +
                   data.id +
                   '">Delete</a>';
-                return editBtn + " | " + deleteBtn;
+                return deleteBtn;
               },
             },
           ],

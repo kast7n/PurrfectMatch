@@ -68,6 +68,7 @@ class AdoptionApplication(db.Model):
     address = Column(String(255))
     description = Column(Text)
     pet_id = Column(Integer, ForeignKey('pet.id'))
+    user_id = Column(Integer)
 
     pet = relationship("Pet", back_populates="adoption_applications")
     replies = relationship("AdoptionApplicationReply", back_populates="application")

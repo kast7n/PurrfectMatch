@@ -17,6 +17,10 @@ endblock title %} {% block css %}
       <a class="navBtn" href="{{ url_for('managePets') }}" type="button"
         >Manage Pets</a
       >
+      {% endif %} {% if user.role =='shelter' %}
+      <a class="navBtn" href="{{ url_for('manageApplications') }}" type="button"
+        >Manage Applications</a
+      >
       {% endif %} {% if user.role =='admin' %}
       <a class="navBtn" href="{{ url_for('manageShelters') }}" type="button"
         >Manage Shelters</a

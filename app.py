@@ -5,9 +5,11 @@ from sqlalchemy import TIMESTAMP, Boolean, ForeignKey,and_,Column, Integer, Stri
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 
 app = Flask(__name__,template_folder='templates')
+app_root = os.path.dirname(os.path.abspath(__file__))
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:12345@localhost/PurrfectMatch'
 
@@ -36,7 +38,9 @@ def load_user(user_id):
 def homePage():
     if request.method == "POST":
         searchURL = request.form["searchPet"]
-        return redirect({{ url_for('search', type='all', name=searchURL, characteristic='all', coat='all', activity='all', house='all') }})
+        if len(searchURL) == 0:
+            searchURL = "all"
+        return redirect( url_for('search', type='all', name=searchURL, characteristic='all', coat='all', activity='all', house='all'))
     session = Session()
 
     pets = session.query(Pet, Shelter.name, PetDescription.description).\
@@ -71,10 +75,10 @@ def search(type, name, characteristic, coat, activity, house):
     if house != "all":
         conditions.append(Pet.house_training == house)
 
-    # Build the final condition
+
     condition = and_(*conditions) if conditions else True
 
-    # Fetch the filtered pets
+ 
     pets = session.query(Pet, Shelter.name, PetDescription.description).\
         join(Shelter).\
         join(PetDescription, PetDescription.pet_id == Pet.id).\
@@ -90,7 +94,7 @@ def search(type, name, characteristic, coat, activity, house):
 
     return render_template("searchResults.html", petType=type, petName=name, petCharacteristic=characteristic,
                            petCoat=coat, petActivity=activity, petHouse=house, filteredPets=pets_on_page,
-                           total_pages=total_pages, page=page)
+                           total_pages=total_pages, page=page, auth = current_user.is_authenticated)
 
 @app.route('/articles')
 def articles():
@@ -145,13 +149,15 @@ def form(petID):
         address = request.form['address']
         occupation = request.form['occupation']
         extra = request.form['extra']
+        
         new_application = AdoptionApplication(
             username=name,
             email=email,
             phone_number=phone,
             address=address,
             description=extra,
-            pet_id= petID
+            pet_id= petID,
+            user_id = current_user.id
         )
         db.session.add(new_application)
         db.session.commit()
@@ -160,8 +166,75 @@ def form(petID):
     return render_template("form.html", auth = current_user.is_authenticated ,petID=petID)
 
 
-@app.route("/pet/add")
+@app.route("/pet/add", methods=['GET', 'POST'])
 def addPetForm():
+    if request.method == 'POST':
+        name = request.form['name']
+        coatLength = request.form['coat_length']
+        activity = request.form['activity_level']
+        house = request.form['house']
+        type = request.form['pet_type']
+        health = request.form['health']
+        fee = request.form['adoption_fee']
+        gender = request.form['gender']
+        characteristics = request.form['characteristics']
+        description = request.form['description']
+
+        goodInHome = 0
+        if house == 'Yes':
+            goodInHome = 1
+
+
+        charList = characteristics.split()
+        shelterID = current_user.shelter_id
+
+        newPet = Pet(
+            name=name,
+            coat_length=coatLength,
+            activity_level=activity,
+            house_training=house,
+            pet_type=type,
+            shelter_id = shelterID,
+            health= health,
+            good_in_home = goodInHome,
+            adoption_fee = fee,
+            gender = gender
+        )
+        db.session.add(newPet)
+        db.session.commit()
+        retPet = db.session.query(Pet).filter(Pet.name == newPet.name).all()
+        for char in charList:
+            newChar = PetCharacteristics(
+               pet_id =  retPet[0].id,
+               characteristic = char
+            )
+            db.session.add(newChar)
+        newDesc = PetDescription(
+            pet_id = retPet[0].id,
+            description = description
+        )
+        db.session.add(newDesc)
+        db.session.commit()
+        db.session.close()
+
+
+        
+        shelter = Shelter.query.filter_by(id=shelterID).first()
+        relativeRoute = "static/imgs/Shelters/" + shelter.name + "/" + type +"s/"
+
+
+        target = os.path.join(app_root,relativeRoute)
+        if not os.path.isdir(target):
+            os.mkdir(target)
+        file = request.files.get("petImage")
+        print(file)
+        filename = file.filename
+        destination = "/".join([target,name + ".jpg"])
+        print(destination)
+        file.save(destination)
+        return redirect(url_for("homePage"))
+
+    
     return render_template("petForm.html", auth = current_user.is_authenticated )
 
 @app.route('/signin', methods=['GET', 'POST'])

@@ -16,33 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `adoption_application`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `adoption_application`;
+DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `adoption_application` (
+CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `phone_number` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `description` longtext,
-  `pet_id` int DEFAULT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL,
+  `shelter_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `pet_id` (`pet_id`),
-  CONSTRAINT `adoption_application_ibfk_1` FOREIGN KEY (`pet_id`) REFERENCES `pet` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_user_shelter` (`shelter_id`),
+  CONSTRAINT `fk_user_shelter` FOREIGN KEY (`shelter_id`) REFERENCES `shelter` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `adoption_application`
+-- Dumping data for table `users`
 --
 
-LOCK TABLES `adoption_application` WRITE;
-/*!40000 ALTER TABLE `adoption_application` DISABLE KEYS */;
-/*!40000 ALTER TABLE `adoption_application` ENABLE KEYS */;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (8,'darsa','darsa@gmail.com','scrypt:32768:8:1$DavafoEeasyuodWh$b526245392c7e3180b5c5d57f2ec8f565d5cf425a709a7aa3cbd516d8796167ce11be307c791ab7c2ba07861a5a7deca685a7d0639dae60c258c63606b79dccb','shelter',2);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-12 17:40:37
+-- Dump completed on 2024-05-19 14:05:19

@@ -37,7 +37,7 @@ CREATE TABLE `pet` (
   PRIMARY KEY (`id`),
   KEY `shelter_id` (`shelter_id`),
   CONSTRAINT `pet_ibfk_1` FOREIGN KEY (`shelter_id`) REFERENCES `shelter` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-12 17:40:36
+-- Dump completed on 2024-05-19 14:05:19

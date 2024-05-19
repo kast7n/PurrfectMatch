@@ -1050,5 +1050,5 @@
 
     {% block scripts %}{% endblock scripts %}
   </body>
-  <script src="../static/js/nav.js"></script>
+  <script src="{{ url_for('static', filename='/static/js/nav.js') }}"></script>
 </html>

@@ -16,28 +16,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `article`
+-- Table structure for table `adoption_application`
 --
 
-DROP TABLE IF EXISTS `article`;
+DROP TABLE IF EXISTS `adoption_application`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `article` (
-  `article_id` int NOT NULL AUTO_INCREMENT,
-  `article_name` varchar(255) DEFAULT NULL,
-  `image` mediumtext,
-  `article_info` longtext,
-  PRIMARY KEY (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `adoption_application` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `description` longtext,
+  `pet_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pet_id` (`pet_id`),
+  KEY `fk_user` (`user_id`),
+  CONSTRAINT `adoption_application_ibfk_1` FOREIGN KEY (`pet_id`) REFERENCES `pet` (`id`),
+  CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `article`
+-- Dumping data for table `adoption_application`
 --
 
-LOCK TABLES `article` WRITE;
-/*!40000 ALTER TABLE `article` DISABLE KEYS */;
-/*!40000 ALTER TABLE `article` ENABLE KEYS */;
+LOCK TABLES `adoption_application` WRITE;
+/*!40000 ALTER TABLE `adoption_application` DISABLE KEYS */;
+INSERT INTO `adoption_application` VALUES (1,'jack','abood@gmail.com','1231231','borj','i want to adopt',3,8),(2,'abbas','abood@gmail.com','1231231','borj','i want to adopt',4,NULL),(4,'ALI','milotheapache@gmail.com','424124','birhj','good job',5,8);
+/*!40000 ALTER TABLE `adoption_application` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-12 17:40:37
+-- Dump completed on 2024-05-19 14:05:19

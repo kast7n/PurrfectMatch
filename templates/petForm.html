@@ -8,8 +8,8 @@ endblock title %} {% block css %}
 {% endblock css %} {% block content %}
 <main>
   <div class="container petform-container">
-    <div class="title">Add/Edit Pet</div>
-    <form action="#">
+    <div class="title">Add Pet</div>
+    <form action="/pet/add" method="post" enctype="multipart/form-data">
       <div class="user-details">
         <div class="input-box">
           <label class="details" for="name">Pet Name:</label>
@@ -17,6 +17,7 @@ endblock title %} {% block css %}
             type="text"
             placeholder="Enter the pets name"
             id="name"
+            name="name"
             required
           />
         </div>
@@ -53,13 +54,12 @@ endblock title %} {% block css %}
           <label class="details">House training:</label>
 
           <ul class="house_training radio">
-
             <li>
               <input
                 class="filter"
                 data-filter=".radio2"
                 type="radio"
-                name="radioButton"
+                name="house"
                 id="Yes"
               />
               <label class="radio-label" for="Yes">Yes</label>
@@ -70,7 +70,7 @@ endblock title %} {% block css %}
                 class="filter"
                 data-filter=".radio3"
                 type="radio"
-                name="radioButton"
+                name="house"
                 id="No"
               />
               <label class="radio-label" for="No">No</label>
@@ -83,6 +83,7 @@ endblock title %} {% block css %}
             class="pet_type petdropdown"
             name="pet_type"
             id="pet_type"
+            name="pet_type"
             required
           >
             <option value="">Choose an option</option>
@@ -97,6 +98,7 @@ endblock title %} {% block css %}
             type="text"
             placeholder="Enter the pets health info"
             id="health"
+            name="health"
             required
           />
         </div>
@@ -106,6 +108,7 @@ endblock title %} {% block css %}
             type="number"
             placeholder="Enter the pets adoption fee"
             id="adoption_fee"
+            name="adoption_fee"
             required
           />
         </div>
@@ -118,7 +121,7 @@ endblock title %} {% block css %}
                 class="filter"
                 value="Female"
                 type="radio"
-                name="radioButton"
+                name="gender"
                 id="Female"
               />
               <label class="radio-label" for="radiomale">Female</label>
@@ -129,7 +132,7 @@ endblock title %} {% block css %}
                 class="filter"
                 value="Male"
                 type="radio"
-                name="radioButton"
+                name="gender"
                 id="radiomale"
               />
               <label class="radio-label" for="radiomale">Male</label>
@@ -144,15 +147,27 @@ endblock title %} {% block css %}
             type="text"
             placeholder="Enter the pets characteristics seperated by space"
             id="characteristics"
+            name="characteristics"
+            required
+          />
+        </div>
+        <div class="input-box">
+          <label class="details">Pet Image:</label>
+          <input
+            type="file"
+            accept="image/*"
+            placeholder="Enter the pets characteristics seperated by space"
+            id="petImage"
+            name="petImage"
             required
           />
         </div>
         <div class="input-box" id="extra-info">
-          <label class="details" for="extra">For any extra information:</label>
-          <input type="text" id="extra" />
+          <label class="details" for="extra">Pet Description:</label>
+          <input type="text" id="extra" name="description" />
         </div>
         <div class="button">
-          <button type="submit"><p>Apply</p></button>
+          <button type="submit" value="Upload"><p>Apply</p></button>
         </div>
       </div>
     </form>

@@ -26,6 +26,7 @@ CREATE TABLE `pet_characteristics` (
   `pet_id` int NOT NULL,
   `characteristic` varchar(255) NOT NULL,
   PRIMARY KEY (`pet_id`,`characteristic`),
+  CONSTRAINT `fk_PetCharacteristics_Pets` FOREIGN KEY (`pet_id`) REFERENCES `pet` (`id`) ON DELETE CASCADE,
   CONSTRAINT `pet_characteristics_ibfk_1` FOREIGN KEY (`pet_id`) REFERENCES `pet` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-12 17:40:37
+-- Dump completed on 2024-05-19 14:05:19

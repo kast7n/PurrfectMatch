@@ -27,10 +27,14 @@ CREATE TABLE `adoption_application_reply` (
   `application_id` int DEFAULT NULL,
   `reply_text` longtext,
   `reply_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `pet_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `application_id` (`application_id`),
-  CONSTRAINT `adoption_application_reply_ibfk_1` FOREIGN KEY (`application_id`) REFERENCES `adoption_application` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_adoption_application_reply_pet` (`pet_id`),
+  CONSTRAINT `adoption_application_reply_ibfk_1` FOREIGN KEY (`application_id`) REFERENCES `adoption_application` (`id`),
+  CONSTRAINT `fk_adoption_application_reply_pet` FOREIGN KEY (`pet_id`) REFERENCES `pet` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +43,7 @@ CREATE TABLE `adoption_application_reply` (
 
 LOCK TABLES `adoption_application_reply` WRITE;
 /*!40000 ALTER TABLE `adoption_application_reply` DISABLE KEYS */;
+INSERT INTO `adoption_application_reply` VALUES (1,1,'Your request have been accepted','2024-05-18 08:02:47',3,8),(2,NULL,'Your request have been accepted','2024-05-18 08:20:09',60,8),(4,NULL,'Your request have been accepted','2024-05-19 08:21:57',70,8),(5,NULL,'Your request have been accepted','2024-05-19 08:21:58',70,8),(6,NULL,'Your request have been accepted','2024-05-19 08:21:58',70,8),(7,NULL,'Your request have been accepted','2024-05-19 08:21:58',70,8),(8,NULL,'Your request have been accepted','2024-05-19 08:21:59',70,8),(9,NULL,'Your request have been accepted','2024-05-19 08:21:59',70,8),(10,NULL,'Your request have been accepted','2024-05-19 08:21:59',70,8),(11,NULL,'Your request have been accepted','2024-05-19 08:22:00',70,8),(12,NULL,'Your request have been accepted','2024-05-19 08:22:00',70,8),(13,NULL,'Your request have been accepted','2024-05-19 08:22:00',70,8),(14,NULL,'Your request have been accepted','2024-05-19 09:44:16',70,8),(15,NULL,'Your request have been accepted','2024-05-19 09:45:08',70,8);
 /*!40000 ALTER TABLE `adoption_application_reply` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-12 17:40:36
+-- Dump completed on 2024-05-19 14:05:19
