@@ -243,7 +243,6 @@ button:hover {
   z-index: 10;
 }
 
-/* aside */
 .info-side {
   display: flex;
   justify-content: center;

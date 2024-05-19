@@ -96,14 +96,13 @@ a {
   font-weight: 800;
   font-size: 10.7px;
   text-align: center;
-  text-transform: uppercase;
   padding: auto;
   padding-top: 1px;
 }
 .container-right .aboveContent :nth-child(2) {
   width: 100%;
   border-radius: 5px;
-  margin-left: 100px;
+  margin-left: 150px;
   border: 1px solid var(--gray-menu-button);
   background-color: var(--primary-light);
   height: 33px;
@@ -112,7 +111,6 @@ a {
   font-weight: 800;
   font-size: 10.7px;
   text-align: center;
-  text-transform: uppercase;
   padding: auto;
   padding-top: 1px;
 }
@@ -248,7 +246,7 @@ a {
 .shareButton {
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 30px;
 }
 .shareButton button .share {
   font-family: Nexa Regular, arial, helvetica, sans-serif;
@@ -302,6 +300,8 @@ a {
   font-size: 20px !important;
   text-decoration: none;
   width: 100px;
+  padding-left: 5px;
+  padding-right: 5px
 }
 .title{
   font-weight: 600;
@@ -312,4 +312,9 @@ a {
 }
 .phoneLogo{
   font-size: 1.2rem;
+}
+.rightTitle{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.1rem
 }

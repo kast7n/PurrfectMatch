@@ -79,26 +79,20 @@ endblock title %} {% block css %}
           ],
         });
 
-        // Attach click event handler to delete buttons
         $("#manageShelters").on("click", ".delete-shelter", function (e) {
           e.preventDefault();
           var shelterID = $(this).data("id");
           deleteShelter(shelterID);
         });
-
-        // Function to delete a shelter using AJAX
         function deleteShelter(shelterID) {
           $.ajax({
             url: "/api/shelters/" + shelterID,
             method: "DELETE",
             success: function (response) {
-              // Handle success response
               console.log("Shelter deleted successfully");
-              // Refresh the DataTable
               table.ajax.reload();
             },
             error: function (error) {
-              // Handle error response
               console.error("Error deleting Shelter:", error);
             },
           });

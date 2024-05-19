@@ -156,7 +156,6 @@ body {
   z-index: 0;
 }
 
-/* fixed disappearing dropdown menu by changing z-index from -1 to 0 */
 
 .dropdown {
   position: relative;

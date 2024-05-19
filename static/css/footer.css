@@ -70,7 +70,6 @@ footer {
   width: 14rem;
 }
 
-/*? socials */
 .social-wrapper {
   display: flex;
   gap: 0.5rem;
@@ -107,7 +106,6 @@ footer {
   list-style-type: none;
 }
 
-/* columns with links */
 
 .FooterColumns {
   display: flex;
@@ -152,7 +150,6 @@ footer {
   font-size: 1.1rem;
 }
 
-/*? Footer bottom */
 .footer-bottom {
   margin-top: 8rem;
   width: 100%;

@@ -60,7 +60,6 @@ def search(type, name, characteristic, coat, activity, house):
 
     session = Session()
 
-    # Define the conditions
     conditions = []
     if type != "all":
         conditions.append(Pet.pet_type == type)

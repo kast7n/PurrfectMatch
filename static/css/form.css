@@ -116,18 +116,22 @@ form .user-details .input-box {
   margin-bottom: 20px;
   font-weight: 600;
 }
-.radio-box{
+.radio-box {
   margin-bottom: 15px;
 }
-.house_training{
+.house_training {
   margin-bottom: 5px;
 }
-.dropbox > .details{
+.dropbox > .details {
   margin-bottom: 15px;
 }
-li{
+li {
   list-style-type: none;
 }
-.petform-container{
+.petform-container {
   height: fit-content;
+}
+#petImage {
+  border: none;
+  margin-top: 7px;
 }

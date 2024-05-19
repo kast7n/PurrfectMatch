@@ -153,5 +153,13 @@ a {
   text-align: center;
   margin-left: 40%;
   line-height: 35px;
-  margin-top: 65px;
+  margin-top: 17px;
+  color: white;
+}
+.adoptionApplication:hover{
+  background-color: var(--primary-light);
+  color: black;
+  transition-duration: 0.7s;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+
 }

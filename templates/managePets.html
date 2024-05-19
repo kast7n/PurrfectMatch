@@ -85,26 +85,21 @@ endblock title %} {% block css %}
           ],
         });
 
-        // Attach click event handler to delete buttons
         $("#managePets").on("click", ".delete-pet", function (e) {
           e.preventDefault();
           var petId = $(this).data("id");
           deletePet(petId);
         });
 
-        // Function to delete a pet using AJAX
         function deletePet(petId) {
           $.ajax({
             url: "/api/pet/" + petId,
             method: "DELETE",
             success: function (response) {
-              // Handle success response
               console.log("Pet deleted successfully");
-              // Refresh the DataTable
               table.ajax.reload();
             },
             error: function (error) {
-              // Handle error response
               console.error("Error deleting pet:", error);
             },
           });
