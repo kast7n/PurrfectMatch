@@ -54,7 +54,7 @@ def acceptApplication(id):
 
 @app.route('/api/notifications/<int:id>', methods=['GET'])
 def notifications(id):
-     applicationReply = AdoptionApplicationReply.query.filter(AdoptionApplicationReply.user_id == 8).all()
+     applicationReply = AdoptionApplicationReply.query.filter(AdoptionApplicationReply.user_id == id).all()
      print(applicationReply)
      pet= []
      for app in applicationReply:

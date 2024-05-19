@@ -253,14 +253,13 @@ def signin():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    if current_user.is_authenticated:
-        return redirect(url_for('homePage'))
     if request.method == 'POST':
         new_user=User(email = request.form['email'], username = request.form['username'], password = generate_password_hash(request.form['password']), role="user")
         db.session.add(new_user)
         db.session.commit()
+        user = User.query.filter_by(email=new_user.email).first()
         db.session.close()
-        login_user(new_user)
+        login_user(user)
         return redirect(url_for('homePage'))
         
     return render_template('signup.html')
