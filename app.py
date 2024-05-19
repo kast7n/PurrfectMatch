@@ -10,9 +10,7 @@ import os
 
 app = Flask(__name__,template_folder='templates')
 app_root = os.path.dirname(os.path.abspath(__file__))
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:12345@localhost/PurrfectMatch'
-
 engine = sqlalchemy.create_engine('mysql+pymysql://root:12345@127.0.0.1:3306/PurrfectMatch')
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
@@ -28,7 +26,7 @@ import applications
 login_manager = LoginManager(app)
 
 
-app.config['SECRET_KEY'] = 'ali'
+app.config['SECRET_KEY'] = 'awela'
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))   
@@ -139,6 +137,7 @@ def article(articleID):
     return render_template("article.html", auth = current_user.is_authenticated,article = article )
 
 @app.route("/form/<petID>" , methods=['GET', 'POST'])
+@login_required
 def form(petID):
     if request.method == 'POST':
         name = request.form['name']
@@ -166,6 +165,7 @@ def form(petID):
 
 
 @app.route("/pet/add", methods=['GET', 'POST'])
+@login_required
 def addPetForm():
     if request.method == 'POST':
         name = request.form['name']
@@ -269,11 +269,13 @@ def logout():
     return redirect(url_for('homePage'))
 
 @app.route('/managePets')
+@login_required
 def managePets():
     if current_user.is_authenticated and current_user.role != "user":
         return render_template('managePets.html',shelter_id = current_user.shelter_id,user = current_user, auth = current_user.is_authenticated )
     return redirect(url_for('homePage'))
 @app.route('/manageShelters')
+@login_required
 def manageShelters():
     if current_user.is_authenticated and current_user.role == "admin":
         return render_template('manageShelters.html',shelter_id = current_user.shelter_id,user = current_user, auth = current_user.is_authenticated)
@@ -281,6 +283,7 @@ def manageShelters():
 
 
 @app.route('/manageUsers')
+@login_required
 def manageUsers():
     if current_user.is_authenticated and current_user.role == "admin":
         return render_template('manageUsers.html',user = current_user,management = "manageUsers", auth = current_user.is_authenticated )
